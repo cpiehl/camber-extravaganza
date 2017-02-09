@@ -21,13 +21,9 @@ class CamberIndicator:
 	def __init__(self, app, x, y):
 		self.xPosition = x
 		self.yPosition = y
-		self.counter = 0
-		self.secondsToFade = 3
 		self.value = 0
 		self.peakValue = 0
 		self.peakTime = 0
-		self.oldValue = 0
-		self.maxValue = 0
 		self.color = {'r':1,'g':1,'b':1,'a':1}
 
 		self.valueLabel = ac.addLabel(appWindow, "0.0°")
@@ -39,8 +35,7 @@ class CamberIndicator:
 	def setValue(self, value, deltaT):
 		global peakTime
 		self.value = value
-		text = round(math.degrees(self.value), 3)
-		ac.setText(self.valueLabel,"{0}°".format(text))
+		ac.setText(self.valueLabel,"{0:.3f}°".format(math.degrees(self.value)))
 
 		if self.value > 0:
 			self.color = {'r':1,'g':0,'b':0,'a':1}
@@ -56,14 +51,13 @@ class CamberIndicator:
 		if value >= self.peakValue:
 			self.peakTime = peakTime
 			self.peakValue = value
-			text = round(math.degrees(self.peakValue), 3)
 			ac.setFontColor(self.peakValueLabel,
 				self.color['r'],
 				self.color['g'],
 				self.color['b'],
 				self.color['a']
 			)
-			ac.setText(self.peakValueLabel,"{0}°".format(text))
+			ac.setText(self.peakValueLabel,"{0:.3f}°".format(math.degrees(self.peakValue)))
 
 
 	def drawGauge(self, flip=False):
