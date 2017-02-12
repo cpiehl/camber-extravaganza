@@ -4,7 +4,7 @@
 # Useful for tuning?
 #
 # TODO:
-#   - Make text inputs update themselves properly
+#   - Separate front and rear target camber
 #   - Make log scale better
 #   - change deque maxlen when graphwidth changed
 #
@@ -21,6 +21,8 @@
 #
 # V1.11 - Save/Load options
 #       - Text inputs for size, radscale, peaktime, etc
+#
+# V1.12 - Configurable target camber
 #############################################################
 
 import ac
@@ -37,6 +39,7 @@ CheckBoxes = {}
 Buttons = {}
 TextInputs = {}
 Labels = {}
+redrawText = False
 Options = {
 	"drawGraphs": False,
 	"logscale": False,
@@ -46,7 +49,8 @@ Options = {
 	"radScale": 10,    # flappiness ratio
 	"peakTime": 2,     # seconds
 	"graphWidth": 150, # in pixels, also the number of frames of data to display
-	"graphHeight": 60  # in pixels
+	"graphHeight": 60, # in pixels
+	"targetCamber": -3 # degrees
 }
 
 class CamberIndicator:
@@ -237,10 +241,10 @@ def acMain(ac_version):
 	ac.setSize(Buttons["useSpectrum"], 100, 25)
 	ac.addOnClickedListener(Buttons["useSpectrum"], useSpectrumHandler)
 
-	TextInputs["Flapper Size"] = ac.addTextInput(appWindow, "Flapper Size")
-	ac.setPosition(TextInputs["Flapper Size"], 160, 200)
-	ac.setSize(TextInputs["Flapper Size"], 50, 25)
-	ac.addOnValidateListener(TextInputs["Flapper Size"], sizeInputHandler)
+	TextInputs["Target Camber"] = ac.addTextInput(appWindow, "Target Camber")
+	ac.setPosition(TextInputs["Target Camber"], 160, 200)
+	ac.setSize(TextInputs["Target Camber"], 50, 25)
+	ac.addOnValidateListener(TextInputs["Target Camber"], targetInputHandler)
 	TextInputs["Flappiness"] = ac.addTextInput(appWindow, "Flappiness")
 	ac.setPosition(TextInputs["Flappiness"], 160, 230)
 	ac.setSize(TextInputs["Flappiness"], 50, 25)
@@ -258,8 +262,8 @@ def acMain(ac_version):
 	ac.setSize(TextInputs["Graph Height"], 50, 25)
 	ac.addOnValidateListener(TextInputs["Graph Height"], graphHeightInputHandler)
 
-	Labels["Flapper Size"] = ac.addLabel(appWindow, "Flapper Size")
-	ac.setPosition(Labels["Flapper Size"], 220, 200)
+	Labels["Target Camber"] = ac.addLabel(appWindow, "Target Camber")
+	ac.setPosition(Labels["Target Camber"], 220, 200)
 	Labels["Flappiness"] = ac.addLabel(appWindow, "Flappiness")
 	ac.setPosition(Labels["Flappiness"], 220, 230)
 	Labels["Peak Time"] = ac.addLabel(appWindow, "Peak Time")
@@ -285,7 +289,7 @@ def acMain(ac_version):
 
 
 def onFormRender(deltaT):
-	global CamberIndicators, Options
+	global CamberIndicators, Options, redrawText
 	# Draw flappy gauges
 	CamberIndicators["FL"].drawGauge(flip=True)
 	CamberIndicators["FR"].drawGauge()
@@ -302,27 +306,31 @@ def onFormRender(deltaT):
 	CamberIndicators["FR"].setValue(x, deltaT)
 	CamberIndicators["RL"].setValue(y, deltaT)
 	CamberIndicators["RR"].setValue(z, deltaT)
+	if redrawText:
+		updateTextInputs()
+		redrawText = False
 
 
 def getColor(value):
 	global Options
 	color = {}
+	d = math.fabs(value - Options["targetCamber"])
 	if Options["useSpectrum"] is True:
 		if value > 0:
 			color = {'r':1,'g':0,'b':0,'a':1}
-		elif value > -0.2:
+		elif d < 0.2:
 			color = {'r':0,'g':1,'b':0,'a':1}
-		elif value > -0.5:
-			color = {'r':(-value-0.2)/0.3,'g':1,'b':0,'a':1}
+		elif d < 0.5:
+			color = {'r':(d - 0.2)/0.3,'g':1,'b':0,'a':1}
 		else:
-			f = min((-value-0.5)/0.5, 1)
+			f = min((d - 0.5)/0.5, 1)
 			color = {'r':1,'g':1,'b':f,'a':1}
 	else:
 		if value > 0:
 			color = {'r':1,'g':0,'b':0,'a':1}
-		elif value > -0.2:
+		elif d < 0.2:
 			color = {'r':0,'g':1,'b':0,'a':1}
-		elif value > -0.5:
+		elif d < 0.5:
 			color = {'r':1,'g':1,'b':0,'a':1}
 		else:
 			color = {'r':1,'g':1,'b':1,'a':1}
@@ -330,47 +338,47 @@ def getColor(value):
 	return color
 
 
-def sizeInputHandler(value):
-	global Options, TextInputs
+def targetInputHandler(value):
+	global Options, TextInputs, redrawText
 	try:
-		Options["size"] = float(value)
-		updateTextInputs()
+		Options["targetCamber"] = float(value)
+		redrawText = True
 		saveOptions()
 	except ValueError:
 		pass
 
 def radScaleInputHandler(value):
-	global Options, TextInputs
+	global Options, TextInputs, redrawText
 	try:
 		Options["radScale"] = float(value)
-		updateTextInputs()
+		redrawText = True
 		saveOptions()
 	except ValueError:
 		pass
 
 def peakTimeInputHandler(value):
-	global Options, TextInputs
+	global Options, TextInputs, redrawText
 	try:
 		Options["peakTime"] = float(value)
-		updateTextInputs()
+		redrawText = True
 		saveOptions()
 	except ValueError:
 		pass
 
 def graphWidthInputHandler(value):
-	global Options, TextInputs
+	global Options, TextInputs, redrawText
 	try:
 		Options["graphWidth"] = int(value)
-		updateTextInputs()
+		redrawText = True
 		saveOptions()
 	except ValueError:
 		pass
 
 def graphHeightInputHandler(value):
-	global Options, TextInputs
+	global Options, TextInputs, redrawText
 	try:
 		Options["graphHeight"] = int(value)
-		updateTextInputs()
+		redrawText = True
 		saveOptions()
 	except ValueError:
 		pass
@@ -433,7 +441,7 @@ def updateButtons():
 
 def updateTextInputs():
 	global Options, TextInputs
-	ac.setText(TextInputs["Flapper Size"], str(Options["size"]))
+	ac.setText(TextInputs["Target Camber"], str(Options["targetCamber"]))
 	ac.setText(TextInputs["Flappiness"], str(Options["radScale"]))
 	ac.setText(TextInputs["Peak Time"], str(Options["peakTime"]))
 	ac.setText(TextInputs["Graph Width"], str(Options["graphWidth"]))
@@ -451,6 +459,6 @@ def loadOptions():
 	try:
 		optionsFile = os.path.join(os.path.dirname(__file__), 'options.dat')
 		with open(optionsFile, 'rb') as handle:
-			Options = pickle.load(handle)
+			Options.update(pickle.load(handle))
 	except IOError:
 		pass
