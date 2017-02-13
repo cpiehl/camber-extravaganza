@@ -7,6 +7,6 @@ App for Assetto Corsa to show wheel camber angles in real time, helpful for tuni
 
 ## Installation
 
-1. Save as steamapps\common\assettocorsa\apps\python\camber_extravaganza\camber_extravaganza.py
+1. Save as steamapps\common\assettocorsa\apps\python\camber-extravaganza\camber-extravaganza.py
 2. Enable the app in Options > General
 3. Enable the app in-game
