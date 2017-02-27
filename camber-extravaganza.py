@@ -23,11 +23,16 @@
 #       - Text inputs for size, radscale, peaktime, etc
 #
 # V1.12 - Configurable target camber
+#
+# V1.13 - Show average camber toggle option
+#       - Switch to HSV colors for spectrum
+#       - UI code cleanup
 #############################################################
 
 import ac
 import acsys
 import collections
+import colorsys
 import math
 import os
 import pickle
@@ -42,9 +47,9 @@ Labels = {}
 redrawText = False
 Options = {
 	"drawGraphs": False,
-	"logscale": False,
+	"showAverage": False,
 	"normalize": False,
-	"useSpectrum": False,
+	"useSpectrum": True,
 	"size": 50,        # flapper length
 	"radScale": 10,    # flappiness ratio
 	"peakTime": 2,     # seconds
@@ -65,8 +70,6 @@ class CamberIndicator:
 		self.serie = collections.deque(maxlen=Options["graphWidth"])
 		self.minVal = -4.5
 		self.maxVal = 1.5
-		self.minValLog1p = math.log1p(-self.minVal)
-		self.maxValLog1p = math.log1p(self.maxVal)
 
 		self.valueLabel = ac.addLabel(appWindow, "0.0°")
 		ac.setPosition(self.valueLabel, x, y)
@@ -84,20 +87,30 @@ class CamberIndicator:
 
 		self.color = getColor(deg)
 
-		self.peakTime -= deltaT
-		if self.peakTime <= 0:
-			self.peakValue = value
-
-		if value >= self.peakValue:
-			self.peakTime = Options["peakTime"]
-			self.peakValue = value
+		if Options["showAverage"]:
+			self.peakValue = sum(self.serie) / len(self.serie)
 			ac.setFontColor(self.peakValueLabel,
 				self.color['r'],
 				self.color['g'],
 				self.color['b'],
 				self.color['a']
 			)
-			ac.setText(self.peakValueLabel,"{0:.3f}°".format(math.degrees(self.peakValue)))
+			ac.setText(self.peakValueLabel,"{0:.3f}°".format(self.peakValue))
+		else:
+			self.peakTime -= deltaT
+			if self.peakTime <= 0:
+				self.peakValue = value
+
+			if value >= self.peakValue:
+				self.peakTime = Options["peakTime"]
+				self.peakValue = value
+				ac.setFontColor(self.peakValueLabel,
+					self.color['r'],
+					self.color['g'],
+					self.color['b'],
+					self.color['a']
+				)
+				ac.setText(self.peakValueLabel,"{0:.3f}°".format(math.degrees(self.peakValue)))
 
 
 	def drawGauge(self, flip=False):
@@ -170,28 +183,26 @@ class CamberIndicator:
 		sumNeg = -1
 		countPos = 1
 		countNeg = 1
-		if Options["logscale"]:
-			scaleNeg = -(halfHeight + middleHeight) / self.minValLog1p
-			scalePos = (halfHeight - middleHeight) / self.maxValLog1p
-		else:
-			scaleNeg = -(halfHeight + middleHeight) / self.minVal
-			scalePos = (halfHeight - middleHeight) / self.maxVal
+
+		scaleNeg = -(halfHeight + middleHeight) / self.minVal
+		scalePos = (halfHeight - middleHeight) / self.maxVal
+
 		for i in range(len(self.serie)):
 			color = getColor(self.serie[i])
 			h = max(min(self.maxVal,self.serie[i]),self.minVal)
-			if Options["logscale"]:
-				h = math.log1p(math.fabs(h))
 			if self.serie[i] > 0:
 				sumPos += self.serie[i]
 				countPos += 1
 				h *= scalePos
+				ac.glColor4f(1, 0, 0, 1)
 			else:
 				sumNeg += self.serie[i]
 				countNeg += 1
 				h *= scaleNeg
+				ac.glColor4f(1, 1, 1, 1)
 			ac.glBegin(acsys.GL.Lines)
-			ac.glColor4f(color['r'], color['g'], color['b'], color['a'])
 			ac.glVertex2f(x + dx2 - i * f, y + middleHeight - 1)
+			ac.glColor4f(color['r'], color['g'], color['b'], color['a'])
 			ac.glVertex2f(x + dx2 - i * f, y + middleHeight - 1 + h)
 			ac.glEnd()
 
@@ -200,13 +211,9 @@ class CamberIndicator:
 			avgNeg = sumNeg / countNeg
 			self.maxVal = avgPos * 1.5
 			self.minVal = avgNeg * 1.5
-			self.minValLog1p = math.log1p(-self.minVal)
-			self.maxValLog1p = math.log1p(self.maxVal)
 		else:
 			self.maxVal = 1.5
 			self.minVal = -4.5
-			self.minValLog1p = math.log1p(-self.minVal)
-			self.maxValLog1p = math.log1p(self.maxVal)
 
 
 # This function gets called by AC when the Plugin is initialised
@@ -220,65 +227,48 @@ def acMain(ac_version):
 	ac.setBackgroundOpacity(appWindow, 0)
 	ac.setIconPosition(appWindow, 0, -10000)
 
-
+	# Options Checkbox
 	optionsCheckBox = ac.addCheckBox(appWindow, "Options")
 	ac.setPosition(optionsCheckBox, 10, 200)
 	ac.addOnCheckBoxChanged(optionsCheckBox, checkboxHandler)
-	Buttons["drawGraphs"] = ac.addButton(appWindow, "Draw Graphs")
-	ac.setPosition(Buttons["drawGraphs"], 10, 230)
-	ac.setSize(Buttons["drawGraphs"], 100, 25)
-	ac.addOnClickedListener(Buttons["drawGraphs"], drawGraphsHandler)
-	Buttons["normalize"] = ac.addButton(appWindow, "Normalize")
-	ac.setPosition(Buttons["normalize"], 10, 260)
-	ac.setSize(Buttons["normalize"], 100, 25)
-	ac.addOnClickedListener(Buttons["normalize"], normalizeHandler)
-	Buttons["logscale"] = ac.addButton(appWindow, "Log Scale")
-	ac.setPosition(Buttons["logscale"], 10, 290)
-	ac.setSize(Buttons["logscale"], 100, 25)
-	ac.addOnClickedListener(Buttons["logscale"], logscaleHandler)
-	Buttons["useSpectrum"] = ac.addButton(appWindow, "Use Spectrum")
-	ac.setPosition(Buttons["useSpectrum"], 10, 320)
-	ac.setSize(Buttons["useSpectrum"], 100, 25)
-	ac.addOnClickedListener(Buttons["useSpectrum"], useSpectrumHandler)
 
-	TextInputs["Target Camber"] = ac.addTextInput(appWindow, "Target Camber")
-	ac.setPosition(TextInputs["Target Camber"], 160, 200)
-	ac.setSize(TextInputs["Target Camber"], 50, 25)
-	ac.addOnValidateListener(TextInputs["Target Camber"], targetInputHandler)
-	TextInputs["Flappiness"] = ac.addTextInput(appWindow, "Flappiness")
-	ac.setPosition(TextInputs["Flappiness"], 160, 230)
-	ac.setSize(TextInputs["Flappiness"], 50, 25)
-	ac.addOnValidateListener(TextInputs["Flappiness"], radScaleInputHandler)
-	TextInputs["Peak Time"] = ac.addTextInput(appWindow, "Peak Time")
-	ac.setPosition(TextInputs["Peak Time"], 160, 260)
-	ac.setSize(TextInputs["Peak Time"], 50, 25)
-	ac.addOnValidateListener(TextInputs["Peak Time"], peakTimeInputHandler)
-	TextInputs["Graph Width"] = ac.addTextInput(appWindow, "Graph Width")
-	ac.setPosition(TextInputs["Graph Width"], 160, 290)
-	ac.setSize(TextInputs["Graph Width"], 50, 25)
-	ac.addOnValidateListener(TextInputs["Graph Width"], graphWidthInputHandler)
-	TextInputs["Graph Height"] = ac.addTextInput(appWindow, "Graph Height")
-	ac.setPosition(TextInputs["Graph Height"], 160, 320)
-	ac.setSize(TextInputs["Graph Height"], 50, 25)
-	ac.addOnValidateListener(TextInputs["Graph Height"], graphHeightInputHandler)
+	# Option Buttons
+	uidata = [
+		["drawGraphs", "Draw Graphs", drawGraphsHandler],
+		["normalize", "Normalize", normalizeHandler],
+		["showAverage", "Show Average", showAverageHandler],
+		["useSpectrum", "Use Spectrum", useSpectrumHandler]
+	]
+	y = 230
+	dy = 30
+	for d in uidata:
+		Buttons[d[0]] = ac.addButton(appWindow, d[1])
+		ac.setPosition(Buttons[d[0]], 10, y)
+		ac.setSize(Buttons[d[0]], 100, 25)
+		ac.addOnClickedListener(Buttons[d[0]], d[2])
+		ac.setVisible(Buttons[d[0]], 0)
+		y += dy
 
-	Labels["Target Camber"] = ac.addLabel(appWindow, "Target Camber")
-	ac.setPosition(Labels["Target Camber"], 220, 200)
-	Labels["Flappiness"] = ac.addLabel(appWindow, "Flappiness")
-	ac.setPosition(Labels["Flappiness"], 220, 230)
-	Labels["Peak Time"] = ac.addLabel(appWindow, "Peak Time")
-	ac.setPosition(Labels["Peak Time"], 220, 260)
-	Labels["Graph Width"] = ac.addLabel(appWindow, "Graph Width")
-	ac.setPosition(Labels["Graph Width"], 220, 290)
-	Labels["Graph Height"] = ac.addLabel(appWindow, "Graph Height")
-	ac.setPosition(Labels["Graph Height"], 220, 320)
-
-	for key, button in Buttons.items():
-		ac.setVisible(button, 0)
-	for key, input in TextInputs.items():
-		ac.setVisible(input, 0)
-	for key, label in Labels.items():
-		ac.setVisible(label, 0)
+	# Option TextInputs and Labels
+	uidata = [
+		["Target Camber", targetInputHandler],
+		["Flappiness", radScaleInputHandler],
+		["Peak Time", peakTimeInputHandler],
+		["Graph Width", graphWidthInputHandler],
+		["Graph Height", graphHeightInputHandler]
+	]
+	y = 200
+	dy = 30
+	for d in uidata:
+		TextInputs[d[0]] = ac.addTextInput(appWindow, d[0])
+		ac.setPosition(TextInputs[d[0]], 160, y)
+		ac.setSize(TextInputs[d[0]], 50, 25)
+		ac.addOnValidateListener(TextInputs[d[0]], d[1])
+		Labels[d[0]] = ac.addLabel(appWindow, d[0])
+		ac.setPosition(Labels[d[0]], 220, y)
+		ac.setVisible(TextInputs[d[0]], 0)
+		ac.setVisible(Labels[d[0]], 0)
+		y += dy
 
 	CamberIndicators["FL"] = CamberIndicator(appWindow, 25, 50)
 	CamberIndicators["FR"] = CamberIndicator(appWindow,125, 50)
@@ -314,26 +304,30 @@ def onFormRender(deltaT):
 def getColor(value):
 	global Options
 	color = {}
-	d = math.fabs(value - Options["targetCamber"])
+	scale = 0.5 # 0.5 / scale = max +/- range
+	d = (value - Options["targetCamber"]) * scale
 	if Options["useSpectrum"] is True:
-		if value > 0:
-			color = {'r':1,'g':0,'b':0,'a':1}
-		elif d < 0.2:
-			color = {'r':0,'g':1,'b':0,'a':1}
-		elif d < 0.5:
-			color = {'r':(d - 0.2)/0.3,'g':1,'b':0,'a':1}
-		else:
-			f = min((d - 0.5)/0.5, 1)
-			color = {'r':1,'g':1,'b':f,'a':1}
+		H = max(0, min(1, 0.5 - d)) * 0.625  # 0.625 = hue 225°, #0040FF
+		S = 0.9
+		B = 0.9
+		c = colorsys.hsv_to_rgb(H, S, B)
+		color = {'r':c[0],'g':c[1],'b':c[2],'a':1}
+
 	else:
 		if value > 0:
 			color = {'r':1,'g':0,'b':0,'a':1}
-		elif d < 0.2:
-			color = {'r':0,'g':1,'b':0,'a':1}
-		elif d < 0.5:
+		elif d > 1.0:
+			color = {'r':1,'g':0,'b':0,'a':1}
+		elif d > 0.5:
+			color = {'r':1,'g':0.5,'b':0,'a':1}
+		elif d > 0.2:
 			color = {'r':1,'g':1,'b':0,'a':1}
+		elif d > -0.2:
+			color = {'r':0,'g':1,'b':0,'a':1}
+		elif d > -0.5:
+			color = {'r':0,'g':1,'b':1,'a':1}
 		else:
-			color = {'r':1,'g':1,'b':1,'a':1}
+			color = {'r':0,'g':0,'b':1,'a':1}
 
 	return color
 
@@ -412,9 +406,9 @@ def normalizeHandler(x, y):
 	saveOptions()
 
 
-def logscaleHandler(x, y):
+def showAverageHandler(x, y):
 	global Options, Buttons
-	Options["logscale"] = not Options["logscale"]
+	Options["showAverage"] = not Options["showAverage"]
 	updateButtons()
 	saveOptions()
 
