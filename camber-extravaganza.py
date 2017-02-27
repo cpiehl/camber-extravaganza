@@ -4,7 +4,6 @@
 # Useful for tuning?
 #
 # TODO:
-#   - Separate front and rear target camber
 #   - Make log scale better
 #   - change deque maxlen when graphwidth changed
 #
@@ -26,7 +25,8 @@
 #
 # V1.13 - Show average camber toggle option
 #       - Switch to HSV colors for spectrum
-#       - UI code cleanup
+#
+# V1.14 - Optimal camber calculated from config files
 #############################################################
 
 import ac
@@ -50,12 +50,13 @@ Options = {
 	"showAverage": False,
 	"normalize": False,
 	"useSpectrum": True,
-	"size": 50,        # flapper length
-	"radScale": 10,    # flappiness ratio
-	"peakTime": 2,     # seconds
-	"graphWidth": 150, # in pixels, also the number of frames of data to display
-	"graphHeight": 60, # in pixels
-	"targetCamber": -3 # degrees
+	"size": 50,         # flapper length
+	"radScale": 10,     # flappiness ratio
+	"peakTime": 2,      # seconds
+	"graphWidth": 150,  # in pixels, also the number of frames of data to display
+	"graphHeight": 60,  # in pixels
+	"targetCamber": -3, # degrees
+	"tyreCompound": ""  # short name
 }
 
 class CamberIndicator:
@@ -227,7 +228,7 @@ def acMain(ac_version):
 	ac.setBackgroundOpacity(appWindow, 0)
 	ac.setIconPosition(appWindow, 0, -10000)
 
-	# Options Checkbox
+		# Options Checkbox
 	optionsCheckBox = ac.addCheckBox(appWindow, "Options")
 	ac.setPosition(optionsCheckBox, 10, 200)
 	ac.addOnCheckBoxChanged(optionsCheckBox, checkboxHandler)
@@ -270,6 +271,9 @@ def acMain(ac_version):
 		ac.setVisible(Labels[d[0]], 0)
 		y += dy
 
+	# Get optimal camber from files
+	loadCambers()
+
 	CamberIndicators["FL"] = CamberIndicator(appWindow, 25, 50)
 	CamberIndicators["FR"] = CamberIndicator(appWindow,125, 50)
 	CamberIndicators["RL"] = CamberIndicator(appWindow, 25,150)
@@ -296,9 +300,15 @@ def onFormRender(deltaT):
 	CamberIndicators["FR"].setValue(x, deltaT)
 	CamberIndicators["RL"].setValue(y, deltaT)
 	CamberIndicators["RR"].setValue(z, deltaT)
+
 	if redrawText:
 		updateTextInputs()
 		redrawText = False
+
+	tyreCompound = ac.getCarTyreCompound(0)
+	if tyreCompound != Options["tyreCompound"]:
+		loadCambers()
+		Options["tyreCompound"] = tyreCompound
 
 
 def getColor(value):
@@ -388,6 +398,7 @@ def checkboxHandler(name, value):
 			ac.setVisible(input, v)
 		for key, label in Labels.items():
 			ac.setVisible(label, v)
+
 		updateButtons()
 		updateTextInputs()
 
@@ -435,11 +446,46 @@ def updateButtons():
 
 def updateTextInputs():
 	global Options, TextInputs
-	ac.setText(TextInputs["Target Camber"], str(Options["targetCamber"]))
+	ac.setText(TextInputs["Target Camber"], "{0:.2f}".format(Options["targetCamber"]))
 	ac.setText(TextInputs["Flappiness"], str(Options["radScale"]))
 	ac.setText(TextInputs["Peak Time"], str(Options["peakTime"]))
 	ac.setText(TextInputs["Graph Width"], str(Options["graphWidth"]))
 	ac.setText(TextInputs["Graph Height"], str(Options["graphHeight"]))
+
+
+def loadCambers():
+	global Options
+	tyresFile = os.path.abspath(os.path.join(
+		os.path.dirname(__file__),
+		"../../../sdk/dev/v1.5_tyres_ac",
+		ac.getCarName(0),
+		"data/tyres.ini"
+	))
+	try:
+		with open(tyresFile, 'r') as f:
+			tyreCompound = ac.getCarTyreCompound(0)
+			compoundFound = False
+			dcamberFound = 0
+			for line in f:
+				if not compoundFound:
+					if line.startswith("SHORT_NAME=" + tyreCompound):
+						compoundFound = True
+				else:
+					if line.startswith("DCAMBER_0"):
+						s = line.split(None, 1)[0]
+						dcamber0 = float(s[10:])
+						dcamberFound += 1
+					elif line.startswith("DCAMBER_1"):
+						s = line.split(None, 1)[0]
+						dcamber1 = float(s[10:])
+						dcamberFound += 1
+				if dcamberFound == 2:
+					break
+			# Grip = dcamber0*x^2 + dcamber1*x + 1
+			# x = camber in radians, find x where max grip
+			Options["targetCamber"] = math.degrees(dcamber0 / (2 * dcamber1))
+	except IOError:
+		pass
 
 
 def saveOptions():
@@ -447,6 +493,7 @@ def saveOptions():
 	optionsFile = os.path.join(os.path.dirname(__file__), 'options.dat')
 	with open(optionsFile, 'wb') as handle:
 		pickle.dump(Options, handle, protocol=pickle.HIGHEST_PROTOCOL)
+
 
 def loadOptions():
 	global Options
