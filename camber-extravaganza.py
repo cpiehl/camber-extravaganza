@@ -2,10 +2,12 @@
 # Camber Extravaganza!
 # App for showing camber in real time
 # Useful for tuning?
+# https://github.com/cpiehl/camber-extravaganza
 #
 # TODO:
-#   - Make log scale better
-#   - change deque maxlen when graphwidth changed
+#   - scale each wheel based on weight distribution?
+#   - multi-language support
+#   - support the rest of the cars not in sdk
 #
 # Changelog:
 #
@@ -27,6 +29,10 @@
 #       - Switch to HSV colors for spectrum
 #
 # V1.14 - Optimal camber calculated from config files
+#
+# V1.15 - Draw tires, suspension, chassis, target camber
+#       - UI cleanup, remove some unnecessary options
+#       - Savedata sanitizing
 #############################################################
 
 import ac
@@ -39,7 +45,6 @@ import pickle
 
 appWindow = 0
 CamberIndicators = {}
-optionsCheckBox = 0
 CheckBoxes = {}
 Buttons = {}
 TextInputs = {}
@@ -47,17 +52,23 @@ Labels = {}
 redrawText = False
 Options = {
 	"drawGraphs": False,
-	"showAverage": False,
 	"normalize": False,
 	"useSpectrum": True,
-	"size": 50,         # flapper length
-	"radScale": 10,     # flappiness ratio
-	"peakTime": 2,      # seconds
+	"alpha": 0.5,       # graph alpha
+	"tireHeight": 50,   # tire height
+	"radScale": 10,     #
 	"graphWidth": 150,  # in pixels, also the number of frames of data to display
-	"graphHeight": 60,  # in pixels
+	"graphHeight": 85,  # in pixels
 	"targetCamber": -3, # degrees
-	"tyreCompound": ""  # short name
+	"tyreCompound": "", # short name
+	"tireRadius": 0.325 # default, in meters
 }
+SavableOptions = [ # Only save these to file
+	"drawGraphs",
+	"normalize",
+	"useSpectrum"
+]
+
 
 class CamberIndicator:
 	def __init__(self, app, x, y):
@@ -65,17 +76,16 @@ class CamberIndicator:
 		self.xPosition = x
 		self.yPosition = y
 		self.value = 0
-		self.peakValue = 0
-		self.peakTime = 0
+		self.avgValue = 0
 		self.color = {'r':1,'g':1,'b':1,'a':1}
 		self.serie = collections.deque(maxlen=Options["graphWidth"])
-		self.minVal = -4.5
+		self.minVal = Options["targetCamber"] * 1.5
 		self.maxVal = 1.5
 
 		self.valueLabel = ac.addLabel(appWindow, "0.0°")
 		ac.setPosition(self.valueLabel, x, y)
-		self.peakValueLabel = ac.addLabel(appWindow, "0.0°")
-		ac.setPosition(self.peakValueLabel, x, y + 18)
+		self.avgValueLabel = ac.addLabel(appWindow, "0.0°")
+		ac.setPosition(self.avgValueLabel, x, y + 18)
 
 
 	def setValue(self, value, deltaT):
@@ -88,34 +98,27 @@ class CamberIndicator:
 
 		self.color = getColor(deg)
 
-		if Options["showAverage"]:
-			self.peakValue = sum(self.serie) / len(self.serie)
-			ac.setFontColor(self.peakValueLabel,
-				self.color['r'],
-				self.color['g'],
-				self.color['b'],
-				self.color['a']
-			)
-			ac.setText(self.peakValueLabel,"{0:.3f}°".format(self.peakValue))
-		else:
-			self.peakTime -= deltaT
-			if self.peakTime <= 0:
-				self.peakValue = value
-
-			if value >= self.peakValue:
-				self.peakTime = Options["peakTime"]
-				self.peakValue = value
-				ac.setFontColor(self.peakValueLabel,
-					self.color['r'],
-					self.color['g'],
-					self.color['b'],
-					self.color['a']
-				)
-				ac.setText(self.peakValueLabel,"{0:.3f}°".format(math.degrees(self.peakValue)))
+		self.avgValue = sum(self.serie) / len(self.serie)
+		ac.setFontColor(self.avgValueLabel,
+			self.color['r'],
+			self.color['g'],
+			self.color['b'],
+			self.color['a']
+		)
+		ac.setText(self.avgValueLabel,"{0:.3f}°".format(self.avgValue))
 
 
-	def drawGauge(self, flip=False):
+	def drawTire(self, suspX, suspY, suspH, flip=False):
 		global Options
+
+		x = self.xPosition + 25
+		y = self.yPosition
+		#~ rad = self.value * Options["radScale"]
+		rad = self.value * Options["radScale"] / (2 * -Options["targetCamber"])
+		if flip:
+			#~ x = self.xPosition + 50
+			rad = math.pi - rad
+
 		ac.glColor4f(
 			self.color['r'],
 			self.color['g'],
@@ -123,24 +126,46 @@ class CamberIndicator:
 			self.color['a']
 		)
 
-		x = self.xPosition
-		y = self.yPosition
-		rad = self.value * Options["radScale"]
-		size = Options["size"]
+		h = Options["tireHeight"]
+		w = h / 2
+		cosrad = math.cos(rad)
+		sinrad = math.sin(rad)
+		halfpi = math.pi/2
 		if flip:
-			x += 50
-			rad = math.pi - rad
+			cosradnorm = math.cos(rad+halfpi)
+			sinradnorm = math.sin(rad+halfpi)
+			# Have to draw counterclockwise
+			ac.glBegin(acsys.GL.Quads)
+			ac.glVertex2f(x, y)
+			ac.glVertex2f(x+h*cosradnorm, y+h*sinradnorm)
+			ac.glVertex2f(x+w*cosrad+h*cosradnorm, y+w*sinrad+h*sinradnorm)
+			ac.glVertex2f(x+w*cosrad, y+w*sinrad)
+			ac.glEnd()
+		else:
+			cosradnorm = math.cos(rad-halfpi)
+			sinradnorm = math.sin(rad-halfpi)
+			# Have to draw counterclockwise
+			ac.glBegin(acsys.GL.Quads)
+			ac.glVertex2f(x, y)
+			ac.glVertex2f(x+w*cosrad, y+w*sinrad)
+			ac.glVertex2f(x+w*cosrad+h*cosradnorm, y+w*sinrad+h*sinradnorm)
+			ac.glVertex2f(x+h*cosradnorm, y+h*sinradnorm)
+			ac.glEnd()
 
+		# Suspension bits
+		ac.glColor4f(0.9, 0.9, 0.9, 0.9)
 		ac.glBegin(acsys.GL.Lines)
-		ac.glVertex2f(x, y)
-		ac.glVertex2f(x+size*math.cos(rad), y+size*math.sin(rad))
+		ac.glVertex2f(x+(h/2 - suspH)*cosradnorm, y+(h/2 - suspH)*sinradnorm)
+		ac.glVertex2f(suspX, suspY + suspH)
+		ac.glVertex2f(x+(h/2 + suspH)*cosradnorm, y+(h/2 + suspH)*sinradnorm)
+		ac.glVertex2f(suspX, suspY - suspH)
 		ac.glEnd()
 
 
 	def drawGraph(self, flip=False):
 		global Options
 		x = self.xPosition
-		y = self.yPosition + 5
+		y = self.yPosition - 10
 		dx1 = 55
 		dx2 = dx1 + Options["graphWidth"]
 		f = 1 # flip mult thisisreallydumbbutineedit
@@ -213,14 +238,14 @@ class CamberIndicator:
 			self.maxVal = avgPos * 1.5
 			self.minVal = avgNeg * 1.5
 		else:
+			self.minVal = Options["targetCamber"] * 1.5
 			self.maxVal = 1.5
-			self.minVal = -4.5
 
 
 # This function gets called by AC when the Plugin is initialised
 # The function has to return a string with the plugin name
 def acMain(ac_version):
-	global appWindow, CamberIndicators, CheckBoxes, Buttons, Options, TextInputs, Labels
+	global appWindow, CamberIndicators, CheckBoxes, Buttons, Options, Labels, UIData
 	loadOptions()
 	appWindow = ac.newApp("CamberExtravaganza")
 	ac.setSize(appWindow, 200, 200)
@@ -228,67 +253,107 @@ def acMain(ac_version):
 	ac.setBackgroundOpacity(appWindow, 0)
 	ac.setIconPosition(appWindow, 0, -10000)
 
-		# Options Checkbox
-	optionsCheckBox = ac.addCheckBox(appWindow, "Options")
-	ac.setPosition(optionsCheckBox, 10, 200)
-	ac.addOnCheckBoxChanged(optionsCheckBox, checkboxHandler)
+	# Target Camber Labels
+	Labels["target"] = ac.addLabel(appWindow, "Target:")
+	ac.setPosition(Labels["target"], 85, 100)
+	ac.setFontSize(Labels["target"], 10)
+	Labels["targetCamber"] = ac.addLabel(appWindow, "")
+	ac.setPosition(Labels["targetCamber"], 75, 105)
+	ac.setFontSize(Labels["targetCamber"], 24)
+
+	# Options Checkbox
+	CheckBoxes["options"] = ac.addCheckBox(appWindow, "Options")
+	ac.setPosition(CheckBoxes["options"], 50, 225)
+	ac.addOnCheckBoxChanged(CheckBoxes["options"], checkboxHandler)
 
 	# Option Buttons
 	uidata = [
 		["drawGraphs", "Draw Graphs", drawGraphsHandler],
 		["normalize", "Normalize", normalizeHandler],
-		["showAverage", "Show Average", showAverageHandler],
 		["useSpectrum", "Use Spectrum", useSpectrumHandler]
 	]
-	y = 230
+	x = 50
+	y = 255
 	dy = 30
 	for d in uidata:
 		Buttons[d[0]] = ac.addButton(appWindow, d[1])
-		ac.setPosition(Buttons[d[0]], 10, y)
+		ac.setPosition(Buttons[d[0]], x, y)
 		ac.setSize(Buttons[d[0]], 100, 25)
 		ac.addOnClickedListener(Buttons[d[0]], d[2])
 		ac.setVisible(Buttons[d[0]], 0)
 		y += dy
 
-	# Option TextInputs and Labels
-	uidata = [
-		["Target Camber", targetInputHandler],
-		["Flappiness", radScaleInputHandler],
-		["Peak Time", peakTimeInputHandler],
-		["Graph Width", graphWidthInputHandler],
-		["Graph Height", graphHeightInputHandler]
-	]
-	y = 200
-	dy = 30
-	for d in uidata:
-		TextInputs[d[0]] = ac.addTextInput(appWindow, d[0])
-		ac.setPosition(TextInputs[d[0]], 160, y)
-		ac.setSize(TextInputs[d[0]], 50, 25)
-		ac.addOnValidateListener(TextInputs[d[0]], d[1])
-		Labels[d[0]] = ac.addLabel(appWindow, d[0])
-		ac.setPosition(Labels[d[0]], 220, y)
-		ac.setVisible(TextInputs[d[0]], 0)
-		ac.setVisible(Labels[d[0]], 0)
-		y += dy
-
 	# Get optimal camber from files
-	loadCambers()
+	loadTireData()
 
-	CamberIndicators["FL"] = CamberIndicator(appWindow, 25, 50)
-	CamberIndicators["FR"] = CamberIndicator(appWindow,125, 50)
-	CamberIndicators["RL"] = CamberIndicator(appWindow, 25,150)
-	CamberIndicators["RR"] = CamberIndicator(appWindow,125,150)
+	CamberIndicators["FL"] = CamberIndicator(appWindow, 25, 75)
+	CamberIndicators["FR"] = CamberIndicator(appWindow,125, 75)
+	CamberIndicators["RL"] = CamberIndicator(appWindow, 25,175)
+	CamberIndicators["RR"] = CamberIndicator(appWindow,125,175)
 	ac.addRenderCallback(appWindow, onFormRender)
 	return "CamberExtravaganza"
 
 
 def onFormRender(deltaT):
-	global CamberIndicators, Options, redrawText
+	global CamberIndicators, Options, Labels, redrawText
+
+	ac.glColor4f(0.9, 0.9, 0.9, 0.9)
+	ac.setText(Labels["targetCamber"], "{0:.1f}°".format(Options["targetCamber"]))
+
+	# Suspension travel to find body position relative to tires
+	radius = Options["tireRadius"]
+	pixelsPerMeter = Options["tireHeight"] / radius
+	w,x,y,z = ac.getCarState(0, acsys.CS.SuspensionTravel)
+	dyFL = w * pixelsPerMeter
+	dyFR = x * pixelsPerMeter
+	dyRL = y * pixelsPerMeter
+	dyRR = z * pixelsPerMeter
+
+	# Draw front "car body"
+	xFR = CamberIndicators["FR"].xPosition
+	xFL = CamberIndicators["FL"].xPosition + Options["tireHeight"]
+	y = CamberIndicators["FR"].yPosition - Options["tireHeight"] / 2
+	yFL = y + dyFL
+	yFR = y + dyFR
+	h = Options["tireHeight"] / 4
+	ac.glColor4f(0.9, 0.9, 0.9, 0.9)
+	ac.glBegin(acsys.GL.Lines)
+	ac.glVertex2f(xFL, yFL + h)
+	ac.glVertex2f(xFR, yFR + h)
+	ac.glVertex2f(xFR, yFR + h)
+	ac.glVertex2f(xFR, yFR - h)
+	ac.glVertex2f(xFR, yFR - h)
+	ac.glVertex2f(xFL, yFL - h)
+	ac.glVertex2f(xFL, yFL - h)
+	ac.glVertex2f(xFL, yFL + h)
+	ac.glEnd()
+
+	# Draw rear "car body"
+	xRR = CamberIndicators["RR"].xPosition
+	xRL = CamberIndicators["RL"].xPosition + Options["tireHeight"]
+	y = CamberIndicators["RR"].yPosition - Options["tireHeight"] / 2
+	yRL = y + dyRL
+	yRR = y + dyRR
+	h = Options["tireHeight"] / 4
+	ac.glColor4f(0.9, 0.9, 0.9, 0.9)
+	ac.glBegin(acsys.GL.Lines)
+	ac.glVertex2f(xRL, yRL + h)
+	ac.glVertex2f(xRR, yRR + h)
+	ac.glVertex2f(xRR, yRR + h)
+	ac.glVertex2f(xRR, yRR - h)
+	ac.glVertex2f(xRR, yRR - h)
+	ac.glVertex2f(xRL, yRL - h)
+	ac.glVertex2f(xRL, yRL - h)
+	ac.glVertex2f(xRL, yRL + h)
+	ac.glEnd()
+
 	# Draw flappy gauges
-	CamberIndicators["FL"].drawGauge(flip=True)
-	CamberIndicators["FR"].drawGauge()
-	CamberIndicators["RL"].drawGauge(flip=True)
-	CamberIndicators["RR"].drawGauge()
+	h *= 0.75
+	CamberIndicators["FL"].drawTire(xFL, yFL, h, flip=True)
+	CamberIndicators["FR"].drawTire(xFR, yFR, h)
+	CamberIndicators["RL"].drawTire(xRL, yRL, h, flip=True)
+	CamberIndicators["RR"].drawTire(xRR, yRR, h)
+
 	# Draw history graphs
 	if Options["drawGraphs"]:
 		CamberIndicators["FL"].drawGraph(flip=True)
@@ -307,130 +372,82 @@ def onFormRender(deltaT):
 
 	tyreCompound = ac.getCarTyreCompound(0)
 	if tyreCompound != Options["tyreCompound"]:
-		loadCambers()
+		loadTireData()
 		Options["tyreCompound"] = tyreCompound
 
 
 def getColor(value):
 	global Options
 	color = {}
-	scale = 0.5 # 0.5 / scale = max +/- range
+	scale = 0.5 # adjusts width of green, calculate this better later
 	d = (value - Options["targetCamber"]) * scale
 	if Options["useSpectrum"] is True:
-		H = max(0, min(1, 0.5 - d)) * 0.625  # 0.625 = hue 225°, #0040FF
+		H = max(0, min(1, 0.6 - d)) * 0.625  # 0.625 = hue 225°, #0040FF
 		S = 0.9
 		B = 0.9
 		c = colorsys.hsv_to_rgb(H, S, B)
-		color = {'r':c[0],'g':c[1],'b':c[2],'a':1}
+		color = {'r':c[0],'g':c[1],'b':c[2],'a':Options["alpha"]}
 
 	else:
 		if value > 0:
-			color = {'r':1,'g':0,'b':0,'a':1}
+			color = {'r':1,'g':0,'b':0,'a':Options["alpha"]}
 		elif d > 1.0:
-			color = {'r':1,'g':0,'b':0,'a':1}
+			color = {'r':1,'g':0,'b':0,'a':Options["alpha"]}
 		elif d > 0.5:
-			color = {'r':1,'g':0.5,'b':0,'a':1}
+			color = {'r':1,'g':0.5,'b':0,'a':Options["alpha"]}
 		elif d > 0.2:
-			color = {'r':1,'g':1,'b':0,'a':1}
+			color = {'r':1,'g':1,'b':0,'a':Options["alpha"]}
 		elif d > -0.2:
-			color = {'r':0,'g':1,'b':0,'a':1}
+			color = {'r':0,'g':1,'b':0,'a':Options["alpha"]}
 		elif d > -0.5:
-			color = {'r':0,'g':1,'b':1,'a':1}
+			color = {'r':0,'g':1,'b':1,'a':Options["alpha"]}
 		else:
-			color = {'r':0,'g':0,'b':1,'a':1}
+			color = {'r':0,'g':0,'b':1,'a':Options["alpha"]}
 
 	return color
 
 
-def targetInputHandler(value):
-	global Options, TextInputs, redrawText
-	try:
-		Options["targetCamber"] = float(value)
-		redrawText = True
-		saveOptions()
-	except ValueError:
-		pass
-
-def radScaleInputHandler(value):
-	global Options, TextInputs, redrawText
-	try:
-		Options["radScale"] = float(value)
-		redrawText = True
-		saveOptions()
-	except ValueError:
-		pass
-
-def peakTimeInputHandler(value):
-	global Options, TextInputs, redrawText
-	try:
-		Options["peakTime"] = float(value)
-		redrawText = True
-		saveOptions()
-	except ValueError:
-		pass
-
-def graphWidthInputHandler(value):
-	global Options, TextInputs, redrawText
-	try:
-		Options["graphWidth"] = int(value)
-		redrawText = True
-		saveOptions()
-	except ValueError:
-		pass
-
-def graphHeightInputHandler(value):
-	global Options, TextInputs, redrawText
-	try:
-		Options["graphHeight"] = int(value)
-		redrawText = True
-		saveOptions()
-	except ValueError:
-		pass
-
-
-def checkboxHandler(name, value):
-	global Options, Buttons, TextInputs, Labels
-	v = 1 if value == 1 else 0
-	if name == "Options":
-		for key, button in Buttons.items():
-			ac.setVisible(button, v)
-		for key, input in TextInputs.items():
-			ac.setVisible(input, v)
-		for key, label in Labels.items():
-			ac.setVisible(label, v)
-
+def uiHandler(*args, name, type):
+	global Options, Buttons, Labels, TextInputs, redrawText
+	if type == "Button":
+		Options[name] = not Options[name]
 		updateButtons()
-		updateTextInputs()
+		saveOptions()
+	elif type == "TextInput":
+		Options[name] = args[0]
+		redrawText = True
+		saveOptions()
+	elif type == "CheckBox":
+		v = 1 if args[0] == 1 else 0
+		if name == "options":
+			for key, button in Buttons.items():
+				ac.setVisible(button, v)
+			for key, input in TextInputs.items():
+				ac.setVisible(input, v)
+
+			updateButtons()
+	else:
+		pass
+
+# List of handlers, I don't know how to do this nicely
+# lambdas and functools.partial crash
+def checkboxHandler(name, value):
+	uiHandler(value, name="options", type="CheckBox")
 
 
-def drawGraphsHandler(x, y):
-	global Options, Buttons
-	Options["drawGraphs"] = not Options["drawGraphs"]
-	updateButtons()
-	saveOptions()
+def drawGraphsHandler(*args):
+	uiHandler(args[0], args[1], name="drawGraphs", type="Button")
 
 
-def normalizeHandler(x, y):
-	global Options, Buttons
-	Options["normalize"] = not Options["normalize"]
-	updateButtons()
-	saveOptions()
+def normalizeHandler(*args):
+	uiHandler(args[0], args[1], name="normalize", type="Button")
 
 
-def showAverageHandler(x, y):
-	global Options, Buttons
-	Options["showAverage"] = not Options["showAverage"]
-	updateButtons()
-	saveOptions()
+def useSpectrumHandler(*args):
+	uiHandler(args[0], args[1], name="useSpectrum", type="Button")
 
 
-def useSpectrumHandler(x, y):
-	global Options, Buttons
-	Options["useSpectrum"] = not Options["useSpectrum"]
-	updateButtons()
-	saveOptions()
-
-
+# Make sure button toggled state matches internal state
 def updateButtons():
 	global Options, Buttons
 	for key, button in Buttons.items():
@@ -444,55 +461,79 @@ def updateButtons():
 			ac.setBackgroundOpacity(button, 1)
 
 
-def updateTextInputs():
-	global Options, TextInputs
-	ac.setText(TextInputs["Target Camber"], "{0:.2f}".format(Options["targetCamber"]))
-	ac.setText(TextInputs["Flappiness"], str(Options["radScale"]))
-	ac.setText(TextInputs["Peak Time"], str(Options["peakTime"]))
-	ac.setText(TextInputs["Graph Width"], str(Options["graphWidth"]))
-	ac.setText(TextInputs["Graph Height"], str(Options["graphHeight"]))
-
-
-def loadCambers():
+# Load DCAMBERs and RADIUS
+def loadTireData():
 	global Options
-	tyresFile = os.path.abspath(os.path.join(
+	tyresDir = os.path.abspath(os.path.join(
 		os.path.dirname(__file__),
-		"../../../sdk/dev/v1.5_tyres_ac",
-		ac.getCarName(0),
-		"data/tyres.ini"
+		"../../../sdk/dev/v1.5_tyres_ac"
 	))
-	try:
-		with open(tyresFile, 'r') as f:
-			tyreCompound = ac.getCarTyreCompound(0)
-			compoundFound = False
-			dcamberFound = 0
-			for line in f:
-				if not compoundFound:
-					if line.startswith("SHORT_NAME=" + tyreCompound):
-						compoundFound = True
-				else:
-					if line.startswith("DCAMBER_0"):
-						s = line.split(None, 1)[0]
-						dcamber0 = float(s[10:])
-						dcamberFound += 1
-					elif line.startswith("DCAMBER_1"):
-						s = line.split(None, 1)[0]
-						dcamber1 = float(s[10:])
-						dcamberFound += 1
-				if dcamberFound == 2:
-					break
-			# Grip = dcamber0*x^2 + dcamber1*x + 1
-			# x = camber in radians, find x where max grip
-			Options["targetCamber"] = math.degrees(dcamber0 / (2 * dcamber1))
-	except IOError:
-		pass
+	ac.log(tyresDir)
+	# Check if car is in tyres sdk
+	if os.path.isdir(os.path.join(tyresDir, ac.getCarName(0))):
+		tyresFile = os.path.join(
+			tyresDir,
+			ac.getCarName(0),
+			"data\\tyres.ini"
+		)
+		# If tyres.ini exists, read it
+		tyresFile = os.path.abspath(tyresFile)
+		try:
+			with open(tyresFile, 'r') as f:
+				tyreCompound = ac.getCarTyreCompound(0)
+				compoundFound = False
+				radiusFound = False
+				dcamberFound = [False] * 2
+				for line in f:
+					if not compoundFound:
+						if line.startswith("SHORT_NAME=" + tyreCompound):
+							compoundFound = True
+					else:
+						if line.startswith("DCAMBER_0"):
+							s = line.split(None, 1)[0]
+							dcamber0 = float(s[10:])
+							dcamberFound[0] = True
+						elif line.startswith("DCAMBER_1"):
+							s = line.split(None, 1)[0]
+							dcamber1 = float(s[10:])
+							dcamberFound[1] = True
+						elif line.startswith("RADIUS"):
+							s = line.split(None, 1)[0]
+							Options["tireRadius"] = float(s[7:])
+							radiusFound = True
+					if all(dcamberFound) == True and radiusFound == True:
+						# +Grip% = dcamber1*x^2 + dcamber0*x
+						# x = camber in radians, find x where max grip
+						Options["targetCamber"] = math.degrees(dcamber0 / (2 * dcamber1))
+						break
+
+		except OSError:
+			ac.log("CamberExtravaganza ERROR: loadTireData OSError")
+
+	# If we can't autoload them, use these preloaded values
+	# These were manually extracted from the car's data.acd and thus may
+	#   become out of date eventually.
+	elif ac.getCarName(0) == "ks_maserati_levante":
+		ac.console("Loaded tire data for ks_maserati_levante")
+		Options["tireRadius"] = 0.373
+		Options["targetCamber"] = math.degrees(1.1 / (2 * -13))
+	elif ac.getCarName(0) == "ks_porsche_cayenne":
+		ac.console("Loaded tire data for ks_porsche_cayenne")
+		Options["tireRadius"] = 0.3696
+		Options["targetCamber"] = math.degrees(1.1 / (2 * -13))
+	else:
+		ac.log("CamberExtravaganza ERROR: loadTireData: No tyres.ini found")
 
 
 def saveOptions():
 	global Options, CheckBoxes
 	optionsFile = os.path.join(os.path.dirname(__file__), 'options.dat')
 	with open(optionsFile, 'wb') as handle:
-		pickle.dump(Options, handle, protocol=pickle.HIGHEST_PROTOCOL)
+		data = {}
+		for key,option in Options.items():
+			if key in SavableOptions:
+				data[key] = option
+		pickle.dump(data, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
 
 def loadOptions():
@@ -500,6 +541,9 @@ def loadOptions():
 	try:
 		optionsFile = os.path.join(os.path.dirname(__file__), 'options.dat')
 		with open(optionsFile, 'rb') as handle:
-			Options.update(pickle.load(handle))
+			data = pickle.load(handle)
+			for key,datum in data.items():
+				if key in SavableOptions:
+					Options[key] = datum
 	except IOError:
-		pass
+		ac.log("CamberExtravaganza ERROR: loadOptions IOError")
