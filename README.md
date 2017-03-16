@@ -8,7 +8,7 @@ Calculates optimal camber from config files - per car, per tire compound.  Turns
 
 ## Screenshots and Video
 
-![screenshot](https://i.redd.it/sn7joxj4uvey.png)
+![screenshot](https://i.imgur.com/mMGKESZ.jpg)
 ![screenshot](https://thumbs.gfycat.com/CourteousSlimyCanvasback-size_restricted.gif)
 [![youtube](https://i.imgur.com/CjyzZ9t.png)](https://www.youtube.com/watch?v=IMbU8Rjkklg)]
 
