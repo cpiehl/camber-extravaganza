@@ -18,6 +18,22 @@ Adjust camber to try to keep as many wheels green as possible through turns, giv
 
 Once everything is mostly green, add some positive camber to the fronts or rears to tweak balance if necessary.
 
+#### Mod cars
+
+If your target camber is showing 999°, the app can't find data for your car.  You can add it to a custom file `tyre-data-custom.json` that won't be overwritten by updates.
+
+For example, adding [garyjpaterson's Dallara FX17](http://www.racedepartment.com/downloads/dallara-fx-17.13928/) with semislicks (short name "SM") would look like this:
+
+```
+{
+	"dallara_fx17": { 
+		"SM": {"dcamber0": 1.2, "dcamber1": -13.0, "radius": 0.3106}
+	},
+}
+```
+
+More examples can be found in the full `tyres-data.json` file.
+
 ## Calculation Details
 
 Grip in Assetto Corsa is multiplied by a factor determined by camber.
@@ -32,6 +48,6 @@ Peak grip is acheived at roughly -3.3°, but given its quadratic nature not much
 
 ## Installation
 
-1. Save as steamapps\common\assettocorsa\apps\python\camber-extravaganza\camber-extravaganza.py
+1. Save camber-extravaganza.py and tyres-data.json in steamapps\common\assettocorsa\apps\python\camber-extravaganza\
 2. Enable the app in Options > General
 3. Enable the app in-game
