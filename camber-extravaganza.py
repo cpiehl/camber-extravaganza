@@ -33,12 +33,17 @@
 # V1.15 - Draw tires, suspension, chassis, target camber
 #       - UI cleanup, remove some unnecessary options
 #       - Savedata sanitizing
+#
+# V1.16 - FPS fix - Only render when app is activated
+#       - tyres-data.json - Full list of all base and DLC cars' tyre data
+#       - tyres-data-custom.json - Optionally load this file for mod cars
 #############################################################
 
 import ac
 import acsys
 import collections
 import colorsys
+import json
 import math
 import os
 import pickle
@@ -54,20 +59,21 @@ Options = {
 	"drawGraphs": False,
 	"normalize": False,
 	"useSpectrum": True,
-	"alpha": 0.5,       # graph alpha
-	"tireHeight": 50,   # tire height
-	"radScale": 10,     #
-	"graphWidth": 150,  # in pixels, also the number of frames of data to display
-	"graphHeight": 85,  # in pixels
-	"targetCamber": -3, # degrees
-	"tyreCompound": "", # short name
-	"tireRadius": 0.325 # default, in meters
+	"alpha": 0.5,        # graph alpha
+	"tireHeight": 50,    # tire height
+	"radScale": 10,      # scale flapper deflection to this at 2*peak grip
+	"graphWidth": 150,   # in pixels, also the number of frames of data to display
+	"graphHeight": 85,   # in pixels
+	"targetCamber": 999, # degrees
+	"tyreCompound": "",  # short name
+	"tireRadius": 1      # default, in meters
 }
 SavableOptions = [ # Only save these to file
 	"drawGraphs",
 	"normalize",
 	"useSpectrum"
 ]
+doRender = True
 
 
 class CamberIndicator:
@@ -253,6 +259,10 @@ def acMain(ac_version):
 	ac.setBackgroundOpacity(appWindow, 0)
 	ac.setIconPosition(appWindow, 0, -10000)
 
+	# Only enable rendering if app is activated
+	ac.addOnAppActivatedListener(appWindow, onAppActivated)
+	ac.addOnAppDismissedListener(appWindow, onAppDismissed)
+
 	# Target Camber Labels
 	Labels["target"] = ac.addLabel(appWindow, "Target:")
 	ac.setPosition(Labels["target"], 85, 100)
@@ -295,7 +305,10 @@ def acMain(ac_version):
 
 
 def onFormRender(deltaT):
-	global CamberIndicators, Options, Labels, redrawText
+	global doRender, CamberIndicators, Options, Labels, redrawText
+
+	if not doRender:
+		return
 
 	ac.glColor4f(0.9, 0.9, 0.9, 0.9)
 	ac.setText(Labels["targetCamber"], "{0:.1f}°".format(Options["targetCamber"]))
@@ -464,65 +477,42 @@ def updateButtons():
 # Load DCAMBERs and RADIUS
 def loadTireData():
 	global Options
-	tyresDir = os.path.abspath(os.path.join(
-		os.path.dirname(__file__),
-		"../../../sdk/dev/v1.5_tyres_ac"
-	))
-	ac.log(tyresDir)
-	# Check if car is in tyres sdk
-	if os.path.isdir(os.path.join(tyresDir, ac.getCarName(0))):
-		tyresFile = os.path.join(
-			tyresDir,
-			ac.getCarName(0),
-			"data\\tyres.ini"
-		)
-		# If tyres.ini exists, read it
-		tyresFile = os.path.abspath(tyresFile)
-		try:
-			with open(tyresFile, 'r') as f:
-				tyreCompound = ac.getCarTyreCompound(0)
-				compoundFound = False
-				radiusFound = False
-				dcamberFound = [False] * 2
-				for line in f:
-					if not compoundFound:
-						if line.startswith("SHORT_NAME=" + tyreCompound):
-							compoundFound = True
-					else:
-						if line.startswith("DCAMBER_0"):
-							s = line.split(None, 1)[0]
-							dcamber0 = float(s[10:])
-							dcamberFound[0] = True
-						elif line.startswith("DCAMBER_1"):
-							s = line.split(None, 1)[0]
-							dcamber1 = float(s[10:])
-							dcamberFound[1] = True
-						elif line.startswith("RADIUS"):
-							s = line.split(None, 1)[0]
-							Options["tireRadius"] = float(s[7:])
-							radiusFound = True
-					if all(dcamberFound) == True and radiusFound == True:
-						# +Grip% = dcamber1*x^2 + dcamber0*x
-						# x = camber in radians, find x where max grip
-						Options["targetCamber"] = math.degrees(dcamber0 / (2 * dcamber1))
-						break
 
-		except OSError:
-			ac.log("CamberExtravaganza ERROR: loadTireData OSError")
+	try:
+		tyresFile = os.path.join(os.path.dirname(__file__), "tyres-data.json")
+		with open(tyresFile, "r") as f:
+			tyreData = json.load(f)
 
-	# If we can't autoload them, use these preloaded values
-	# These were manually extracted from the car's data.acd and thus may
-	#   become out of date eventually.
-	elif ac.getCarName(0) == "ks_maserati_levante":
-		ac.console("Loaded tire data for ks_maserati_levante")
-		Options["tireRadius"] = 0.373
-		Options["targetCamber"] = math.degrees(1.1 / (2 * -13))
-	elif ac.getCarName(0) == "ks_porsche_cayenne":
-		ac.console("Loaded tire data for ks_porsche_cayenne")
-		Options["tireRadius"] = 0.3696
-		Options["targetCamber"] = math.degrees(1.1 / (2 * -13))
+	except OSError:
+		ac.log("CamberExtravaganza ERROR: loadTireData tyres-data.json not found")
+
 	else:
-		ac.log("CamberExtravaganza ERROR: loadTireData: No tyres.ini found")
+		try:
+			carName = ac.getCarName(0)
+			tyreCompound = ac.getCarTyreCompound(0)
+			Options["tireRadius"] = tyreData[carName][tyreCompound]["radius"]
+			dcamber0 = tyreData[carName][tyreCompound]["dcamber0"]
+			dcamber1 = tyreData[carName][tyreCompound]["dcamber1"]
+			Options["targetCamber"] = math.degrees(dcamber0 / (2 * dcamber1))
+			ac.console("Tyre data found for " + carName + " " + tyreCompound)
+
+		except KeyError: # Doesn't exist in official, look for custom data
+			try:
+				tyresFile = os.path.join(os.path.dirname(__file__), "tyres-data-custom.json")
+				with open(tyresFile, "r") as f:
+					tyreData = json.load(f)
+					Options["tireRadius"] = tyreData[carName][tyreCompound]["radius"]
+					dcamber0 = tyreData[carName][tyreCompound]["dcamber0"]
+					dcamber1 = tyreData[carName][tyreCompound]["dcamber1"]
+					Options["targetCamber"] = math.degrees(dcamber0 / (2 * dcamber1))
+
+			except (OSError, KeyError) as e:
+				Options["tireRadius"] = 1
+				Options["targetCamber"] = 999
+				ac.log("CamberExtravaganza ERROR: loadTireData: No custom tyre data found for this car")
+
+			else:
+				ac.console("Custom tyre data found for " + carName + " " + tyreCompound)
 
 
 def saveOptions():
@@ -547,3 +537,13 @@ def loadOptions():
 					Options[key] = datum
 	except IOError:
 		ac.log("CamberExtravaganza ERROR: loadOptions IOError")
+
+
+def onAppActivated():
+	global doRender
+	doRender = True
+
+
+def onAppDismissed():
+	global doRender
+	doRender = False
