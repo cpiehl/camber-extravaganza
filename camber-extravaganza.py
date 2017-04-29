@@ -5,9 +5,7 @@
 # https://github.com/cpiehl/camber-extravaganza
 #
 # TODO:
-#   - scale each wheel based on weight distribution?
 #   - multi-language support
-#   - support the rest of the cars not in sdk
 #
 # Changelog:
 #
@@ -37,6 +35,9 @@
 # V1.16 - FPS fix - Only render when app is activated
 #       - tyres-data.json - Full list of all base and DLC cars' tyre data
 #       - tyres-data-custom.json - Optionally load this file for mod cars
+#
+# V1.17 - Dynamically factor in weight balance and inside wheel camber grip
+#
 #############################################################
 
 import ac
@@ -65,6 +66,10 @@ Options = {
 	"graphWidth": 150,   # in pixels, also the number of frames of data to display
 	"graphHeight": 85,   # in pixels
 	"targetCamber": 999, # degrees
+	"optimalCamberF": 999, # degrees
+	"optimalCamberR": 999, # degrees
+	"dcamber0": 999,     # initial
+	"dcamber1": -999,    # initial
 	"tyreCompound": "",  # short name
 	"tireRadius": 1      # default, in meters
 }
@@ -94,17 +99,23 @@ class CamberIndicator:
 		ac.setPosition(self.avgValueLabel, x, y + 18)
 
 
-	def setValue(self, value, deltaT):
+	def setValue(self, value, deltaT, optimal):
 		global Options
 		self.value = value
 		deg = math.degrees(self.value)
+		#~ otherdeg = math.degrees(othervalue)
+		#~ diff = deg - otherdeg
 		ac.setText(self.valueLabel,"{0:.3f}°".format(deg))
+		#~ text = getGripFactor(Options["dcamber0"], Options["dcamber1"], value)
+		#~ ac.setText(self.valueLabel,"{0:.1f}%".format(text)
 
-		self.serie.append(deg)
+		self.color = getColor(deg, optimal)
+		self.serie.append({"value":deg,"color":self.color})
 
-		self.color = getColor(deg)
-
-		self.avgValue = sum(self.serie) / len(self.serie)
+		serieSum = 0
+		for s in self.serie:
+			serieSum += s["value"]
+		self.avgValue = serieSum / len(self.serie)
 		ac.setFontColor(self.avgValueLabel,
 			self.color['r'],
 			self.color['g'],
@@ -220,15 +231,16 @@ class CamberIndicator:
 		scalePos = (halfHeight - middleHeight) / self.maxVal
 
 		for i in range(len(self.serie)):
-			color = getColor(self.serie[i])
-			h = max(min(self.maxVal,self.serie[i]),self.minVal)
-			if self.serie[i] > 0:
-				sumPos += self.serie[i]
+			#~ color = getColor(self.serie[i])
+			color = self.serie[i]["color"]
+			h = max(min(self.maxVal,self.serie[i]["value"]),self.minVal)
+			if self.serie[i]["value"] > 0:
+				sumPos += self.serie[i]["value"]
 				countPos += 1
 				h *= scalePos
 				ac.glColor4f(1, 0, 0, 1)
 			else:
-				sumNeg += self.serie[i]
+				sumNeg += self.serie[i]["value"]
 				countNeg += 1
 				h *= scaleNeg
 				ac.glColor4f(1, 1, 1, 1)
@@ -267,9 +279,12 @@ def acMain(ac_version):
 	Labels["target"] = ac.addLabel(appWindow, "Target:")
 	ac.setPosition(Labels["target"], 85, 100)
 	ac.setFontSize(Labels["target"], 10)
-	Labels["targetCamber"] = ac.addLabel(appWindow, "")
-	ac.setPosition(Labels["targetCamber"], 75, 105)
-	ac.setFontSize(Labels["targetCamber"], 24)
+	Labels["targetCamberF"] = ac.addLabel(appWindow, "")
+	ac.setPosition(Labels["targetCamberF"], 75, 76)
+	ac.setFontSize(Labels["targetCamberF"], 24)
+	Labels["targetCamberR"] = ac.addLabel(appWindow, "")
+	ac.setPosition(Labels["targetCamberR"], 75, 105)
+	ac.setFontSize(Labels["targetCamberR"], 24)
 
 	# Options Checkbox
 	CheckBoxes["options"] = ac.addCheckBox(appWindow, "Options")
@@ -311,7 +326,7 @@ def onFormRender(deltaT):
 		return
 
 	ac.glColor4f(0.9, 0.9, 0.9, 0.9)
-	ac.setText(Labels["targetCamber"], "{0:.1f}°".format(Options["targetCamber"]))
+	#~ ac.setText(Labels["targetCamber"], "{0:.1f}°".format(Options["targetCamber"]))
 
 	# Suspension travel to find body position relative to tires
 	radius = Options["tireRadius"]
@@ -373,27 +388,56 @@ def onFormRender(deltaT):
 		CamberIndicators["FR"].drawGraph()
 		CamberIndicators["RL"].drawGraph(flip=True)
 		CamberIndicators["RR"].drawGraph()
-	w,x,y,z = ac.getCarState(0, acsys.CS.CamberRad)
-	CamberIndicators["FL"].setValue(w, deltaT)
-	CamberIndicators["FR"].setValue(x, deltaT)
-	CamberIndicators["RL"].setValue(y, deltaT)
-	CamberIndicators["RR"].setValue(z, deltaT)
 
-	if redrawText:
-		updateTextInputs()
-		redrawText = False
+	flC, frC, rlC, rrC = ac.getCarState(0, acsys.CS.CamberRad)
+	CamberIndicators["FL"].setValue(flC, deltaT, Options["optimalCamberF"])
+	CamberIndicators["FR"].setValue(frC, deltaT, Options["optimalCamberF"])
+	CamberIndicators["RL"].setValue(rlC, deltaT, Options["optimalCamberR"])
+	CamberIndicators["RR"].setValue(rrC, deltaT, Options["optimalCamberR"])
 
+	# Check if tyre compound changed
+	#   Do this better in the future?  Is checking for a pit stop more
+	#   expensive than checking a 2-length string equality? Doubtful
 	tyreCompound = ac.getCarTyreCompound(0)
 	if tyreCompound != Options["tyreCompound"]:
 		loadTireData()
 		Options["tyreCompound"] = tyreCompound
 
+	# Weight Front and Rear by lateral weight transfer
+	filter = 0.97
+	flL, frL, rlL, rrL = ac.getCarState(0, acsys.CS.Load)
 
-def getColor(value):
+	outer = max(flL, frL)
+	inner = min(flL, frL)
+	camberSplit = abs(flC - frC)
+	weightXfer = outer / (inner + outer)
+	# (2*(1-w)*D1*rad(c)-(1-2*w)*D0)/(2*D1)
+	oldTargetCamber = Options["optimalCamberF"]
+	Options["optimalCamberF"] = math.degrees((2 * (1 - weightXfer) * Options["dcamber1"] * math.radians(camberSplit) - (1 - 2 * weightXfer) * Options["dcamber0"]) / (2 * Options["dcamber1"]))
+	Options["optimalCamberF"] = filter * oldTargetCamber + (1 - filter) * Options["optimalCamberF"]
+
+	outer = max(rlL, rrL)
+	inner = min(rlL, rrL)
+	camberSplit = abs(rlC - rrC)
+	weightXfer = outer / (inner + outer)
+	# (2*(1-w)*D1*rad(c)-(1-2*w)*D0)/(2*D1)
+	oldTargetCamber = Options["optimalCamberR"]
+	Options["optimalCamberR"] = math.degrees((2 * (1 - weightXfer) * Options["dcamber1"] * math.radians(camberSplit) - (1 - 2 * weightXfer) * Options["dcamber0"]) / (2 * Options["dcamber1"]))
+	Options["optimalCamberR"] = filter * oldTargetCamber + (1 - filter) * Options["optimalCamberR"]
+
+	ac.setText(Labels["targetCamberF"], "{0:.1f}°".format(Options["optimalCamberF"]))
+	ac.setText(Labels["targetCamberR"], "{0:.1f}°".format(Options["optimalCamberR"]))
+
+	if redrawText:
+		updateTextInputs()
+		redrawText = False
+
+
+def getColor(value, optimal):
 	global Options
 	color = {}
 	scale = 0.5 # adjusts width of green, calculate this better later
-	d = (value - Options["targetCamber"]) * scale
+	d = (value - optimal) * scale
 	if Options["useSpectrum"] is True:
 		H = max(0, min(1, 0.6 - d)) * 0.625  # 0.625 = hue 225°, #0040FF
 		S = 0.9
@@ -494,6 +538,8 @@ def loadTireData():
 			dcamber0 = tyreData[carName][tyreCompound]["dcamber0"]
 			dcamber1 = tyreData[carName][tyreCompound]["dcamber1"]
 			Options["targetCamber"] = math.degrees(dcamber0 / (2 * dcamber1))
+			Options["dcamber0"] = dcamber0
+			Options["dcamber1"] = dcamber1
 			ac.console("Tyre data found for " + carName + " " + tyreCompound)
 
 		except KeyError: # Doesn't exist in official, look for custom data
@@ -505,10 +551,14 @@ def loadTireData():
 					dcamber0 = tyreData[carName][tyreCompound]["dcamber0"]
 					dcamber1 = tyreData[carName][tyreCompound]["dcamber1"]
 					Options["targetCamber"] = math.degrees(dcamber0 / (2 * dcamber1))
+					Options["dcamber0"] = dcamber0
+					Options["dcamber1"] = dcamber1
 
 			except (OSError, KeyError) as e:
 				Options["tireRadius"] = 1
 				Options["targetCamber"] = 999
+				Options["dcamber0"] = 999
+				Options["dcamber1"] = -999
 				ac.log("CamberExtravaganza ERROR: loadTireData: No custom tyre data found for this car")
 
 			else:
