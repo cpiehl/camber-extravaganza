@@ -70,6 +70,7 @@ Options = {
 	"optimalCamberR": 999, # degrees
 	"dcamber0": 999,     # initial
 	"dcamber1": -999,    # initial
+	"LS_EXPY": 1,        # tire load sensitivity exponent
 	"tyreCompound": "",  # short name
 	"tireRadius": 1      # default, in meters
 }
@@ -90,7 +91,7 @@ class CamberIndicator:
 		self.avgValue = 0
 		self.color = {'r':1,'g':1,'b':1,'a':1}
 		self.serie = collections.deque(maxlen=Options["graphWidth"])
-		self.minVal = Options["targetCamber"] * 1.5
+		self.minVal = 6
 		self.maxVal = 1.5
 
 		self.valueLabel = ac.addLabel(appWindow, "0.0°")
@@ -131,7 +132,8 @@ class CamberIndicator:
 		x = self.xPosition + 25
 		y = self.yPosition
 		#~ rad = self.value * Options["radScale"]
-		rad = self.value * Options["radScale"] / (2 * -Options["targetCamber"])
+		#~ rad = self.value * Options["radScale"] / (2 * -Options["targetCamber"])
+		rad = self.value
 		if flip:
 			#~ x = self.xPosition + 50
 			rad = math.pi - rad
@@ -256,7 +258,10 @@ class CamberIndicator:
 			self.maxVal = avgPos * 1.5
 			self.minVal = avgNeg * 1.5
 		else:
-			self.minVal = Options["targetCamber"] * 1.5
+			if 0 != Options["targetCamber"]:
+				self.minVal = Options["targetCamber"] * 1.5
+			else:
+				self.minVal = 6
 			self.maxVal = 1.5
 
 
@@ -396,8 +401,6 @@ def onFormRender(deltaT):
 	CamberIndicators["RR"].setValue(rrC, deltaT, Options["optimalCamberR"])
 
 	# Check if tyre compound changed
-	#   Do this better in the future?  Is checking for a pit stop more
-	#   expensive than checking a 2-length string equality? Doubtful
 	tyreCompound = ac.getCarTyreCompound(0)
 	if tyreCompound != Options["tyreCompound"]:
 		loadTireData()
@@ -407,19 +410,25 @@ def onFormRender(deltaT):
 	filter = 0.97
 	flL, frL, rlL, rrL = ac.getCarState(0, acsys.CS.Load)
 
-	outer = max(flL, frL)
+	outer = max(0.001, flL, frL)
 	inner = min(flL, frL)
 	camberSplit = abs(flC - frC)
-	weightXfer = outer / (inner + outer)
+	# DY_LS_FL = DY_REF * pow(TIRE_LOAD_FL / FZ0, LS_EXPY)
+	ls_outer = pow(outer, Options["LS_EXPY"])
+	ls_inner = pow(inner, Options["LS_EXPY"])
+	weightXfer = ls_outer / (ls_inner + ls_outer)
 	# (2*(1-w)*D1*rad(c)-(1-2*w)*D0)/(2*D1)
 	oldTargetCamber = Options["optimalCamberF"]
 	Options["optimalCamberF"] = math.degrees((2 * (1 - weightXfer) * Options["dcamber1"] * math.radians(camberSplit) - (1 - 2 * weightXfer) * Options["dcamber0"]) / (2 * Options["dcamber1"]))
 	Options["optimalCamberF"] = filter * oldTargetCamber + (1 - filter) * Options["optimalCamberF"]
 
-	outer = max(rlL, rrL)
+	outer = max(0.001, rlL, rrL)
 	inner = min(rlL, rrL)
 	camberSplit = abs(rlC - rrC)
-	weightXfer = outer / (inner + outer)
+	# DY_LS_FL = DY_REF * pow(TIRE_LOAD_FL / FZ0, LS_EXPY)
+	ls_outer = pow(outer, Options["LS_EXPY"])
+	ls_inner = pow(inner, Options["LS_EXPY"])
+	weightXfer = ls_outer / (ls_inner + ls_outer)
 	# (2*(1-w)*D1*rad(c)-(1-2*w)*D0)/(2*D1)
 	oldTargetCamber = Options["optimalCamberR"]
 	Options["optimalCamberR"] = math.degrees((2 * (1 - weightXfer) * Options["dcamber1"] * math.radians(camberSplit) - (1 - 2 * weightXfer) * Options["dcamber0"]) / (2 * Options["dcamber1"]))
@@ -540,6 +549,7 @@ def loadTireData():
 			Options["targetCamber"] = math.degrees(dcamber0 / (2 * dcamber1))
 			Options["dcamber0"] = dcamber0
 			Options["dcamber1"] = dcamber1
+			Options["LS_EXPY"] = tyreData[carName][tyreCompound]["ls_expy"]
 			ac.console("Tyre data found for " + carName + " " + tyreCompound)
 
 		except KeyError: # Doesn't exist in official, look for custom data
@@ -553,12 +563,14 @@ def loadTireData():
 					Options["targetCamber"] = math.degrees(dcamber0 / (2 * dcamber1))
 					Options["dcamber0"] = dcamber0
 					Options["dcamber1"] = dcamber1
+					Options["LS_EXPY"] = tyreData[carName][tyreCompound]["ls_expy"]
 
 			except (OSError, KeyError) as e:
 				Options["tireRadius"] = 1
 				Options["targetCamber"] = 999
 				Options["dcamber0"] = 999
 				Options["dcamber1"] = -999
+				Options["LS_EXPY"] = 1
 				ac.log("CamberExtravaganza ERROR: loadTireData: No custom tyre data found for this car")
 
 			else:
