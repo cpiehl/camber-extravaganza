@@ -1,2000 +1,2544 @@
 {
-  "mclaren_mp412c": {
+  "abarth500": {
     "SM": {
       "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3455
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.3455
-    }
-  },
-  "ks_porsche_718_cayman_s": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.347
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.347
-    }
-  },
-  "lotus_exige_s": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.321
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.321
-    }
-  },
-  "lotus_exige_240_s3": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.31715
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.318
-    }
-  },
-  "ks_porsche_911_rsr_2017": {
-    "SS": {
-      "dcamber0": 1.65,
-      "dcamber1": -14,
-      "radius": 0.355
-    },
-    "H": {
-      "dcamber0": 1.65,
-      "dcamber1": -14,
-      "radius": 0.355
-    },
-    "S": {
-      "dcamber0": 1.65,
-      "dcamber1": -14,
-      "radius": 0.355
-    },
-    "SH": {
-      "dcamber0": 1.65,
-      "dcamber1": -14,
-      "radius": 0.355
-    },
-    "M": {
-      "dcamber0": 1.65,
-      "dcamber1": -14,
-      "radius": 0.355
-    }
-  },
-  "ks_mclaren_p1": {
-    "HR": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3485
-    },
-    "I": {
-      "dcamber0": 1.5,
-      "dcamber1": -13,
-      "radius": 0.3485
-    }
-  },
-  "ks_porsche_991_turbo_s": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.346
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.346
-    }
-  },
-  "ks_mercedes_190_evo2": {
-    "H": {
-      "dcamber0": 1.3,
-      "dcamber1": -15,
-      "radius": 0.3225
-    },
-    "S": {
-      "dcamber0": 1.3,
-      "dcamber1": -15,
-      "radius": 0.3225
-    },
-    "M": {
-      "dcamber0": 1.3,
-      "dcamber1": -15,
-      "radius": 0.3225
-    }
-  },
-  "pagani_zonda_r": {
-    "H": {
-      "dcamber0": 1.6,
-      "dcamber1": -13,
-      "radius": 0.3525
-    },
-    "S": {
-      "dcamber0": 1.6,
-      "dcamber1": -13,
-      "radius": 0.3525
-    },
-    "M": {
-      "dcamber0": 1.6,
-      "dcamber1": -13,
-      "radius": 0.3525
-    }
-  },
-  "ks_porsche_911_gt3_rs": {
-    "HR": {
-      "dcamber0": 1.2,
-      "dcamber1": -12,
-      "radius": 0.362
-    }
-  },
-  "ks_ruf_rt12r": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3455
-    }
-  },
-  "ks_mclaren_650_gt3": {
-    "H": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.3525
-    },
-    "S": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.3525
-    },
-    "M": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.3525
-    }
-  },
-  "lotus_evora_gx": {
-    "H": {
-      "dcamber0": 1.65,
-      "dcamber1": -14,
-      "radius": 0.355
-    },
-    "S": {
-      "dcamber0": 1.65,
-      "dcamber1": -14,
-      "radius": 0.355
-    },
-    "M": {
-      "dcamber0": 1.65,
-      "dcamber1": -14,
-      "radius": 0.355
-    }
-  },
-  "ks_porsche_908_lh": {
-    "V": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3302
-    }
-  },
-  "tatuusfa1": {
-    "H": {
-      "dcamber0": 1.5,
-      "dcamber1": -13,
-      "radius": 0.285
-    },
-    "S": {
-      "dcamber0": 1.5,
-      "dcamber1": -13,
-      "radius": 0.285
-    },
-    "M": {
-      "dcamber0": 1.5,
-      "dcamber1": -13,
-      "radius": 0.285
-    }
-  },
-  "ks_alfa_romeo_4c": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3235
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.3235
-    }
-  },
-  "ferrari_312t": {
-    "H": {
-      "dcamber0": 1.3,
-      "dcamber1": -12,
-      "radius": 0.33
-    },
-    "S": {
-      "dcamber0": 1.3,
-      "dcamber1": -12,
-      "radius": 0.33
-    }
-  },
-  "ks_toyota_supra_mkiv_drift": {
-    "SV": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.3179
-    },
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3179
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.3179
-    }
-  },
-  "ks_bmw_m4": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.33755
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.33755
-    }
-  },
-  "ks_porsche_911_r": {
-    "HR": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3455
-    }
-  },
-  "ks_audi_sport_quattro": {
-    "SV": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.296
-    },
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.296
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.296
-    }
-  },
-  "ks_praga_r1": {
-    "H": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.305
-    },
-    "S": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.305
-    },
-    "M": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.305
-    }
-  },
-  "ks_porsche_macan": {
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.373
-    }
-  },
-  "lotus_elise_sc_s1": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.31715
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.318
-    }
-  },
-  "ks_porsche_917_k": {
-    "V": {
-      "dcamber0": 0,
-      "dcamber1": -0,
-      "radius": 0.3302
-    }
-  },
-  "lotus_evora_s": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3365
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.3365
-    }
-  },
-  "ks_porsche_911_gt3_cup_2017": {
-    "H": {
-      "dcamber0": 2.3,
-      "dcamber1": -13,
-      "radius": 0.355
-    }
-  },
-  "ks_toyota_ae86_drift": {
-    "SV": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.2888
-    },
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.293
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.293
-    }
-  },
-  "bmw_m3_e92": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.33405
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.33405
-    }
-  },
-  "shelby_cobra_427sc": {
-    "V": {
-      "dcamber0": 0,
-      "dcamber1": -3,
-      "radius": 0.333
-    }
-  },
-  "ks_toyota_supra_mkiv": {
-    "SV": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.3179
-    },
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3179
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.3179
-    }
-  },
-  "ks_ferrari_fxx_k": {
-    "H": {
-      "dcamber0": 1.6,
-      "dcamber1": -13,
-      "radius": 0.3625
-    },
-    "S": {
-      "dcamber0": 1.6,
-      "dcamber1": -13,
-      "radius": 0.3625
-    },
-    "M": {
-      "dcamber0": 1.6,
-      "dcamber1": -13,
-      "radius": 0.3625
-    }
-  },
-  "ks_porsche_917_30": {
-    "V": {
-      "dcamber0": 0,
-      "dcamber1": -0,
-      "radius": 0.3556
-    }
-  },
-  "ks_lotus_25": {
-    "V": {
-      "dcamber0": 0,
-      "dcamber1": -4,
-      "radius": 0.348
-    }
-  },
-  "ks_porsche_935_78_moby_dick": {
-    "V78": {
-      "dcamber0": 1.1,
-      "dcamber1": -7,
-      "radius": 0.35
-    }
-  },
-  "ks_porsche_962c_shorttail": {
-    "H": {
-      "dcamber0": 1.1,
-      "dcamber1": -12,
-      "radius": 0.325
-    },
-    "S": {
-      "dcamber0": 1.1,
-      "dcamber1": -12,
-      "radius": 0.325
-    },
-    "M": {
-      "dcamber0": 1.1,
-      "dcamber1": -12,
-      "radius": 0.325
-    }
-  },
-  "ks_maserati_250f_12cyl": {
-    "V": {
-      "dcamber0": 0,
-      "dcamber1": -4,
-      "radius": 0.3585
-    }
-  },
-  "ks_nissan_370z": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.34455
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.34455
-    }
-  },
-  "ks_porsche_cayenne": {
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.3696
-    }
-  },
-  "lotus_exige_v6_cup": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.321
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.321
-    }
-  },
-  "ks_maserati_levante": {
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.373
-    }
-  },
-  "ferrari_laferrari": {
-    "HR": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3575
-    },
-    "I": {
-      "dcamber0": 1.5,
-      "dcamber1": -13,
-      "radius": 0.3575
-    }
-  },
-  "pagani_huayra": {
-    "HR": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3545
-    },
-    "I": {
-      "dcamber0": 1.5,
-      "dcamber1": -13,
-      "radius": 0.3545
-    }
-  },
-  "lotus_exige_240": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.31715
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.318
-    }
-  },
-  "bmw_m3_e30_gra": {
-    "H": {
-      "dcamber0": 1.3,
-      "dcamber1": -15,
-      "radius": 0.3225
-    },
-    "S": {
-      "dcamber0": 1.3,
-      "dcamber1": -15,
-      "radius": 0.3225
-    },
-    "M": {
-      "dcamber0": 1.3,
-      "dcamber1": -15,
-      "radius": 0.3225
-    }
-  },
-  "lotus_exige_scura": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.31715
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.318
-    }
-  },
-  "bmw_m3_e92_s1": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.33405
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.33405
-    }
-  },
-  "ks_ruf_rt12r_awd": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3455
-    }
-  },
-  "ks_mclaren_f1_gtr": {
-    "H": {
-      "dcamber0": 1.1,
-      "dcamber1": -12,
-      "radius": 0.355
-    },
-    "S": {
-      "dcamber0": 1.1,
-      "dcamber1": -12,
-      "radius": 0.355
-    },
-    "M": {
-      "dcamber0": 1.1,
-      "dcamber1": -12,
-      "radius": 0.355
-    }
-  },
-  "bmw_1m_s3": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.33405
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.33405
-    }
-  },
-  "ks_porsche_962c_longtail": {
-    "H": {
-      "dcamber0": 1.1,
-      "dcamber1": -12,
-      "radius": 0.34
-    },
-    "S": {
-      "dcamber0": 1.1,
-      "dcamber1": -12,
-      "radius": 0.34
-    },
-    "M": {
-      "dcamber0": 1.1,
-      "dcamber1": -12,
-      "radius": 0.34
-    }
-  },
-  "ks_porsche_991_carrera_s": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.346
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.346
-    }
-  },
-  "lotus_exos_125_s1": {
-    "SS": {
-      "dcamber0": 1.4,
-      "dcamber1": -13,
-      "radius": 0.325
-    },
-    "H": {
-      "dcamber0": 1.4,
-      "dcamber1": -13,
-      "radius": 0.325
-    },
-    "S": {
-      "dcamber0": 1.4,
-      "dcamber1": -13,
-      "radius": 0.325
-    },
-    "M": {
-      "dcamber0": 1.4,
-      "dcamber1": -13,
-      "radius": 0.325
-    }
-  },
-  "bmw_m3_e30_s1": {
-    "SV": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.30445
-    },
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.30445
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.30445
-    }
-  },
-  "ks_mazda_mx5_nd": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8071,
       "radius": 0.30815
     },
     "ST": {
       "dcamber0": 1.1,
-      "dcamber1": -13,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8179,
       "radius": 0.30815
-    }
-  },
-  "ks_porsche_718_spyder_rs": {
-    "V": {
-      "dcamber0": 0,
-      "dcamber1": -4,
-      "radius": 0.313
-    }
-  },
-  "ks_bmw_m235i_racing": {
-    "H": {
-      "dcamber0": 2,
-      "dcamber1": -13,
-      "radius": 0.33
-    },
-    "M": {
-      "dcamber0": 2,
-      "dcamber1": -13,
-      "radius": 0.33
-    }
-  },
-  "bmw_m3_e30_dtm": {
-    "H": {
-      "dcamber0": 1.3,
-      "dcamber1": -15,
-      "radius": 0.3225
-    },
-    "S": {
-      "dcamber0": 1.3,
-      "dcamber1": -15,
-      "radius": 0.3225
-    },
-    "M": {
-      "dcamber0": 1.3,
-      "dcamber1": -15,
-      "radius": 0.3225
-    }
-  },
-  "ks_abarth500_assetto_corse": {
-    "H": {
-      "dcamber0": 1.7,
-      "dcamber1": -8,
-      "radius": 0.305
-    }
-  },
-  "ks_porsche_911_gt1": {
-    "H": {
-      "dcamber0": 1.1,
-      "dcamber1": -12,
-      "radius": 0.354
-    },
-    "S": {
-      "dcamber0": 1.1,
-      "dcamber1": -12,
-      "radius": 0.354
-    },
-    "M": {
-      "dcamber0": 1.1,
-      "dcamber1": -12,
-      "radius": 0.354
-    }
-  },
-  "ks_audi_a1s1": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.30735
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.30735
-    }
-  },
-  "lotus_2_eleven_gt4": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.31715
-    }
-  },
-  "ks_porsche_cayman_gt4_clubsport": {
-    "H": {
-      "dcamber0": 2,
-      "dcamber1": -13,
-      "radius": 0.3405
-    }
-  },
-  "ferrari_f40_s3": {
-    "H": {
-      "dcamber0": 1.1,
-      "dcamber1": -12,
-      "radius": 0.333
-    },
-    "M": {
-      "dcamber0": 1.1,
-      "dcamber1": -12,
-      "radius": 0.333
-    },
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.333
-    }
-  },
-  "ks_mazda_787b": {
-    "H": {
-      "dcamber0": 1.1,
-      "dcamber1": -12,
-      "radius": 0.355
-    },
-    "S": {
-      "dcamber0": 1.1,
-      "dcamber1": -12,
-      "radius": 0.355
-    },
-    "M": {
-      "dcamber0": 1.1,
-      "dcamber1": -12,
-      "radius": 0.355
-    }
-  },
-  "ks_corvette_c7r": {
-    "SS": {
-      "dcamber0": 1.65,
-      "dcamber1": -14,
-      "radius": 0.355
-    },
-    "H": {
-      "dcamber0": 1.65,
-      "dcamber1": -14,
-      "radius": 0.355
-    },
-    "S": {
-      "dcamber0": 1.65,
-      "dcamber1": -14,
-      "radius": 0.355
-    },
-    "SH": {
-      "dcamber0": 1.65,
-      "dcamber1": -14,
-      "radius": 0.355
-    },
-    "M": {
-      "dcamber0": 1.65,
-      "dcamber1": -14,
-      "radius": 0.355
-    }
-  },
-  "ks_lamborghini_gallardo_sl_s3": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3298
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.3298
-    }
-  },
-  "ks_toyota_supra_mkiv_tuned": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.33755
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.33755
-    }
-  },
-  "ks_ford_escort_mk1": {
-    "V70": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.288
-    }
-  },
-  "ks_lamborghini_huracan_st": {
-    "H": {
-      "dcamber0": 2,
-      "dcamber1": -13,
-      "radius": 0.355
-    },
-    "S": {
-      "dcamber0": 2,
-      "dcamber1": -13,
-      "radius": 0.355
-    },
-    "M": {
-      "dcamber0": 2,
-      "dcamber1": -13,
-      "radius": 0.355
-    }
-  },
-  "ferrari_458": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.35725
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.35725
-    }
-  },
-  "ks_ferrari_f138": {
-    "SS": {
-      "dcamber0": 1.4,
-      "dcamber1": -13,
-      "radius": 0.33
-    },
-    "H": {
-      "dcamber0": 1.4,
-      "dcamber1": -13,
-      "radius": 0.33
-    },
-    "S": {
-      "dcamber0": 1.4,
-      "dcamber1": -13,
-      "radius": 0.33
-    },
-    "M": {
-      "dcamber0": 1.4,
-      "dcamber1": -13,
-      "radius": 0.33
-    }
-  },
-  "ks_bmw_m4_akrapovic": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.33755
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.33755
-    }
-  },
-  "ks_nissan_gtr": {
-    "HR": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3535
-    }
-  },
-  "ks_porsche_panamera": {
-    "HR": {
-      "dcamber0": 1.2,
-      "dcamber1": -12,
-      "radius": 0.364
-    }
-  },
-  "ks_nissan_skyline_r34": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3266
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.3266
-    }
-  },
-  "bmw_z4_gt3": {
-    "H": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.3525
-    },
-    "S": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.3525
-    },
-    "M": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.3525
-    }
-  },
-  "ks_audi_r8_plus": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3298
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.3298
-    }
-  },
-  "ks_lamborghini_countach_s1": {
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.3115
-    },
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3115
-    },
-    "V": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.3115
-    }
-  },
-  "bmw_1m": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.33405
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.33405
-    }
-  },
-  "ks_alfa_romeo_155_v6": {
-    "H": {
-      "dcamber0": 1.3,
-      "dcamber1": -15,
-      "radius": 0.3325
-    },
-    "S": {
-      "dcamber0": 1.3,
-      "dcamber1": -15,
-      "radius": 0.3325
-    },
-    "M": {
-      "dcamber0": 1.3,
-      "dcamber1": -15,
-      "radius": 0.3325
-    }
-  },
-  "ferrari_458_s3": {
-    "H": {
-      "dcamber0": 2,
-      "dcamber1": -13,
-      "radius": 0.35725
-    },
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.35725
-    }
-  },
-  "alfa_romeo_giulietta_qv": {
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.3205
-    }
-  },
-  "ks_corvette_c7_stingray": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3395
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.3395
-    }
-  },
-  "lotus_elise_sc": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.31715
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.318
-    }
-  },
-  "ks_mazda_mx5_cup": {
-    "H": {
-      "dcamber0": 1.7,
-      "dcamber1": -8,
-      "radius": 0.305
-    }
-  },
-  "ks_mazda_miata": {
-    "SV": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.2888
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.2888
-    }
-  },
-  "ks_audi_sport_quattro_rally": {
-    "H": {
-      "dcamber0": 1.2,
-      "dcamber1": -15,
-      "radius": 0.32
-    }
-  },
-  "ks_abarth_595ss_s2": {
-    "V": {
-      "dcamber0": 0,
-      "dcamber1": -3,
-      "radius": 0.247
-    }
-  },
-  "ks_abarth_595ss_s1": {
-    "V": {
-      "dcamber0": 0,
-      "dcamber1": -3,
-      "radius": 0.247
-    }
-  },
-  "lotus_2_eleven": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.31715
-    }
-  },
-  "ks_abarth_595ss": {
-    "V": {
-      "dcamber0": 0,
-      "dcamber1": -3,
-      "radius": 0.247
-    }
-  },
-  "ktm_xbow_r": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3178
-    }
-  },
-  "ks_alfa_romeo_gta": {
-    "V": {
-      "dcamber0": 0,
-      "dcamber1": -14,
-      "radius": 0.31
-    }
-  },
-  "ks_toyota_ae86": {
-    "SV": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.2888
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.2888
-    }
-  },
-  "p4-5_2011": {
-    "SS": {
-      "dcamber0": 1.65,
-      "dcamber1": -14,
-      "radius": 0.355
-    },
-    "H": {
-      "dcamber0": 1.65,
-      "dcamber1": -14,
-      "radius": 0.355
-    },
-    "S": {
-      "dcamber0": 1.65,
-      "dcamber1": -14,
-      "radius": 0.355
-    },
-    "SH": {
-      "dcamber0": 1.65,
-      "dcamber1": -14,
-      "radius": 0.355
-    },
-    "M": {
-      "dcamber0": 1.65,
-      "dcamber1": -14,
-      "radius": 0.355
-    }
-  },
-  "ks_lamborghini_miura_sv": {
-    "V": {
-      "dcamber0": 1,
-      "dcamber1": -13,
-      "radius": 0.3435
-    }
-  },
-  "ks_lamborghini_aventador_sv": {
-    "HR": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.35545
-    },
-    "I": {
-      "dcamber0": 1.5,
-      "dcamber1": -13,
-      "radius": 0.35545
-    }
-  },
-  "ks_porsche_718_boxster_s": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.347
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.347
-    }
-  },
-  "lotus_evora_s_s2": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3365
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.3365
-    }
-  },
-  "lotus_exos_125": {
-    "M": {
-      "dcamber0": 1.4,
-      "dcamber1": -13,
-      "radius": 0.325
     }
   },
   "abarth500_s1": {
     "SM": {
       "dcamber0": 1.2,
-      "dcamber1": -13,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8071,
       "radius": 0.30815
     },
     "ST": {
       "dcamber0": 1.1,
-      "dcamber1": -13,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8179,
       "radius": 0.30815
+    }
+  },
+  "acc_dodge_charger_rt_426_hemi": {
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8071,
+      "radius": 0.3428
+    }
+  },
+  "acc_dodge_charger_rt_440_magnum": {
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8071,
+      "radius": 0.3428
+    }
+  },
+  "alfa_romeo_giulietta_qv": {
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8341,
+      "radius": 0.3205
     }
   },
   "alfa_romeo_giulietta_qv_le": {
     "ST": {
       "dcamber0": 1.1,
-      "dcamber1": -13,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8341,
       "radius": 0.3205
     }
   },
-  "lotus_98t": {
-    "Q": {
-      "dcamber0": 1,
-      "dcamber1": -12,
-      "radius": 0.33
-    },
-    "H": {
-      "dcamber0": 1,
-      "dcamber1": -12,
-      "radius": 0.33
-    },
-    "S": {
-      "dcamber0": 1,
-      "dcamber1": -12,
-      "radius": 0.33
-    },
-    "M": {
-      "dcamber0": 1,
-      "dcamber1": -12,
-      "radius": 0.33
-    }
-  },
-  "mercedes_sls": {
+  "bmw_1m": {
     "SM": {
       "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3425
+      "dcamber1": -13.0,
+      "ls_expy": 0.8374,
+      "radius": 0.33405
     },
     "ST": {
       "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.3425
+      "dcamber1": -13.0,
+      "ls_expy": 0.8482,
+      "radius": 0.33405
     }
   },
-  "ks_porsche_cayman_gt4_std": {
+  "bmw_1m_s3": {
     "SM": {
       "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3405
-    }
-  },
-  "ks_porsche_911_gt3_r_2016": {
-    "H": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.355
-    },
-    "S": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.355
-    },
-    "M": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.355
-    }
-  },
-  "lotus_elise_sc_s2": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.31715
+      "dcamber1": -13.0,
+      "ls_expy": 0.8374,
+      "radius": 0.33405
     },
     "ST": {
       "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.318
+      "dcamber1": -13.0,
+      "ls_expy": 0.8482,
+      "radius": 0.33405
     }
   },
-  "ruf_yellowbird": {
+  "bmw_m3_e30": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8243,
+      "radius": 0.30445
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8351,
+      "radius": 0.30445
+    },
     "SV": {
       "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.3179
-    },
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3179
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.3179
-    }
-  },
-  "ks_mercedes_amg_gt3": {
-    "H": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.3525
-    },
-    "S": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.3525
-    },
-    "M": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.3525
-    }
-  },
-  "ks_lamborghini_gallardo_sl": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3298
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.3298
-    }
-  },
-  "ks_nissan_gtr_gt3": {
-    "H": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.355
-    },
-    "S": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.355
-    },
-    "M": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.355
-    }
-  },
-  "ks_maserati_gt_mc_gt4": {
-    "H": {
-      "dcamber0": 2,
-      "dcamber1": -13,
-      "radius": 0.3525
+      "dcamber1": -13.0,
+      "ls_expy": 0.7351,
+      "radius": 0.30445
     }
   },
   "bmw_m3_e30_drift": {
-    "SV": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.30445
-    },
     "SM": {
       "dcamber0": 1.2,
-      "dcamber1": -13,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8243,
       "radius": 0.30445
     },
     "ST": {
       "dcamber0": 1.1,
-      "dcamber1": -13,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8351,
+      "radius": 0.30445
+    },
+    "SV": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7351,
       "radius": 0.30445
     }
   },
-  "ks_mazda_rx7_tuned": {
-    "SV": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.3179
-    },
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3179
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.3179
-    }
-  },
-  "mercedes_sls_gt3": {
+  "bmw_m3_e30_dtm": {
     "H": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.355
+      "dcamber0": 1.3,
+      "dcamber1": -15.0,
+      "ls_expy": 0.7641,
+      "radius": 0.3225
+    },
+    "M": {
+      "dcamber0": 1.3,
+      "dcamber1": -15.0,
+      "ls_expy": 0.7641,
+      "radius": 0.3225
     },
     "S": {
+      "dcamber0": 1.3,
+      "dcamber1": -15.0,
+      "ls_expy": 0.7641,
+      "radius": 0.3225
+    }
+  },
+  "bmw_m3_e30_gra": {
+    "H": {
+      "dcamber0": 1.3,
+      "dcamber1": -15.0,
+      "ls_expy": 0.7641,
+      "radius": 0.3225
+    },
+    "M": {
+      "dcamber0": 1.3,
+      "dcamber1": -15.0,
+      "ls_expy": 0.7641,
+      "radius": 0.3225
+    },
+    "S": {
+      "dcamber0": 1.3,
+      "dcamber1": -15.0,
+      "ls_expy": 0.7641,
+      "radius": 0.3225
+    }
+  },
+  "bmw_m3_e30_s1": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8243,
+      "radius": 0.30445
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8351,
+      "radius": 0.30445
+    },
+    "SV": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7351,
+      "radius": 0.30445
+    }
+  },
+  "bmw_m3_e92": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8374,
+      "radius": 0.33405
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8482,
+      "radius": 0.33405
+    }
+  },
+  "bmw_m3_e92_drift": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8374,
+      "radius": 0.33405
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8482,
+      "radius": 0.33405
+    }
+  },
+  "bmw_m3_e92_s1": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8374,
+      "radius": 0.33405
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8482,
+      "radius": 0.33405
+    }
+  },
+  "bmw_m3_gt2": {
+    "H": {
       "dcamber0": 1.65,
-      "dcamber1": -13,
+      "dcamber1": -14.0,
+      "ls_expy": 0.8095,
       "radius": 0.355
     },
     "M": {
       "dcamber0": 1.65,
-      "dcamber1": -13,
+      "dcamber1": -14.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "S": {
+      "dcamber0": 1.65,
+      "dcamber1": -14.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "SH": {
+      "dcamber0": 1.65,
+      "dcamber1": -14.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "SS": {
+      "dcamber0": 1.65,
+      "dcamber1": -14.0,
+      "ls_expy": 0.8095,
       "radius": 0.355
     }
   },
   "bmw_z4": {
     "SM": {
       "dcamber0": 1.2,
-      "dcamber1": -13,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8374,
       "radius": 0.33405
     },
     "ST": {
       "dcamber0": 1.1,
-      "dcamber1": -13,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8482,
       "radius": 0.33405
-    }
-  },
-  "ferrari_599xxevo": {
-    "H": {
-      "dcamber0": 1.6,
-      "dcamber1": -13,
-      "radius": 0.355
-    },
-    "S": {
-      "dcamber0": 1.6,
-      "dcamber1": -13,
-      "radius": 0.355
-    },
-    "M": {
-      "dcamber0": 1.6,
-      "dcamber1": -13,
-      "radius": 0.355
-    }
-  },
-  "ks_alfa_mito_qv": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3126
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.3126
-    }
-  },
-  "ks_mazda_rx7_spirit_r": {
-    "SV": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.3179
-    },
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3179
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.3179
-    }
-  },
-  "ks_ferrari_488_gtb": {
-    "HR": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3455
-    }
-  },
-  "lotus_exige_s_roadster": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.321
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.321
-    }
-  },
-  "ks_porsche_911_carrera_rsr": {
-    "V70": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.313
-    }
-  },
-  "ferrari_f40": {
-    "SV": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.333
-    },
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.333
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.333
-    }
-  },
-  "ferrari_458_gt2": {
-    "SS": {
-      "dcamber0": 1.65,
-      "dcamber1": -14,
-      "radius": 0.355
-    },
-    "H": {
-      "dcamber0": 1.65,
-      "dcamber1": -14,
-      "radius": 0.355
-    },
-    "S": {
-      "dcamber0": 1.65,
-      "dcamber1": -14,
-      "radius": 0.355
-    },
-    "SH": {
-      "dcamber0": 1.65,
-      "dcamber1": -14,
-      "radius": 0.355
-    },
-    "M": {
-      "dcamber0": 1.65,
-      "dcamber1": -14,
-      "radius": 0.355
-    }
-  },
-  "ks_lamborghini_countach": {
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.3115
-    },
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3115
-    },
-    "V": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.3115
-    }
-  },
-  "bmw_z4_s1": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.33405
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.33405
-    }
-  },
-  "ks_toyota_ae86_tuned": {
-    "SV": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.2888
-    },
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.293
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.293
-    }
-  },
-  "abarth500": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.30815
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.30815
-    }
-  },
-  "lotus_evora_gte_carbon": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3365
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.3365
-    }
-  },
-  "ks_maserati_250f_6cyl": {
-    "V": {
-      "dcamber0": 0,
-      "dcamber1": -4,
-      "radius": 0.3585
-    }
-  },
-  "ks_ford_mustang_2015": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3513
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.3513
-    }
-  },
-  "ks_audi_r8_lms": {
-    "H": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.355
-    },
-    "S": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.355
-    },
-    "M": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.355
-    }
-  },
-  "ks_lamborghini_huracan_gt3": {
-    "H": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.3525
-    },
-    "S": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.3525
-    },
-    "M": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.3525
-    }
-  },
-  "ks_toyota_gt86": {
-    "E": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.3126
-    },
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3126
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.3126
-    }
-  },
-  "ks_audi_sport_quattro_s1": {
-    "SV": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.296
-    },
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.296
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.296
-    }
-  },
-  "mclaren_mp412c_gt3": {
-    "H": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.355
-    },
-    "S": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.355
-    },
-    "M": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.355
-    }
-  },
-  "ks_ford_gt40": {
-    "V": {
-      "dcamber0": 0,
-      "dcamber1": -3,
-      "radius": 0.34
-    }
-  },
-  "lotus_evora_gte": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3365
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.3365
-    }
-  },
-  "lotus_evora_gtc": {
-    "H": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.325
-    },
-    "S": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.325
-    },
-    "M": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.325
-    }
-  },
-  "ks_ferrari_488_gt3": {
-    "H": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.355
-    },
-    "S": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.355
-    },
-    "M": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.355
-    }
-  },
-  "ks_glickenhaus_scg003": {
-    "H": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.355
-    },
-    "S": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.355
-    },
-    "M": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.355
-    }
-  },
-  "ks_ferrari_sf15t": {
-    "SS": {
-      "dcamber0": 1.4,
-      "dcamber1": -13,
-      "radius": 0.33
-    },
-    "H": {
-      "dcamber0": 1.4,
-      "dcamber1": -13,
-      "radius": 0.33
-    },
-    "S": {
-      "dcamber0": 1.4,
-      "dcamber1": -13,
-      "radius": 0.33
-    },
-    "M": {
-      "dcamber0": 1.4,
-      "dcamber1": -13,
-      "radius": 0.33
-    }
-  },
-  "bmw_m3_e92_drift": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.33405
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.33405
-    }
-  },
-  "ks_mercedes_c9": {
-    "H": {
-      "dcamber0": 1.1,
-      "dcamber1": -12,
-      "radius": 0.37
-    },
-    "S": {
-      "dcamber0": 1.1,
-      "dcamber1": -12,
-      "radius": 0.37
-    },
-    "M": {
-      "dcamber0": 1.1,
-      "dcamber1": -12,
-      "radius": 0.37
-    }
-  },
-  "bmw_m3_gt2": {
-    "SS": {
-      "dcamber0": 1.65,
-      "dcamber1": -14,
-      "radius": 0.355
-    },
-    "H": {
-      "dcamber0": 1.65,
-      "dcamber1": -14,
-      "radius": 0.355
-    },
-    "S": {
-      "dcamber0": 1.65,
-      "dcamber1": -14,
-      "radius": 0.355
-    },
-    "SH": {
-      "dcamber0": 1.65,
-      "dcamber1": -14,
-      "radius": 0.355
-    },
-    "M": {
-      "dcamber0": 1.65,
-      "dcamber1": -14,
-      "radius": 0.355
-    }
-  },
-  "lotus_49": {
-    "V": {
-      "dcamber0": 0,
-      "dcamber1": -3,
-      "radius": 0.34
-    }
-  },
-  "ks_porsche_919_hybrid_2016": {
-    "H": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.355
-    },
-    "S": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.355
-    },
-    "M": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.355
-    }
-  },
-  "ks_porsche_919_hybrid_2015": {
-    "H": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.355
-    },
-    "S": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.355
-    },
-    "M": {
-      "dcamber0": 1.65,
-      "dcamber1": -13,
-      "radius": 0.355
-    }
-  },
-  "ks_porsche_718_boxster_s_pdk": {
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.347
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.347
-    }
-  },
-  "bmw_m3_e30": {
-    "SV": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.30445
-    },
-    "SM": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.30445
-    },
-    "ST": {
-      "dcamber0": 1.1,
-      "dcamber1": -13,
-      "radius": 0.30445
-    }
-  },
-  "ks_porsche_918_spyder": {
-    "HR": {
-      "dcamber0": 1.2,
-      "dcamber1": -13,
-      "radius": 0.3645
-    },
-    "I": {
-      "dcamber0": 1.5,
-      "dcamber1": -13,
-      "radius": 0.3645
-    }
-  },
-  "ks_lotus_72d": {
-    "H": {
-      "dcamber0": 1.3,
-      "dcamber1": -12,
-      "radius": 0.33
-    },
-    "S": {
-      "dcamber0": 1.3,
-      "dcamber1": -12,
-      "radius": 0.33
     }
   },
   "bmw_z4_drift": {
     "SM": {
       "dcamber0": 1.2,
-      "dcamber1": -13,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8374,
       "radius": 0.33405
     },
     "ST": {
       "dcamber0": 1.1,
-      "dcamber1": -13,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8482,
       "radius": 0.33405
+    }
+  },
+  "bmw_z4_gt3": {
+    "H": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8022,
+      "radius": 0.3525
+    },
+    "M": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8022,
+      "radius": 0.3525
+    },
+    "S": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8022,
+      "radius": 0.3525
+    }
+  },
+  "bmw_z4_s1": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8374,
+      "radius": 0.33405
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8482,
+      "radius": 0.33405
+    }
+  },
+  "dallara_fx17": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.81,
+      "radius": 0.3106
+    }
+  },
+  "ferrari_312t": {
+    "H": {
+      "dcamber0": 1.3,
+      "dcamber1": -12.0,
+      "ls_expy": 0.8286,
+      "radius": 0.33
+    },
+    "S": {
+      "dcamber0": 1.3,
+      "dcamber1": -12.0,
+      "ls_expy": 0.8286,
+      "radius": 0.33
+    }
+  },
+  "ferrari_458": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8639,
+      "radius": 0.35725
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8747,
+      "radius": 0.35725
+    }
+  },
+  "ferrari_458_gt2": {
+    "H": {
+      "dcamber0": 1.65,
+      "dcamber1": -14.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "M": {
+      "dcamber0": 1.65,
+      "dcamber1": -14.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "S": {
+      "dcamber0": 1.65,
+      "dcamber1": -14.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "SH": {
+      "dcamber0": 1.65,
+      "dcamber1": -14.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "SS": {
+      "dcamber0": 1.65,
+      "dcamber1": -14.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    }
+  },
+  "ferrari_458_s3": {
+    "H": {
+      "dcamber0": 2.0,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7819,
+      "radius": 0.35725
+    },
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8639,
+      "radius": 0.35725
+    }
+  },
+  "ferrari_599xxevo": {
+    "H": {
+      "dcamber0": 1.6,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7847,
+      "radius": 0.355
+    },
+    "M": {
+      "dcamber0": 1.6,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7847,
+      "radius": 0.355
+    },
+    "S": {
+      "dcamber0": 1.6,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7847,
+      "radius": 0.355
+    }
+  },
+  "ferrari_f40": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8858,
+      "radius": 0.333
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8966,
+      "radius": 0.333
+    },
+    "SV": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7966,
+      "radius": 0.333
+    }
+  },
+  "ferrari_f40_s3": {
+    "H": {
+      "dcamber0": 1.1,
+      "dcamber1": -12.0,
+      "ls_expy": 0.8482,
+      "radius": 0.333
+    },
+    "M": {
+      "dcamber0": 1.1,
+      "dcamber1": -12.0,
+      "ls_expy": 0.8482,
+      "radius": 0.333
+    },
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8858,
+      "radius": 0.333
+    }
+  },
+  "ferrari_laferrari": {
+    "HR": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8839,
+      "radius": 0.3575
+    },
+    "I": {
+      "dcamber0": 1.5,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7826,
+      "radius": 0.3575
+    }
+  },
+  "ks_abarth500_assetto_corse": {
+    "H": {
+      "dcamber0": 1.7,
+      "dcamber1": -8.0,
+      "ls_expy": 0.7072,
+      "radius": 0.305
+    }
+  },
+  "ks_abarth_595ss": {
+    "V": {
+      "dcamber0": 0.0,
+      "dcamber1": -3.0,
+      "ls_expy": 0.4529,
+      "radius": 0.247
+    }
+  },
+  "ks_abarth_595ss_s1": {
+    "V": {
+      "dcamber0": 0.0,
+      "dcamber1": -3.0,
+      "ls_expy": 0.4529,
+      "radius": 0.247
+    }
+  },
+  "ks_abarth_595ss_s2": {
+    "V": {
+      "dcamber0": 0.0,
+      "dcamber1": -3.0,
+      "ls_expy": 0.4529,
+      "radius": 0.247
+    }
+  },
+  "ks_alfa_mito_qv": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8119,
+      "radius": 0.3126
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8227,
+      "radius": 0.3126
+    }
+  },
+  "ks_alfa_romeo_155_v6": {
+    "H": {
+      "dcamber0": 1.3,
+      "dcamber1": -15.0,
+      "ls_expy": 0.7641,
+      "radius": 0.3325
+    },
+    "M": {
+      "dcamber0": 1.3,
+      "dcamber1": -15.0,
+      "ls_expy": 0.7641,
+      "radius": 0.3325
+    },
+    "S": {
+      "dcamber0": 1.3,
+      "dcamber1": -15.0,
+      "ls_expy": 0.7641,
+      "radius": 0.3325
+    }
+  },
+  "ks_alfa_romeo_4c": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8186,
+      "radius": 0.3235
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8294,
+      "radius": 0.3235
+    }
+  },
+  "ks_alfa_romeo_gta": {
+    "V": {
+      "dcamber0": 0.0,
+      "dcamber1": -14.0,
+      "ls_expy": 0.6301,
+      "radius": 0.31
+    }
+  },
+  "ks_audi_a1s1": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8074,
+      "radius": 0.30735
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8182,
+      "radius": 0.30735
+    }
+  },
+  "ks_audi_r18_etron_quattro": {
+    "H": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8895,
+      "radius": 0.355
+    },
+    "M": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8495,
+      "radius": 0.355
+    },
+    "S": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8895,
+      "radius": 0.355
+    }
+  },
+  "ks_audi_r8_lms": {
+    "H": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "M": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "S": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    }
+  },
+  "ks_audi_r8_lms_2016": {
+    "H": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "M": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "S": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    }
+  },
+  "ks_audi_r8_plus": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8461,
+      "radius": 0.3298
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8569,
+      "radius": 0.3298
+    }
+  },
+  "ks_audi_sport_quattro": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8346,
+      "radius": 0.296
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8454,
+      "radius": 0.296
+    },
+    "SV": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7454,
+      "radius": 0.296
+    }
+  },
+  "ks_audi_sport_quattro_rally": {
+    "H": {
+      "dcamber0": 1.2,
+      "dcamber1": -15.0,
+      "ls_expy": 0.7641,
+      "radius": 0.32
+    }
+  },
+  "ks_audi_sport_quattro_s1": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8346,
+      "radius": 0.296
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8454,
+      "radius": 0.296
+    },
+    "SV": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7454,
+      "radius": 0.296
+    }
+  },
+  "ks_audi_tt_cup": {
+    "H": {
+      "dcamber0": 2.3,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7673,
+      "radius": 0.33
+    },
+    "M": {
+      "dcamber0": 2.3,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7673,
+      "radius": 0.33
+    }
+  },
+  "ks_audi_tt_vln": {
+    "H": {
+      "dcamber0": 1.65,
+      "dcamber1": -14.0,
+      "ls_expy": 0.7697,
+      "radius": 0.33
+    },
+    "M": {
+      "dcamber0": 1.65,
+      "dcamber1": -14.0,
+      "ls_expy": 0.7697,
+      "radius": 0.33
+    },
+    "S": {
+      "dcamber0": 1.65,
+      "dcamber1": -14.0,
+      "ls_expy": 0.7697,
+      "radius": 0.33
+    }
+  },
+  "ks_bmw_m235i_racing": {
+    "H": {
+      "dcamber0": 2.0,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7673,
+      "radius": 0.33
+    },
+    "M": {
+      "dcamber0": 2.0,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7673,
+      "radius": 0.33
+    }
+  },
+  "ks_bmw_m4": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8407,
+      "radius": 0.33755
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8515,
+      "radius": 0.33755
+    }
+  },
+  "ks_bmw_m4_akrapovic": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8407,
+      "radius": 0.33755
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8515,
+      "radius": 0.33755
+    }
+  },
+  "ks_corvette_c7_stingray": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8407,
+      "radius": 0.3395
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8515,
+      "radius": 0.3395
+    }
+  },
+  "ks_corvette_c7r": {
+    "H": {
+      "dcamber0": 1.65,
+      "dcamber1": -14.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "M": {
+      "dcamber0": 1.65,
+      "dcamber1": -14.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "S": {
+      "dcamber0": 1.65,
+      "dcamber1": -14.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "SH": {
+      "dcamber0": 1.65,
+      "dcamber1": -14.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "SS": {
+      "dcamber0": 1.65,
+      "dcamber1": -14.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    }
+  },
+  "ks_ferrari_488_gt3": {
+    "H": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "M": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "S": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    }
+  },
+  "ks_ferrari_488_gtb": {
+    "HR": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8528,
+      "radius": 0.3455
+    }
+  },
+  "ks_ferrari_f138": {
+    "H": {
+      "dcamber0": 1.4,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8,
+      "radius": 0.33
+    },
+    "M": {
+      "dcamber0": 1.4,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8,
+      "radius": 0.33
+    },
+    "S": {
+      "dcamber0": 1.4,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8,
+      "radius": 0.33
+    },
+    "SS": {
+      "dcamber0": 1.4,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8,
+      "radius": 0.33
+    }
+  },
+  "ks_ferrari_fxx_k": {
+    "H": {
+      "dcamber0": 1.6,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8013,
+      "radius": 0.3625
+    },
+    "M": {
+      "dcamber0": 1.6,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8013,
+      "radius": 0.3625
+    },
+    "S": {
+      "dcamber0": 1.6,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8013,
+      "radius": 0.3625
+    }
+  },
+  "ks_ferrari_sf15t": {
+    "H": {
+      "dcamber0": 1.4,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8,
+      "radius": 0.33
+    },
+    "M": {
+      "dcamber0": 1.4,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8,
+      "radius": 0.33
+    },
+    "S": {
+      "dcamber0": 1.4,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8,
+      "radius": 0.33
+    },
+    "SS": {
+      "dcamber0": 1.4,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8,
+      "radius": 0.33
+    }
+  },
+  "ks_ford_escort_mk1": {
+    "V70": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7213,
+      "radius": 0.288
+    }
+  },
+  "ks_ford_gt40": {
+    "V": {
+      "dcamber0": 0.0,
+      "dcamber1": -3.0,
+      "ls_expy": 0.8583,
+      "radius": 0.34
+    }
+  },
+  "ks_ford_mustang_2015": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.846,
+      "radius": 0.3513
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8568,
+      "radius": 0.3513
+    }
+  },
+  "ks_glickenhaus_scg003": {
+    "H": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "M": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "S": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    }
+  },
+  "ks_lamborghini_aventador_sv": {
+    "HR": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8729,
+      "radius": 0.35545
+    },
+    "I": {
+      "dcamber0": 1.5,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7826,
+      "radius": 0.35545
+    }
+  },
+  "ks_lamborghini_countach": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.9183,
+      "radius": 0.3115
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.9291,
+      "radius": 0.3115
+    },
+    "V": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7454,
+      "radius": 0.3115
+    }
+  },
+  "ks_lamborghini_countach_s1": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.9183,
+      "radius": 0.3115
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.9291,
+      "radius": 0.3115
+    },
+    "V": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7454,
+      "radius": 0.3115
+    }
+  },
+  "ks_lamborghini_gallardo_sl": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8461,
+      "radius": 0.3298
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8569,
+      "radius": 0.3298
+    }
+  },
+  "ks_lamborghini_gallardo_sl_s3": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8461,
+      "radius": 0.3298
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8569,
+      "radius": 0.3298
+    }
+  },
+  "ks_lamborghini_huracan_gt3": {
+    "H": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8044,
+      "radius": 0.3525
+    },
+    "M": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8044,
+      "radius": 0.3525
+    },
+    "S": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8044,
+      "radius": 0.3525
+    }
+  },
+  "ks_lamborghini_huracan_st": {
+    "H": {
+      "dcamber0": 2.0,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7917,
+      "radius": 0.355
+    },
+    "M": {
+      "dcamber0": 2.0,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7917,
+      "radius": 0.355
+    },
+    "S": {
+      "dcamber0": 2.0,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7917,
+      "radius": 0.355
+    }
+  },
+  "ks_lamborghini_miura_sv": {
+    "V": {
+      "dcamber0": 1.0,
+      "dcamber1": -13.0,
+      "ls_expy": 0.89,
+      "radius": 0.3435
+    }
+  },
+  "ks_lotus_25": {
+    "V": {
+      "dcamber0": 0.0,
+      "dcamber1": -4.0,
+      "ls_expy": 0.71,
+      "radius": 0.348
+    }
+  },
+  "ks_lotus_3_eleven": {
+    "HR": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8493,
+      "radius": 0.33755
+    },
+    "I": {
+      "dcamber0": 1.6,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7645,
+      "radius": 0.33755
+    }
+  },
+  "ks_lotus_72d": {
+    "H": {
+      "dcamber0": 1.3,
+      "dcamber1": -12.0,
+      "ls_expy": 0.8286,
+      "radius": 0.33
+    },
+    "S": {
+      "dcamber0": 1.3,
+      "dcamber1": -12.0,
+      "ls_expy": 0.8286,
+      "radius": 0.33
+    }
+  },
+  "ks_maserati_250f_12cyl": {
+    "V": {
+      "dcamber0": 0.0,
+      "dcamber1": -4.0,
+      "ls_expy": 0.74,
+      "radius": 0.3585
+    }
+  },
+  "ks_maserati_250f_6cyl": {
+    "V": {
+      "dcamber0": 0.0,
+      "dcamber1": -4.0,
+      "ls_expy": 0.72,
+      "radius": 0.3585
+    }
+  },
+  "ks_maserati_gt_mc_gt4": {
+    "H": {
+      "dcamber0": 2.0,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8113,
+      "radius": 0.3525
+    }
+  },
+  "ks_maserati_levante": {
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.853,
+      "radius": 0.373
+    }
+  },
+  "ks_maserati_mc12_gt1": {
+    "H": {
+      "dcamber0": 1.6,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8158,
+      "radius": 0.355
+    },
+    "M": {
+      "dcamber0": 1.6,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8158,
+      "radius": 0.355
+    },
+    "S": {
+      "dcamber0": 1.6,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8158,
+      "radius": 0.355
+    }
+  },
+  "ks_mazda_787b": {
+    "H": {
+      "dcamber0": 1.1,
+      "dcamber1": -12.0,
+      "ls_expy": 0.8226,
+      "radius": 0.355
+    },
+    "M": {
+      "dcamber0": 1.1,
+      "dcamber1": -12.0,
+      "ls_expy": 0.8226,
+      "radius": 0.355
+    },
+    "S": {
+      "dcamber0": 1.1,
+      "dcamber1": -12.0,
+      "ls_expy": 0.8226,
+      "radius": 0.355
+    }
+  },
+  "ks_mazda_miata": {
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8227,
+      "radius": 0.2888
+    },
+    "SV": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7227,
+      "radius": 0.2888
+    }
+  },
+  "ks_mazda_mx5_cup": {
+    "H": {
+      "dcamber0": 1.7,
+      "dcamber1": -8.0,
+      "ls_expy": 0.7094,
+      "radius": 0.305
+    }
+  },
+  "ks_mazda_mx5_nd": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8135,
+      "radius": 0.30815
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8243,
+      "radius": 0.30815
+    }
+  },
+  "ks_mazda_rx7_spirit_r": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8444,
+      "radius": 0.3179
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8552,
+      "radius": 0.3179
+    },
+    "SV": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7552,
+      "radius": 0.3179
+    }
+  },
+  "ks_mazda_rx7_tuned": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8444,
+      "radius": 0.3179
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8552,
+      "radius": 0.3179
+    },
+    "SV": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7552,
+      "radius": 0.3179
+    }
+  },
+  "ks_mclaren_570s": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8467,
+      "radius": 0.354
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8575,
+      "radius": 0.353
+    }
+  },
+  "ks_mclaren_650_gt3": {
+    "H": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8044,
+      "radius": 0.3525
+    },
+    "M": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8044,
+      "radius": 0.3525
+    },
+    "S": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8044,
+      "radius": 0.3525
+    }
+  },
+  "ks_mclaren_f1_gtr": {
+    "H": {
+      "dcamber0": 1.1,
+      "dcamber1": -12.0,
+      "ls_expy": 0.8447,
+      "radius": 0.355
+    },
+    "M": {
+      "dcamber0": 1.1,
+      "dcamber1": -12.0,
+      "ls_expy": 0.8447,
+      "radius": 0.355
+    },
+    "S": {
+      "dcamber0": 1.1,
+      "dcamber1": -12.0,
+      "ls_expy": 0.8447,
+      "radius": 0.355
+    }
+  },
+  "ks_mclaren_p1": {
+    "HR": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8658,
+      "radius": 0.3485
+    },
+    "I": {
+      "dcamber0": 1.5,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7826,
+      "radius": 0.3485
+    }
+  },
+  "ks_mclaren_p1_gtr": {
+    "H": {
+      "dcamber0": 1.6,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8013,
+      "radius": 0.3625
+    },
+    "M": {
+      "dcamber0": 1.6,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8013,
+      "radius": 0.3625
+    },
+    "S": {
+      "dcamber0": 1.6,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8013,
+      "radius": 0.3625
+    }
+  },
+  "ks_mercedes_190_evo2": {
+    "H": {
+      "dcamber0": 1.3,
+      "dcamber1": -15.0,
+      "ls_expy": 0.7641,
+      "radius": 0.3225
+    },
+    "M": {
+      "dcamber0": 1.3,
+      "dcamber1": -15.0,
+      "ls_expy": 0.7641,
+      "radius": 0.3225
+    },
+    "S": {
+      "dcamber0": 1.3,
+      "dcamber1": -15.0,
+      "ls_expy": 0.7641,
+      "radius": 0.3225
+    }
+  },
+  "ks_mercedes_amg_gt3": {
+    "H": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8044,
+      "radius": 0.3525
+    },
+    "M": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8044,
+      "radius": 0.3525
+    },
+    "S": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8044,
+      "radius": 0.3525
+    }
+  },
+  "ks_mercedes_c9": {
+    "H": {
+      "dcamber0": 1.1,
+      "dcamber1": -12.0,
+      "ls_expy": 0.8197,
+      "radius": 0.37
+    },
+    "M": {
+      "dcamber0": 1.1,
+      "dcamber1": -12.0,
+      "ls_expy": 0.8197,
+      "radius": 0.37
+    },
+    "S": {
+      "dcamber0": 1.1,
+      "dcamber1": -12.0,
+      "ls_expy": 0.8197,
+      "radius": 0.37
+    }
+  },
+  "ks_nissan_370z": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8551,
+      "radius": 0.34455
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8659,
+      "radius": 0.34455
+    }
+  },
+  "ks_nissan_gtr": {
+    "HR": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.854,
+      "radius": 0.3535
+    }
+  },
+  "ks_nissan_gtr_gt3": {
+    "H": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8067,
+      "radius": 0.355
+    },
+    "M": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8067,
+      "radius": 0.355
+    },
+    "S": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8067,
+      "radius": 0.355
+    }
+  },
+  "ks_nissan_skyline_r34": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8293,
+      "radius": 0.3266
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8401,
+      "radius": 0.3266
+    }
+  },
+  "ks_porsche_718_boxster_s": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8461,
+      "radius": 0.347
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8569,
+      "radius": 0.347
+    }
+  },
+  "ks_porsche_718_boxster_s_pdk": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8461,
+      "radius": 0.347
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8569,
+      "radius": 0.347
+    }
+  },
+  "ks_porsche_718_cayman_s": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8461,
+      "radius": 0.347
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8569,
+      "radius": 0.347
+    }
+  },
+  "ks_porsche_718_spyder_rs": {
+    "V": {
+      "dcamber0": 0.0,
+      "dcamber1": -4.0,
+      "ls_expy": 0.72,
+      "radius": 0.313
+    }
+  },
+  "ks_porsche_908_lh": {
+    "V": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8032,
+      "radius": 0.3302
+    }
+  },
+  "ks_porsche_911_carrera_rsr": {
+    "V70": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7435,
+      "radius": 0.313
+    }
+  },
+  "ks_porsche_911_gt1": {
+    "H": {
+      "dcamber0": 1.1,
+      "dcamber1": -12.0,
+      "ls_expy": 0.8292,
+      "radius": 0.354
+    },
+    "M": {
+      "dcamber0": 1.1,
+      "dcamber1": -12.0,
+      "ls_expy": 0.8292,
+      "radius": 0.354
+    },
+    "S": {
+      "dcamber0": 1.1,
+      "dcamber1": -12.0,
+      "ls_expy": 0.8292,
+      "radius": 0.354
+    }
+  },
+  "ks_porsche_911_gt3_cup_2017": {
+    "H": {
+      "dcamber0": 2.3,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    }
+  },
+  "ks_porsche_911_gt3_r_2016": {
+    "H": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "M": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "S": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    }
+  },
+  "ks_porsche_911_gt3_rs": {
+    "HR": {
+      "dcamber0": 1.2,
+      "dcamber1": -12.0,
+      "ls_expy": 0.8637,
+      "radius": 0.362
+    }
+  },
+  "ks_porsche_911_r": {
+    "HR": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8528,
+      "radius": 0.3455
+    }
+  },
+  "ks_porsche_911_rsr_2017": {
+    "H": {
+      "dcamber0": 1.65,
+      "dcamber1": -14.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "M": {
+      "dcamber0": 1.65,
+      "dcamber1": -14.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "S": {
+      "dcamber0": 1.65,
+      "dcamber1": -14.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "SH": {
+      "dcamber0": 1.65,
+      "dcamber1": -14.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "SS": {
+      "dcamber0": 1.65,
+      "dcamber1": -14.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    }
+  },
+  "ks_porsche_917_30": {
+    "V": {
+      "dcamber0": 0.0,
+      "dcamber1": -0.0,
+      "ls_expy": 0.8546,
+      "radius": 0.3556
+    }
+  },
+  "ks_porsche_917_k": {
+    "V": {
+      "dcamber0": 0.0,
+      "dcamber1": -0.0,
+      "ls_expy": 0.8745,
+      "radius": 0.3302
+    }
+  },
+  "ks_porsche_918_spyder": {
+    "HR": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8725,
+      "radius": 0.3645
+    },
+    "I": {
+      "dcamber0": 1.5,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7826,
+      "radius": 0.3645
+    }
+  },
+  "ks_porsche_919_hybrid_2015": {
+    "H": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8495,
+      "radius": 0.355
+    },
+    "M": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8495,
+      "radius": 0.355
+    },
+    "S": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8495,
+      "radius": 0.355
+    }
+  },
+  "ks_porsche_919_hybrid_2016": {
+    "H": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8895,
+      "radius": 0.355
+    },
+    "M": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8495,
+      "radius": 0.355
+    },
+    "S": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8895,
+      "radius": 0.355
+    }
+  },
+  "ks_porsche_935_78_moby_dick": {
+    "V78": {
+      "dcamber0": 1.1,
+      "dcamber1": -7.0,
+      "ls_expy": 0.8076,
+      "radius": 0.35
+    }
+  },
+  "ks_porsche_962c_longtail": {
+    "H": {
+      "dcamber0": 1.1,
+      "dcamber1": -12.0,
+      "ls_expy": 0.8263,
+      "radius": 0.34
+    },
+    "M": {
+      "dcamber0": 1.1,
+      "dcamber1": -12.0,
+      "ls_expy": 0.8263,
+      "radius": 0.34
+    },
+    "S": {
+      "dcamber0": 1.1,
+      "dcamber1": -12.0,
+      "ls_expy": 0.8263,
+      "radius": 0.34
+    }
+  },
+  "ks_porsche_962c_shorttail": {
+    "H": {
+      "dcamber0": 1.1,
+      "dcamber1": -12.0,
+      "ls_expy": 0.8279,
+      "radius": 0.325
+    },
+    "M": {
+      "dcamber0": 1.1,
+      "dcamber1": -12.0,
+      "ls_expy": 0.8279,
+      "radius": 0.325
+    },
+    "S": {
+      "dcamber0": 1.1,
+      "dcamber1": -12.0,
+      "ls_expy": 0.8279,
+      "radius": 0.325
+    }
+  },
+  "ks_porsche_991_carrera_s": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8528,
+      "radius": 0.346
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8636,
+      "radius": 0.346
+    }
+  },
+  "ks_porsche_991_turbo_s": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8528,
+      "radius": 0.346
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8636,
+      "radius": 0.346
+    }
+  },
+  "ks_porsche_cayenne": {
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8662,
+      "radius": 0.3696
+    }
+  },
+  "ks_porsche_cayman_gt4_clubsport": {
+    "H": {
+      "dcamber0": 2.0,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7799,
+      "radius": 0.3405
+    }
+  },
+  "ks_porsche_cayman_gt4_std": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8467,
+      "radius": 0.3405
+    }
+  },
+  "ks_porsche_macan": {
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8806,
+      "radius": 0.373
+    }
+  },
+  "ks_porsche_panamera": {
+    "HR": {
+      "dcamber0": 1.2,
+      "dcamber1": -12.0,
+      "ls_expy": 0.8639,
+      "radius": 0.364
+    }
+  },
+  "ks_praga_r1": {
+    "H": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7571,
+      "radius": 0.305
+    },
+    "M": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7571,
+      "radius": 0.305
+    },
+    "S": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7571,
+      "radius": 0.305
+    }
+  },
+  "ks_ruf_rt12r": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8544,
+      "radius": 0.3455
+    }
+  },
+  "ks_ruf_rt12r_awd": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8544,
+      "radius": 0.3455
+    }
+  },
+  "ks_toyota_ae86": {
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.82,
+      "radius": 0.2888
+    },
+    "SV": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.72,
+      "radius": 0.2888
+    }
+  },
+  "ks_toyota_ae86_drift": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8146,
+      "radius": 0.293
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8254,
+      "radius": 0.293
+    },
+    "SV": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.72,
+      "radius": 0.2888
+    }
+  },
+  "ks_toyota_ae86_tuned": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8146,
+      "radius": 0.293
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8254,
+      "radius": 0.293
+    },
+    "SV": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.72,
+      "radius": 0.2888
+    }
+  },
+  "ks_toyota_celica_st185": {
+    "H": {
+      "dcamber0": 1.3,
+      "dcamber1": -15.0,
+      "ls_expy": 0.7641,
+      "radius": 0.3225
+    },
+    "M": {
+      "dcamber0": 1.3,
+      "dcamber1": -15.0,
+      "ls_expy": 0.7641,
+      "radius": 0.3225
+    },
+    "S": {
+      "dcamber0": 1.3,
+      "dcamber1": -15.0,
+      "ls_expy": 0.7641,
+      "radius": 0.3225
+    }
+  },
+  "ks_toyota_gt86": {
+    "E": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7227,
+      "radius": 0.3126
+    },
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8119,
+      "radius": 0.3126
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8227,
+      "radius": 0.3126
+    }
+  },
+  "ks_toyota_supra_mkiv": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8444,
+      "radius": 0.3179
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8552,
+      "radius": 0.3179
+    },
+    "SV": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7552,
+      "radius": 0.3179
+    }
+  },
+  "ks_toyota_supra_mkiv_drift": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8444,
+      "radius": 0.3179
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8552,
+      "radius": 0.3179
+    },
+    "SV": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7552,
+      "radius": 0.3179
+    }
+  },
+  "ks_toyota_supra_mkiv_tuned": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8407,
+      "radius": 0.33755
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8515,
+      "radius": 0.33755
+    }
+  },
+  "ks_toyota_ts040": {
+    "H": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8895,
+      "radius": 0.355
+    },
+    "M": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8495,
+      "radius": 0.355
+    },
+    "S": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8895,
+      "radius": 0.355
+    }
+  },
+  "ktm_xbow_r": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8303,
+      "radius": 0.3178
+    }
+  },
+  "lotus_2_eleven": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8233,
+      "radius": 0.31715
+    }
+  },
+  "lotus_2_eleven_gt4": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8233,
+      "radius": 0.31715
+    }
+  },
+  "lotus_49": {
+    "V": {
+      "dcamber0": 0.0,
+      "dcamber1": -3.0,
+      "ls_expy": 0.8524,
+      "radius": 0.34
+    }
+  },
+  "lotus_98t": {
+    "H": {
+      "dcamber0": 1.0,
+      "dcamber1": -12.0,
+      "ls_expy": 0.7986,
+      "radius": 0.33
+    },
+    "M": {
+      "dcamber0": 1.0,
+      "dcamber1": -12.0,
+      "ls_expy": 0.7986,
+      "radius": 0.33
+    },
+    "Q": {
+      "dcamber0": 1.0,
+      "dcamber1": -12.0,
+      "ls_expy": 0.7986,
+      "radius": 0.33
+    },
+    "S": {
+      "dcamber0": 1.0,
+      "dcamber1": -12.0,
+      "ls_expy": 0.7986,
+      "radius": 0.33
+    }
+  },
+  "lotus_elise_sc": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8233,
+      "radius": 0.31715
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8341,
+      "radius": 0.318
+    }
+  },
+  "lotus_elise_sc_s1": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8233,
+      "radius": 0.31715
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8341,
+      "radius": 0.318
+    }
+  },
+  "lotus_elise_sc_s2": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8233,
+      "radius": 0.31715
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8341,
+      "radius": 0.318
+    }
+  },
+  "lotus_evora_gtc": {
+    "H": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7698,
+      "radius": 0.325
+    },
+    "M": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7698,
+      "radius": 0.325
+    },
+    "S": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7698,
+      "radius": 0.325
+    }
+  },
+  "lotus_evora_gte": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8342,
+      "radius": 0.3365
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.845,
+      "radius": 0.3365
+    }
+  },
+  "lotus_evora_gte_carbon": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8342,
+      "radius": 0.3365
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.845,
+      "radius": 0.3365
+    }
+  },
+  "lotus_evora_gx": {
+    "H": {
+      "dcamber0": 1.65,
+      "dcamber1": -14.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "M": {
+      "dcamber0": 1.65,
+      "dcamber1": -14.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "S": {
+      "dcamber0": 1.65,
+      "dcamber1": -14.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    }
+  },
+  "lotus_evora_s": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8342,
+      "radius": 0.3365
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.845,
+      "radius": 0.3365
+    }
+  },
+  "lotus_evora_s_s2": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8342,
+      "radius": 0.3365
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.845,
+      "radius": 0.3365
+    }
+  },
+  "lotus_exige_240": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8233,
+      "radius": 0.31715
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8341,
+      "radius": 0.318
+    }
+  },
+  "lotus_exige_240_s3": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8233,
+      "radius": 0.31715
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8341,
+      "radius": 0.318
+    }
+  },
+  "lotus_exige_s": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8365,
+      "radius": 0.321
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8473,
+      "radius": 0.321
+    }
+  },
+  "lotus_exige_s_roadster": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8365,
+      "radius": 0.321
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8473,
+      "radius": 0.321
+    }
+  },
+  "lotus_exige_scura": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8233,
+      "radius": 0.31715
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8341,
+      "radius": 0.318
+    }
+  },
+  "lotus_exige_v6_cup": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8365,
+      "radius": 0.321
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8473,
+      "radius": 0.321
+    }
+  },
+  "lotus_exos_125": {
+    "M": {
+      "dcamber0": 1.4,
+      "dcamber1": -13.0,
+      "ls_expy": 0.76,
+      "radius": 0.325
+    }
+  },
+  "lotus_exos_125_s1": {
+    "H": {
+      "dcamber0": 1.4,
+      "dcamber1": -13.0,
+      "ls_expy": 0.76,
+      "radius": 0.325
+    },
+    "M": {
+      "dcamber0": 1.4,
+      "dcamber1": -13.0,
+      "ls_expy": 0.76,
+      "radius": 0.325
+    },
+    "S": {
+      "dcamber0": 1.4,
+      "dcamber1": -13.0,
+      "ls_expy": 0.76,
+      "radius": 0.325
+    },
+    "SS": {
+      "dcamber0": 1.4,
+      "dcamber1": -13.0,
+      "ls_expy": 0.76,
+      "radius": 0.325
+    }
+  },
+  "mclaren_mp412c": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8575,
+      "radius": 0.3455
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8683,
+      "radius": 0.3455
+    }
+  },
+  "mclaren_mp412c_gt3": {
+    "H": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "M": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "S": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    }
+  },
+  "mercedes_sls": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8639,
+      "radius": 0.3425
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8747,
+      "radius": 0.3425
+    }
+  },
+  "mercedes_sls_gt3": {
+    "H": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "M": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "S": {
+      "dcamber0": 1.65,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    }
+  },
+  "p4-5_2011": {
+    "H": {
+      "dcamber0": 1.65,
+      "dcamber1": -14.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "M": {
+      "dcamber0": 1.65,
+      "dcamber1": -14.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "S": {
+      "dcamber0": 1.65,
+      "dcamber1": -14.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "SH": {
+      "dcamber0": 1.65,
+      "dcamber1": -14.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    },
+    "SS": {
+      "dcamber0": 1.65,
+      "dcamber1": -14.0,
+      "ls_expy": 0.8095,
+      "radius": 0.355
+    }
+  },
+  "pagani_huayra": {
+    "HR": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8804,
+      "radius": 0.3545
+    },
+    "I": {
+      "dcamber0": 1.5,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7826,
+      "radius": 0.3545
+    }
+  },
+  "pagani_zonda_r": {
+    "H": {
+      "dcamber0": 1.6,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7851,
+      "radius": 0.3525
+    },
+    "M": {
+      "dcamber0": 1.6,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7851,
+      "radius": 0.3525
+    },
+    "S": {
+      "dcamber0": 1.6,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7851,
+      "radius": 0.3525
+    }
+  },
+  "ruf_yellowbird": {
+    "SM": {
+      "dcamber0": 1.2,
+      "dcamber1": -13.0,
+      "ls_expy": 0.8422,
+      "radius": 0.3179
+    },
+    "ST": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.853,
+      "radius": 0.3179
+    },
+    "SV": {
+      "dcamber0": 1.1,
+      "dcamber1": -13.0,
+      "ls_expy": 0.853,
+      "radius": 0.3179
+    }
+  },
+  "shelby_cobra_427sc": {
+    "V": {
+      "dcamber0": 0.0,
+      "dcamber1": -3.0,
+      "ls_expy": 0.8152,
+      "radius": 0.333
+    }
+  },
+  "tatuusfa1": {
+    "H": {
+      "dcamber0": 1.5,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7597,
+      "radius": 0.285
+    },
+    "M": {
+      "dcamber0": 1.5,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7597,
+      "radius": 0.285
+    },
+    "S": {
+      "dcamber0": 1.5,
+      "dcamber1": -13.0,
+      "ls_expy": 0.7597,
+      "radius": 0.285
     }
   }
 }

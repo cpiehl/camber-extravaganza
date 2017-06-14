@@ -6,6 +6,12 @@ Shows instantaneous and peak camber, and has an optional short-term history grap
 
 Calculates optimal camber from config files - per car, per tire compound.  Turns blue when camber is too negative, green when near optimal camber, and red when too positive.
 
+## Installation
+
+1. Save **camber-extravaganza.py** and **tyres-data.json** in steamapps\\common\\assettocorsa\\apps\\python\\**camber-extravaganza**\
+2. Enable the app in Options > General
+3. Enable the app in-game
+
 ## Screenshots and Video
 
 ![screenshot](https://i.imgur.com/mMGKESZ.jpg)
@@ -27,7 +33,22 @@ For example, adding [garyjpaterson's Dallara FX17](http://www.racedepartment.com
 ```
 {
 	"dallara_fx17": { 
-		"SM": {"dcamber0": 1.2, "dcamber1": -13.0, "radius": 0.3106}
+		"SM": {"dcamber0": 1.2, "dcamber1": -13.0, "radius": 0.3106, "ls_expy": 0.81}
+	},
+}
+```
+
+Adding any more cars follows the same pattern as tyres-data.json, for example a fictional Abarth 500 Stage 2 with Soft, Medium, and Hard slicks:
+
+```
+{
+	"dallara_fx17": {
+		"SM": {"dcamber0": 1.2, "dcamber1": -13.0, "radius": 0.3106, "ls_expy": 0.81}
+	},
+	"abarth500_s2": {
+		"S": {"dcamber0": 1.2, "dcamber1": -13.0, "radius": 0.30815, "ls_expy": 0.8071},
+		"M": {"dcamber0": 1.2, "dcamber1": -13.0, "radius": 0.30815, "ls_expy": 0.8071},
+		"H": {"dcamber0": 1.2, "dcamber1": -13.0, "radius": 0.30815, "ls_expy": 0.8071}
 	},
 }
 ```
@@ -42,12 +63,14 @@ Grip in Assetto Corsa is multiplied by a factor determined by camber.
 
 Where x is camber measured in radians. Converted to degrees and plotted on a graph, it looks like this for the Ferrari 458 GT2:
 
-![screenshot](https://i.imgur.com/NphyF5V.png)
+![screenshot](https://i.imgur.com/U1J02EN.png)
 
-Peak grip is acheived at roughly -3.3°, but given its quadratic nature not much grip is lost even at ±1° from peak.  This is why we get it close to start and use any remaining adjustment for front/rear balance.
+Peak grip for a single wheel (blue) is acheived at roughly -3.3°, but the total axle grip is the important value.  As the inside wheel during a turn effectively has inverse camber, it must also be calculated (red) and added to the outside wheel, weighted by the tire's load sensitivity factor.  This gives total grip for the axle (yellow), peaking somewhere below the single-wheel target.
 
-## Installation
+#### More Math
 
-1. Save camber-extravaganza.py and tyres-data.json in steamapps\common\assettocorsa\apps\python\camber-extravaganza\
-2. Enable the app in Options > General
-3. Enable the app in-game
+DY_LS_FL is front-left load sensitivity, TIRE_LOAD_FL is the vertical force on the tire in Newtons, and the rest of the variables are found in the car's tyres.ini. 
+
+![screeshot](https://i.imgur.com/HNeTLnQ.png)
+
+
