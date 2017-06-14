@@ -38,6 +38,21 @@ For example, adding [garyjpaterson's Dallara FX17](http://www.racedepartment.com
 }
 ```
 
+Adding any more cars follows the same pattern as tyres-data.json, for example a fictional Abarth 500 Stage 2 with Soft, Medium, and Hard slicks:
+
+```
+{
+	"dallara_fx17": {
+		"SM": {"dcamber0": 1.2, "dcamber1": -13.0, "radius": 0.3106, "ls_expy": 0.81}
+	},
+	"abarth500_s2": {
+		"S": {"dcamber0": 1.2, "dcamber1": -13.0, "radius": 0.30815, "ls_expy": 0.8071},
+		"M": {"dcamber0": 1.2, "dcamber1": -13.0, "radius": 0.30815, "ls_expy": 0.8071},
+		"H": {"dcamber0": 1.2, "dcamber1": -13.0, "radius": 0.30815, "ls_expy": 0.8071}
+	},
+}
+```
+
 More examples can be found in the full `tyres-data.json` file.
 
 ## Calculation Details
