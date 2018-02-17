@@ -8,7 +8,7 @@ Calculates optimal camber from config files - per car, per tire compound.  Turns
 
 ## Installation
 
-1. Save **camber-extravaganza.py** and **tyres-data.json** in steamapps\\common\\assettocorsa\\apps\\python\\**camber-extravaganza**\
+1. Extract the **camber-extravaganza** folder to steamapps\\common\\assettocorsa\\apps\\python\\**camber-extravaganza**\
 2. Enable the app in Options > General
 3. Enable the app in-game
 
@@ -33,7 +33,7 @@ For example, adding [garyjpaterson's Dallara FX17](http://www.racedepartment.com
 ```
 {
 	"dallara_fx17": { 
-		"SM": {"dcamber0": 1.2, "dcamber1": -13.0, "radius": 0.3106, "ls_expy": 0.81}
+		"SM": {"DCAMBER_0": 1.2, "DCAMBER_1": -13.0, "LS_EXPY": 0.81}
 	},
 }
 ```
@@ -43,12 +43,12 @@ Adding any more cars follows the same pattern as tyres-data.json, for example a 
 ```
 {
 	"dallara_fx17": {
-		"SM": {"dcamber0": 1.2, "dcamber1": -13.0, "radius": 0.3106, "ls_expy": 0.81}
+		"SM": {"DCAMBER_0": 1.2, "DCAMBER_1": -13.0, "LS_EXPY": 0.81}
 	},
 	"abarth500_s2": {
-		"S": {"dcamber0": 1.2, "dcamber1": -13.0, "radius": 0.30815, "ls_expy": 0.8071},
-		"M": {"dcamber0": 1.2, "dcamber1": -13.0, "radius": 0.30815, "ls_expy": 0.8071},
-		"H": {"dcamber0": 1.2, "dcamber1": -13.0, "radius": 0.30815, "ls_expy": 0.8071}
+		"S": {"DCAMBER_0": 1.2, "DCAMBER_1": -13.0, "LS_EXPY": 0.8071},
+		"M": {"DCAMBER_0": 1.2, "DCAMBER_1": -13.0, "LS_EXPY": 0.8071},
+		"H": {"DCAMBER_0": 1.2, "DCAMBER_1": -13.0, "LS_EXPY": 0.8071}
 	},
 }
 ```
