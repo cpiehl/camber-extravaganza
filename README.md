@@ -8,7 +8,7 @@ Calculates optimal camber from config files - per car, per tire compound.  Turns
 
 ## Installation
 
-1. Extract the **camber-extravaganza** folder to steamapps\\common\\assettocorsa\\apps\\python\\**camber-extravaganza**\
+1. Extract the **apps** and **content** folders to steamapps\\common\\assettocorsa\\
 2. Enable the app in Options > General
 3. Enable the app in-game
 
@@ -26,7 +26,7 @@ Once everything is mostly green, add some positive camber to the fronts or rears
 
 #### Mod cars
 
-If your target camber is showing 999°, the app can't find data for your car.  You can add it to a custom file `tyre-data-custom.json` that won't be overwritten by updates.
+If your target camber is showing 999°, the app can't find data for your car.  You can add it to any custom file ending in `.json` that won't be overwritten by updates.
 
 For example, adding [garyjpaterson's Dallara FX17](http://www.racedepartment.com/downloads/dallara-fx-17.13928/) with semislicks (short name "SM") would look like this:
 
@@ -70,13 +70,13 @@ Adding any more cars follows the same pattern as tyres-data.json, for example a 
 }
 ```
 
-More examples can be found in the full `tyres-data.json` file.
+More examples can be found in the included `tyres_data\*.json` files.
 
 ## Calculation Details
 
 Grip in Assetto Corsa is multiplied by a factor determined by camber.
 
-![screenshot](https://i.imgur.com/CTAz7dG.png)
+![screenshot](https://i.imgur.com/TRScBxn.png)
 
 Where x is camber measured in radians. Converted to degrees and plotted on a graph, it looks like this for the Ferrari 458 GT2:
 
