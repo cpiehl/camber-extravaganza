@@ -1,0 +1,282 @@
+{
+    "ks_audi_r8_lms": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7884
+            },
+            "M": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7884
+            },
+            "S": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7884
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8095
+            },
+            "M": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8095
+            },
+            "S": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8095
+            }
+        }
+    },
+    "ks_bmw_m4": {
+        "FRONT": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8292
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.84
+            }
+        },
+        "REAR": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8407
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8515
+            }
+        }
+    },
+    "ks_bmw_m4_akrapovic": {
+        "FRONT": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8292
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.84
+            }
+        },
+        "REAR": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8407
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8515
+            }
+        }
+    },
+    "ks_ford_gt40": {
+        "FRONT": {
+            "V": {
+                "DCAMBER_0": 0.0,
+                "DCAMBER_1": -3.0,
+                "LS_EXPY": 0.7911
+            }
+        },
+        "REAR": {
+            "V": {
+                "DCAMBER_0": 0.0,
+                "DCAMBER_1": -3.0,
+                "LS_EXPY": 0.8583
+            }
+        }
+    },
+    "ks_lamborghini_countach": {
+        "FRONT": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8343
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8451
+            },
+            "V": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7451
+            }
+        },
+        "REAR": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.9183
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.9291
+            },
+            "V": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7454
+            }
+        }
+    },
+    "ks_lamborghini_countach_s1": {
+        "FRONT": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8343
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8451
+            },
+            "V": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7451
+            }
+        },
+        "REAR": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.9183
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.9291
+            },
+            "V": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7454
+            }
+        }
+    },
+    "ks_lamborghini_huracan_gt3": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7917
+            },
+            "M": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7917
+            },
+            "S": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7917
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8044
+            },
+            "M": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8044
+            },
+            "S": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8044
+            }
+        }
+    },
+    "ks_ruf_rt12r": {
+        "FRONT": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8244
+            }
+        },
+        "REAR": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8544
+            }
+        }
+    },
+    "ks_ruf_rt12r_awd": {
+        "FRONT": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8244
+            }
+        },
+        "REAR": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8544
+            }
+        }
+    },
+    "ks_glickenhaus_scg003": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7884
+            },
+            "M": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7884
+            },
+            "S": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7884
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8095
+            },
+            "M": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8095
+            },
+            "S": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8095
+            }
+        }
+    }
+}

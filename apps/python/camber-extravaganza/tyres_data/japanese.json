@@ -1,0 +1,364 @@
+{
+    "ks_mazda_mx5_cup": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 1.7,
+                "DCAMBER_1": -8.0,
+                "LS_EXPY": 0.7094
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 1.7,
+                "DCAMBER_1": -8.0,
+                "LS_EXPY": 0.7094
+            }
+        }
+    },
+    "ks_mazda_mx5_nd": {
+        "FRONT": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8135
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8243
+            }
+        },
+        "REAR": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8135
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8243
+            }
+        }
+    },
+    "ks_mazda_rx7_spirit_r": {
+        "FRONT": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8334
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8442
+            },
+            "SV": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7442
+            }
+        },
+        "REAR": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8444
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8552
+            },
+            "SV": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7552
+            }
+        }
+    },
+    "ks_mazda_rx7_tuned": {
+        "FRONT": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8334
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8442
+            },
+            "SV": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7442
+            }
+        },
+        "REAR": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8444
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8552
+            },
+            "SV": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7552
+            }
+        }
+    },
+    "ks_toyota_supra_mkiv": {
+        "FRONT": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8334
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8442
+            },
+            "SV": {
+                "DCAMBER_0": 1.3,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7442
+            }
+        },
+        "REAR": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8444
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8552
+            },
+            "SV": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7552
+            }
+        }
+    },
+    "ks_toyota_supra_mkiv_drift": {
+        "FRONT": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8334
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8442
+            },
+            "SV": {
+                "DCAMBER_0": 1.3,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7442
+            }
+        },
+        "REAR": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8444
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8552
+            },
+            "SV": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7552
+            }
+        }
+    },
+    "ks_toyota_supra_mkiv_tuned": {
+        "FRONT": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8292
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.84
+            }
+        },
+        "REAR": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8407
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8515
+            }
+        }
+    },
+    "ks_toyota_ae86": {
+        "FRONT": {
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.82
+            },
+            "SV": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.72
+            }
+        },
+        "REAR": {
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.82
+            },
+            "SV": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.72
+            }
+        }
+    },
+    "ks_toyota_ae86_drift": {
+        "FRONT": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8021
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8199
+            },
+            "SV": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.72
+            }
+        },
+        "REAR": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8146
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8254
+            },
+            "SV": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.72
+            }
+        }
+    },
+    "ks_toyota_ae86_tuned": {
+        "FRONT": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8021
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8199
+            },
+            "SV": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.72
+            }
+        },
+        "REAR": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8146
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8254
+            },
+            "SV": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.72
+            }
+        }
+    },
+    "ks_nissan_370z": {
+        "FRONT": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8283
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8391
+            }
+        },
+        "REAR": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8551
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8659
+            }
+        }
+    },
+    "ks_nissan_skyline_r34": {
+        "FRONT": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8293
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8401
+            }
+        },
+        "REAR": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8293
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8401
+            }
+        }
+    }
+}

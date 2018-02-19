@@ -1,0 +1,18 @@
+{
+    "dallara_fx17": {
+        "FRONT": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.81
+            }
+        },
+        "REAR": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.81
+            }
+        }
+    }
+}

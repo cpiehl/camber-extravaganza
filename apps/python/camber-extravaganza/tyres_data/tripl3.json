@@ -1,0 +1,90 @@
+{
+    "ks_ferrari_fxx_k": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 1.6,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7499
+            },
+            "M": {
+                "DCAMBER_0": 1.6,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7499
+            },
+            "S": {
+                "DCAMBER_0": 1.6,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7499
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 1.6,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8013
+            },
+            "M": {
+                "DCAMBER_0": 1.6,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8013
+            },
+            "S": {
+                "DCAMBER_0": 1.6,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8013
+            }
+        }
+    },
+    "ks_ferrari_488_gtb": {
+        "FRONT": {
+            "HR": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8231
+            }
+        },
+        "REAR": {
+            "HR": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8528
+            }
+        }
+    },
+    "ks_praga_r1": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7336
+            },
+            "M": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7336
+            },
+            "S": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7336
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7571
+            },
+            "M": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7571
+            },
+            "S": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7571
+            }
+        }
+    }
+}

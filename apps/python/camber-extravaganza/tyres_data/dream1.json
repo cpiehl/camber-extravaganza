@@ -1,0 +1,332 @@
+{
+    "ks_alfa_romeo_155_v6": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 1.3,
+                "DCAMBER_1": -15.0,
+                "LS_EXPY": 0.7641
+            },
+            "M": {
+                "DCAMBER_0": 1.3,
+                "DCAMBER_1": -15.0,
+                "LS_EXPY": 0.7641
+            },
+            "S": {
+                "DCAMBER_0": 1.3,
+                "DCAMBER_1": -15.0,
+                "LS_EXPY": 0.7641
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 1.3,
+                "DCAMBER_1": -15.0,
+                "LS_EXPY": 0.7641
+            },
+            "M": {
+                "DCAMBER_0": 1.3,
+                "DCAMBER_1": -15.0,
+                "LS_EXPY": 0.7641
+            },
+            "S": {
+                "DCAMBER_0": 1.3,
+                "DCAMBER_1": -15.0,
+                "LS_EXPY": 0.7641
+            }
+        }
+    },
+    "ks_alfa_romeo_4c": {
+        "FRONT": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8126
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8234
+            }
+        },
+        "REAR": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8186
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8294
+            }
+        }
+    },
+    "ks_alfa_romeo_gta": {
+        "FRONT": {
+            "V": {
+                "DCAMBER_0": 0.0,
+                "DCAMBER_1": -14.0,
+                "LS_EXPY": 0.6301
+            }
+        },
+        "REAR": {
+            "V": {
+                "DCAMBER_0": 0.0,
+                "DCAMBER_1": -14.0,
+                "LS_EXPY": 0.6301
+            }
+        }
+    },
+    "ks_bmw_m235i_racing": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 2.0,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7673
+            },
+            "M": {
+                "DCAMBER_0": 2.0,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7673
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 2.0,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7673
+            },
+            "M": {
+                "DCAMBER_0": 2.0,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7673
+            }
+        }
+    },
+    "ks_corvette_c7r": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -14.0,
+                "LS_EXPY": 0.7955
+            },
+            "M": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -14.0,
+                "LS_EXPY": 0.7955
+            },
+            "S": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -14.0,
+                "LS_EXPY": 0.7955
+            },
+            "SH": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -14.0,
+                "LS_EXPY": 0.7955
+            },
+            "SS": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -14.0,
+                "LS_EXPY": 0.7955
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -14.0,
+                "LS_EXPY": 0.8095
+            },
+            "M": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -14.0,
+                "LS_EXPY": 0.8095
+            },
+            "S": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -14.0,
+                "LS_EXPY": 0.8095
+            },
+            "SH": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -14.0,
+                "LS_EXPY": 0.8095
+            },
+            "SS": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -14.0,
+                "LS_EXPY": 0.8095
+            }
+        }
+    },
+    "ks_mclaren_f1_gtr": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.8095
+            },
+            "M": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.8095
+            },
+            "S": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.8095
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.8447
+            },
+            "M": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.8447
+            },
+            "S": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.8447
+            }
+        }
+    },
+    "ks_mclaren_p1": {
+        "FRONT": {
+            "HR": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8244
+            },
+            "I": {
+                "DCAMBER_0": 1.5,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7461
+            }
+        },
+        "REAR": {
+            "HR": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8658
+            },
+            "I": {
+                "DCAMBER_0": 1.5,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7826
+            }
+        }
+    },
+    "ks_mercedes_c9": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.7592
+            },
+            "M": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.7592
+            },
+            "S": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.7592
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.8197
+            },
+            "M": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.8197
+            },
+            "S": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.8197
+            }
+        }
+    },
+    "ks_mercedes_190_evo2": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 1.3,
+                "DCAMBER_1": -15.0,
+                "LS_EXPY": 0.7641
+            },
+            "M": {
+                "DCAMBER_0": 1.3,
+                "DCAMBER_1": -15.0,
+                "LS_EXPY": 0.7641
+            },
+            "S": {
+                "DCAMBER_0": 1.3,
+                "DCAMBER_1": -15.0,
+                "LS_EXPY": 0.7641
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 1.3,
+                "DCAMBER_1": -15.0,
+                "LS_EXPY": 0.7641
+            },
+            "M": {
+                "DCAMBER_0": 1.3,
+                "DCAMBER_1": -15.0,
+                "LS_EXPY": 0.7641
+            },
+            "S": {
+                "DCAMBER_0": 1.3,
+                "DCAMBER_1": -15.0,
+                "LS_EXPY": 0.7641
+            }
+        }
+    },
+    "ks_nissan_gtr_gt3": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8067
+            },
+            "M": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8067
+            },
+            "S": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8067
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8067
+            },
+            "M": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8067
+            },
+            "S": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8067
+            }
+        }
+    }
+}

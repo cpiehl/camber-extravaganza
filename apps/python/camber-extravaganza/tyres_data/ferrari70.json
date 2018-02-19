@@ -1,0 +1,194 @@
+{
+    "ks_ferrari_250_gto": {
+        "FRONT": {
+            "V": {
+                "DCAMBER_0": 0.0,
+                "DCAMBER_1": -14.0,
+                "LS_EXPY": 0.6924
+            }
+        },
+        "REAR": {
+            "V": {
+                "DCAMBER_0": 0.0,
+                "DCAMBER_1": -14.0,
+                "LS_EXPY": 0.6941
+            }
+        }
+    },
+    "ks_ferrari_288_gto": {
+        "FRONT": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8386
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8494
+            },
+            "SV": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7494
+            }
+        },
+        "REAR": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8881
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8989
+            },
+            "SV": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7989
+            }
+        }
+    },
+    "ks_ferrari_312_67": {
+        "FRONT": {
+            "V": {
+                "DCAMBER_0": 0.0,
+                "DCAMBER_1": -3.0,
+                "LS_EXPY": 0.7881
+            }
+        },
+        "REAR": {
+            "V": {
+                "DCAMBER_0": 0.0,
+                "DCAMBER_1": -3.0,
+                "LS_EXPY": 0.8524
+            }
+        }
+    },
+    "ks_ferrari_330_p4": {
+        "FRONT": {
+            "V": {
+                "DCAMBER_0": 0.0,
+                "DCAMBER_1": -3.0,
+                "LS_EXPY": 0.7911
+            }
+        },
+        "REAR": {
+            "V": {
+                "DCAMBER_0": 0.0,
+                "DCAMBER_1": -3.0,
+                "LS_EXPY": 0.8583
+            }
+        }
+    },
+    "ks_ferrari_812_superfast": {
+        "FRONT": {
+            "HR": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8475
+            }
+        },
+        "REAR": {
+            "HR": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8772
+            }
+        }
+    },
+    "ks_ferrari_f2004": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 1.4,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8
+            },
+            "M": {
+                "DCAMBER_0": 1.4,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8
+            },
+            "S": {
+                "DCAMBER_0": 1.4,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 1.4,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7
+            },
+            "M": {
+                "DCAMBER_0": 1.4,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7
+            },
+            "S": {
+                "DCAMBER_0": 1.4,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7
+            }
+        }
+    },
+    "ks_ferrari_sf70h": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 1.4,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.78
+            },
+            "M": {
+                "DCAMBER_0": 1.4,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.78
+            },
+            "S": {
+                "DCAMBER_0": 1.4,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.78
+            },
+            "SS": {
+                "DCAMBER_0": 1.4,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.78
+            },
+            "US": {
+                "DCAMBER_0": 1.4,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.78
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 1.4,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.83
+            },
+            "M": {
+                "DCAMBER_0": 1.4,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.83
+            },
+            "S": {
+                "DCAMBER_0": 1.4,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.83
+            },
+            "SS": {
+                "DCAMBER_0": 1.4,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.83
+            },
+            "US": {
+                "DCAMBER_0": 1.4,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.83
+            }
+        }
+    }
+}

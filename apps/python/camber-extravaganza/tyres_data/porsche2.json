@@ -1,0 +1,246 @@
+{
+    "ks_porsche_718_boxster_s": {
+        "FRONT": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8273
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8381
+            }
+        },
+        "REAR": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8461
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8569
+            }
+        }
+    },
+    "ks_porsche_718_boxster_s_pdk": {
+        "FRONT": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8273
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8381
+            }
+        },
+        "REAR": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8461
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8569
+            }
+        }
+    },
+    "ks_porsche_718_spyder_rs": {
+        "FRONT": {
+            "V": {
+                "DCAMBER_0": 0.0,
+                "DCAMBER_1": -4.0,
+                "LS_EXPY": 0.65
+            }
+        },
+        "REAR": {
+            "V": {
+                "DCAMBER_0": 0.0,
+                "DCAMBER_1": -4.0,
+                "LS_EXPY": 0.72
+            }
+        }
+    },
+    "ks_porsche_911_gt1": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.798
+            },
+            "M": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.798
+            },
+            "S": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.798
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.8292
+            },
+            "M": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.8292
+            },
+            "S": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.8292
+            }
+        }
+    },
+    "ks_porsche_911_gt3_rs": {
+        "FRONT": {
+            "HR": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.8378
+            }
+        },
+        "REAR": {
+            "HR": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.8637
+            }
+        }
+    },
+    "ks_porsche_919_hybrid_2015": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8495
+            },
+            "M": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8495
+            },
+            "S": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8495
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8495
+            },
+            "M": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8495
+            },
+            "S": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8495
+            }
+        }
+    },
+    "ks_porsche_962c_longtail": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.778
+            },
+            "M": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.778
+            },
+            "S": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.778
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.8263
+            },
+            "M": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.8263
+            },
+            "S": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.8263
+            }
+        }
+    },
+    "ks_porsche_962c_shorttail": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.762
+            },
+            "M": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.762
+            },
+            "S": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.762
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.8279
+            },
+            "M": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.8279
+            },
+            "S": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.8279
+            }
+        }
+    },
+    "ks_porsche_cayman_gt4_std": {
+        "FRONT": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8307
+            }
+        },
+        "REAR": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8467
+            }
+        }
+    }
+}

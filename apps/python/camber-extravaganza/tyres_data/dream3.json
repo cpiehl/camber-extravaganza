@@ -1,0 +1,236 @@
+{
+    "ks_abarth500_assetto_corse": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 1.7,
+                "DCAMBER_1": -8.0,
+                "LS_EXPY": 0.7072
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 1.7,
+                "DCAMBER_1": -8.0,
+                "LS_EXPY": 0.7072
+            }
+        }
+    },
+    "ks_ford_escort_mk1": {
+        "FRONT": {
+            "V70": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7103
+            }
+        },
+        "REAR": {
+            "V70": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7213
+            }
+        }
+    },
+    "ks_lotus_25": {
+        "FRONT": {
+            "V": {
+                "DCAMBER_0": 0.0,
+                "DCAMBER_1": -4.0,
+                "LS_EXPY": 0.64
+            }
+        },
+        "REAR": {
+            "V": {
+                "DCAMBER_0": 0.0,
+                "DCAMBER_1": -4.0,
+                "LS_EXPY": 0.71
+            }
+        }
+    },
+    "ks_lotus_72d": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 1.3,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.6857
+            },
+            "S": {
+                "DCAMBER_0": 1.3,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.6857
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 1.3,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.8286
+            },
+            "S": {
+                "DCAMBER_0": 1.3,
+                "DCAMBER_1": -12.0,
+                "LS_EXPY": 0.8286
+            }
+        }
+    },
+    "ks_lamborghini_gallardo_sl": {
+        "FRONT": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8186
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8294
+            }
+        },
+        "REAR": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8461
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8569
+            }
+        }
+    },
+    "ks_lamborghini_gallardo_sl_s3": {
+        "FRONT": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8186
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8294
+            }
+        },
+        "REAR": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8461
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8569
+            }
+        }
+    },
+    "ks_lamborghini_huracan_st": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 2.0,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7786
+            },
+            "M": {
+                "DCAMBER_0": 2.0,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7786
+            },
+            "S": {
+                "DCAMBER_0": 2.0,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7786
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 2.0,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7917
+            },
+            "M": {
+                "DCAMBER_0": 2.0,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7917
+            },
+            "S": {
+                "DCAMBER_0": 2.0,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7917
+            }
+        }
+    },
+    "ks_mclaren_650_gt3": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7917
+            },
+            "M": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7917
+            },
+            "S": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7917
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8044
+            },
+            "M": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8044
+            },
+            "S": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8044
+            }
+        }
+    },
+    "ks_mercedes_amg_gt3": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7917
+            },
+            "M": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7917
+            },
+            "S": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7917
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8044
+            },
+            "M": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8044
+            },
+            "S": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8044
+            }
+        }
+    }
+}

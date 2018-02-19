@@ -1,0 +1,332 @@
+{
+    "ks_audi_r8_lms_2016": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7884
+            },
+            "M": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7884
+            },
+            "S": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7884
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8095
+            },
+            "M": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8095
+            },
+            "S": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8095
+            }
+        }
+    },
+    "ks_audi_r18_etron_quattro": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8895
+            },
+            "M": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8495
+            },
+            "S": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8895
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8895
+            },
+            "M": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8495
+            },
+            "S": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8895
+            }
+        }
+    },
+    "ks_audi_tt_cup": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 2.3,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7673
+            },
+            "M": {
+                "DCAMBER_0": 2.3,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7673
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 2.3,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7673
+            },
+            "M": {
+                "DCAMBER_0": 2.3,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7673
+            }
+        }
+    },
+    "ks_audi_tt_vln": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -14.0,
+                "LS_EXPY": 0.7697
+            },
+            "M": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -14.0,
+                "LS_EXPY": 0.7697
+            },
+            "S": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -14.0,
+                "LS_EXPY": 0.7697
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -14.0,
+                "LS_EXPY": 0.7697
+            },
+            "M": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -14.0,
+                "LS_EXPY": 0.7697
+            },
+            "S": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -14.0,
+                "LS_EXPY": 0.7697
+            }
+        }
+    },
+    "ks_lotus_3_eleven": {
+        "FRONT": {
+            "HR": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8161
+            },
+            "I": {
+                "DCAMBER_0": 1.6,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7377
+            }
+        },
+        "REAR": {
+            "HR": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8493
+            },
+            "I": {
+                "DCAMBER_0": 1.6,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7645
+            }
+        }
+    },
+    "ks_maserati_mc12_gt1": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 1.6,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7717
+            },
+            "M": {
+                "DCAMBER_0": 1.6,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7717
+            },
+            "S": {
+                "DCAMBER_0": 1.6,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7717
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 1.6,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8158
+            },
+            "M": {
+                "DCAMBER_0": 1.6,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8158
+            },
+            "S": {
+                "DCAMBER_0": 1.6,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8158
+            }
+        }
+    },
+    "ks_mclaren_570s": {
+        "FRONT": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8137
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8245
+            }
+        },
+        "REAR": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8467
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8575
+            }
+        }
+    },
+    "ks_mclaren_p1_gtr": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 1.6,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7499
+            },
+            "M": {
+                "DCAMBER_0": 1.6,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7499
+            },
+            "S": {
+                "DCAMBER_0": 1.6,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7499
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 1.6,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8013
+            },
+            "M": {
+                "DCAMBER_0": 1.6,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8013
+            },
+            "S": {
+                "DCAMBER_0": 1.6,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8013
+            }
+        }
+    },
+    "ks_toyota_celica_st185": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 1.3,
+                "DCAMBER_1": -15.0,
+                "LS_EXPY": 0.7641
+            },
+            "M": {
+                "DCAMBER_0": 1.3,
+                "DCAMBER_1": -15.0,
+                "LS_EXPY": 0.7641
+            },
+            "S": {
+                "DCAMBER_0": 1.3,
+                "DCAMBER_1": -15.0,
+                "LS_EXPY": 0.7641
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 1.3,
+                "DCAMBER_1": -15.0,
+                "LS_EXPY": 0.7641
+            },
+            "M": {
+                "DCAMBER_0": 1.3,
+                "DCAMBER_1": -15.0,
+                "LS_EXPY": 0.7641
+            },
+            "S": {
+                "DCAMBER_0": 1.3,
+                "DCAMBER_1": -15.0,
+                "LS_EXPY": 0.7641
+            }
+        }
+    },
+    "ks_toyota_ts040": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8895
+            },
+            "M": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8495
+            },
+            "S": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8895
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8895
+            },
+            "M": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8495
+            },
+            "S": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8895
+            }
+        }
+    }
+}

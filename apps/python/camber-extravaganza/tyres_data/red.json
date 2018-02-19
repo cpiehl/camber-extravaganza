@@ -1,0 +1,204 @@
+{
+    "ks_ferrari_sf15t": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 1.4,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.75
+            },
+            "M": {
+                "DCAMBER_0": 1.4,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.75
+            },
+            "S": {
+                "DCAMBER_0": 1.4,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.75
+            },
+            "SS": {
+                "DCAMBER_0": 1.4,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.75
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 1.4,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8
+            },
+            "M": {
+                "DCAMBER_0": 1.4,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8
+            },
+            "S": {
+                "DCAMBER_0": 1.4,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8
+            },
+            "SS": {
+                "DCAMBER_0": 1.4,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8
+            }
+        }
+    },
+    "ks_ferrari_f138": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 1.4,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.75
+            },
+            "M": {
+                "DCAMBER_0": 1.4,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.75
+            },
+            "S": {
+                "DCAMBER_0": 1.4,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.75
+            },
+            "SS": {
+                "DCAMBER_0": 1.4,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.75
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 1.4,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8
+            },
+            "M": {
+                "DCAMBER_0": 1.4,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8
+            },
+            "S": {
+                "DCAMBER_0": 1.4,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8
+            },
+            "SS": {
+                "DCAMBER_0": 1.4,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8
+            }
+        }
+    },
+    "ks_ferrari_488_gt3": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7884
+            },
+            "M": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7884
+            },
+            "S": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7884
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8095
+            },
+            "M": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8095
+            },
+            "S": {
+                "DCAMBER_0": 1.65,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8095
+            }
+        }
+    },
+    "ks_maserati_250f_12cyl": {
+        "FRONT": {
+            "V": {
+                "DCAMBER_0": 0.0,
+                "DCAMBER_1": -4.0,
+                "LS_EXPY": 0.67
+            }
+        },
+        "REAR": {
+            "V": {
+                "DCAMBER_0": 0.0,
+                "DCAMBER_1": -4.0,
+                "LS_EXPY": 0.74
+            }
+        }
+    },
+    "ks_maserati_250f_6cyl": {
+        "FRONT": {
+            "V": {
+                "DCAMBER_0": 0.0,
+                "DCAMBER_1": -4.0,
+                "LS_EXPY": 0.65
+            }
+        },
+        "REAR": {
+            "V": {
+                "DCAMBER_0": 0.0,
+                "DCAMBER_1": -4.0,
+                "LS_EXPY": 0.72
+            }
+        }
+    },
+    "ks_maserati_gt_mc_gt4": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 2.0,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7786
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 2.0,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8113
+            }
+        }
+    },
+    "ks_lamborghini_aventador_sv": {
+        "FRONT": {
+            "HR": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8401
+            },
+            "I": {
+                "DCAMBER_0": 1.5,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7461
+            }
+        },
+        "REAR": {
+            "HR": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8729
+            },
+            "I": {
+                "DCAMBER_0": 1.5,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7826
+            }
+        }
+    }
+}

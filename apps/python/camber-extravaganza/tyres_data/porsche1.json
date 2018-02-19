@@ -1,0 +1,144 @@
+{
+    "ks_porsche_718_cayman_s": {
+        "FRONT": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8273
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8381
+            }
+        },
+        "REAR": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8461
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8569
+            }
+        }
+    },
+    "ks_porsche_911_carrera_rsr": {
+        "FRONT": {
+            "V70": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7028
+            }
+        },
+        "REAR": {
+            "V70": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7435
+            }
+        }
+    },
+    "ks_porsche_917_30": {
+        "FRONT": {
+            "V": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -7.0,
+                "LS_EXPY": 0.7223
+            }
+        },
+        "REAR": {
+            "V": {
+                "DCAMBER_0": 0.0,
+                "DCAMBER_1": -0.0,
+                "LS_EXPY": 0.8546
+            }
+        }
+    },
+    "ks_porsche_918_spyder": {
+        "FRONT": {
+            "HR": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8461
+            },
+            "I": {
+                "DCAMBER_0": 1.5,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7461
+            }
+        },
+        "REAR": {
+            "HR": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8725
+            },
+            "I": {
+                "DCAMBER_0": 1.5,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7826
+            }
+        }
+    },
+    "ks_porsche_935_78_moby_dick": {
+        "FRONT": {
+            "V78": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -7.0,
+                "LS_EXPY": 0.7785
+            }
+        },
+        "REAR": {
+            "V78": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -7.0,
+                "LS_EXPY": 0.8076
+            }
+        }
+    },
+    "ks_porsche_991_carrera_s": {
+        "FRONT": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8307
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8415
+            }
+        },
+        "REAR": {
+            "SM": {
+                "DCAMBER_0": 1.2,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8528
+            },
+            "ST": {
+                "DCAMBER_0": 1.1,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.8636
+            }
+        }
+    },
+    "ks_porsche_cayman_gt4_clubsport": {
+        "FRONT": {
+            "H": {
+                "DCAMBER_0": 2.0,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7513
+            }
+        },
+        "REAR": {
+            "H": {
+                "DCAMBER_0": 2.0,
+                "DCAMBER_1": -13.0,
+                "LS_EXPY": 0.7799
+            }
+        }
+    }
+}
