@@ -78,7 +78,7 @@ Grip in Assetto Corsa is multiplied by a factor determined by camber.
 
 ![screenshot](https://i.imgur.com/TRScBxn.png)
 
-Where x is camber measured in radians. Converted to degrees and plotted on a graph, it looks like this for the Ferrari 458 GT2:
+Where c is camber measured in radians. Converted to degrees and plotted on a graph, it looks like this for the Ferrari 458 GT2:
 
 ![screenshot](https://i.imgur.com/U1J02EN.png)
 
