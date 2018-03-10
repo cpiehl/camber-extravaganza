@@ -39,7 +39,7 @@ For example, adding [garyjpaterson's Dallara FX17](http://www.racedepartment.com
         	"REAR": {
 			"SM": {"DCAMBER_0": 1.2, "DCAMBER_1": -13.0, "LS_EXPY": 0.81}
 		}
-	},
+	}
 }
 ```
 
@@ -66,7 +66,7 @@ Adding any more cars follows the same pattern as tyres-data.json, for example a 
 			"M": {"DCAMBER_0": 1.2, "DCAMBER_1": -13.0, "LS_EXPY": 0.8071},
 			"H": {"DCAMBER_0": 1.2, "DCAMBER_1": -13.0, "LS_EXPY": 0.8071}
 		}
-	},
+	}
 }
 ```
 
