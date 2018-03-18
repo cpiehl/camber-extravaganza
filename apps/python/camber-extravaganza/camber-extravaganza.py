@@ -13,7 +13,10 @@
 #		- Reworked optimal camber equation?
 #
 # V2.1	- Fix optimal camber equation, remove extra rad()
-#		- Switch to tyre_data folder, load any JSON
+#		- Switch to tyres_data folder, load any JSON
+#
+# V2.2	- Add "Show Delta" mode
+#		- Fix divide by zero when dcamber1 = 0
 #
 #############################################################
 
@@ -45,10 +48,12 @@ Buttons = {}
 TextInputs = {}
 Labels = {}
 redrawText = False
+customFont = "Consolas"
 Options = {
 	"drawGraphs": False,
 	"normalize": False,
 	"useSpectrum": True,
+	"showDelta": False,
 	"alpha": 0.5,        # graph alpha
 	"tireHeight": 50,    # tire height
 	"radScale": 10,      # scale flapper deflection to this at 2*peak grip
@@ -65,12 +70,13 @@ Options = {
 	"LS_EXPYF": 1,        # tire load sensitivity exponent
 	"LS_EXPYR": 1,        # tire load sensitivity exponent
 	"tyreCompound": "",  # short name
-	"carNotFound": False,
+	"carNotFound": False
 }
 SavableOptions = [ # Only save these to file
 	"drawGraphs",
 	"normalize",
-	"useSpectrum"
+	"useSpectrum",
+	"showDelta"
 ]
 doRender = True
 
@@ -293,15 +299,25 @@ def acMain(ac_version):
 		ac.addOnAppActivatedListener(appWindow, onAppActivated)
 		ac.addOnAppDismissedListener(appWindow, onAppDismissed)
 
+		# Custom monospace font
+		ac.initFont(0, customFont, 0, 0)
+
 		# Target Camber Labels
 		Labels["target"] = ac.addLabel(appWindow, "Target:")
+		if Options["showDelta"]:
+			ac.setText(Labels["target"], "Delta:")
+		else:
+			ac.setText(Labels["target"], "Target:")
 		ac.setPosition(Labels["target"], 85, 100)
+		ac.setCustomFont(Labels["target"], customFont, 0, 0)
 		ac.setFontSize(Labels["target"], 10)
 		Labels["targetCamberF"] = ac.addLabel(appWindow, "")
-		ac.setPosition(Labels["targetCamberF"], 75, 76)
+		ac.setPosition(Labels["targetCamberF"], 65, 76)
+		ac.setCustomFont(Labels["targetCamberF"], customFont, 0, 0)
 		ac.setFontSize(Labels["targetCamberF"], 24)
 		Labels["targetCamberR"] = ac.addLabel(appWindow, "")
-		ac.setPosition(Labels["targetCamberR"], 75, 105)
+		ac.setPosition(Labels["targetCamberR"], 65, 105)
+		ac.setCustomFont(Labels["targetCamberR"], customFont, 0, 0)
 		ac.setFontSize(Labels["targetCamberR"], 24)
 
 		# Options Checkbox
@@ -313,7 +329,8 @@ def acMain(ac_version):
 		uidata = [
 			["drawGraphs", "Draw Graphs", drawGraphsHandler],
 			["normalize", "Normalize", normalizeHandler],
-			["useSpectrum", "Use Spectrum", useSpectrumHandler]
+			["useSpectrum", "Use Spectrum", useSpectrumHandler],
+			["showDelta", "Show Delta", showDeltaHandler]
 		]
 		x = 50
 		y = 255
@@ -329,10 +346,10 @@ def acMain(ac_version):
 		# Get optimal camber from files
 		loadTireData()
 
-		CamberIndicators["FL"] = CamberIndicator(appWindow, 25, 75)
-		CamberIndicators["FR"] = CamberIndicator(appWindow,125, 75)
-		CamberIndicators["RL"] = CamberIndicator(appWindow, 25,175)
-		CamberIndicators["RR"] = CamberIndicator(appWindow,125,175)
+		CamberIndicators["FL"] = CamberIndicator(appWindow, 15, 75)
+		CamberIndicators["FR"] = CamberIndicator(appWindow,135, 75)
+		CamberIndicators["RL"] = CamberIndicator(appWindow, 15,175)
+		CamberIndicators["RR"] = CamberIndicator(appWindow,135,175)
 		ac.addRenderCallback(appWindow, onFormRender)
 
 	except Exception:
@@ -432,6 +449,7 @@ def onFormRender(deltaT):
 
 		outer = max(0.001, flL, frL)
 		inner = min(flL, frL)
+		cf_outer = CamberIndicators["FL"].avgValue if outer == flL else CamberIndicators["FR"].avgValue
 		camberSplit = abs(flC - frC)
 		# DY_LS_FL = DY_REF * pow(TIRE_LOAD_FL / FZ0, LS_EXPY)
 		ls_outer = pow(outer, Options["LS_EXPYF"])
@@ -445,6 +463,7 @@ def onFormRender(deltaT):
 
 		outer = max(0.001, rlL, rrL)
 		inner = min(rlL, rrL)
+		cr_outer = CamberIndicators["RL"].avgValue if outer == rlL else CamberIndicators["RR"].avgValue
 		camberSplit = abs(rlC - rrC)
 		# DY_LS_FL = DY_REF * pow(TIRE_LOAD_FL / FZ0, LS_EXPY)
 		ls_outer = pow(outer, Options["LS_EXPYR"])
@@ -456,8 +475,13 @@ def onFormRender(deltaT):
 		Options["optimalCamberR"] = optimalCamber(weightXfer, Options["dcamber0R"], Options["dcamber1R"], camberSplit)
 		Options["optimalCamberR"] = filter * oldTargetCamber + (1 - filter) * Options["optimalCamberR"]
 
-		ac.setText(Labels["targetCamberF"], "{0:.1f}°".format(Options["optimalCamberF"]))
-		ac.setText(Labels["targetCamberR"], "{0:.1f}°".format(Options["optimalCamberR"]))
+		degFront = Options["optimalCamberF"]
+		degRear = Options["optimalCamberR"]
+		if Options["showDelta"]:
+			degFront -= cf_outer
+			degRear -= cr_outer
+		ac.setText(Labels["targetCamberF"], "{0:+.1f}°".format(degFront))
+		ac.setText(Labels["targetCamberR"], "{0:+.1f}°".format(degRear))
 
 		if redrawText:
 			updateTextInputs()
@@ -470,6 +494,8 @@ def onFormRender(deltaT):
 def optimalCamber(weightXfer, dcamber0, dcamber1, camberSplit):
 	if Options["carNotFound"]:
 		return 99
+	if dcamber0 == 0 or dcamber1 == 0:
+		return 0
 	return math.degrees((2 * (1 - weightXfer) * dcamber1 * camberSplit - (1 - 2 * weightXfer) * dcamber0) / (2 * dcamber1))
 
 
@@ -543,6 +569,13 @@ def normalizeHandler(*args):
 def useSpectrumHandler(*args):
 	uiHandler(args[0], args[1], name="useSpectrum", type="Button")
 
+def showDeltaHandler(*args):
+	uiHandler(args[0], args[1], name="showDelta", type="Button")
+	if Options["showDelta"]:
+		ac.setText(Labels["target"], "Delta:")
+	else:
+		ac.setText(Labels["target"], "Target:")
+
 
 # Make sure button toggled state matches internal state
 def updateButtons():
@@ -566,8 +599,14 @@ def parseTyreData(carName, tyreCompound, tyreData):
 		dcamber1F = tyreData[carName]['FRONT'][tyreCompound]["DCAMBER_1"]
 		dcamber0R = tyreData[carName]['REAR'][tyreCompound]["DCAMBER_0"]
 		dcamber1R = tyreData[carName]['REAR'][tyreCompound]["DCAMBER_1"]
-		Options["targetCamberF"] = math.degrees(dcamber0F / (2 * dcamber1F))
-		Options["targetCamberR"] = math.degrees(dcamber0R / (2 * dcamber1R))
+		if dcamber1F == 0:
+			Options["targetCamberF"] = 0
+		else:
+			Options["targetCamberF"] = math.degrees(dcamber0F / (2 * dcamber1F))
+		if dcamber1R == 0:
+			Options["targetCamberR"] = 0
+		else:
+			Options["targetCamberR"] = math.degrees(dcamber0R / (2 * dcamber1R))
 		Options["dcamber0F"] = dcamber0F
 		Options["dcamber1F"] = dcamber1F
 		Options["dcamber0R"] = dcamber0R
