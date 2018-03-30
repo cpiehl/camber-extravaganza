@@ -1,0 +1,18 @@
+{
+    "dallara_f312": {
+        "FRONT": {
+            "M": {
+                "DCAMBER_0": 1.95,
+                "DCAMBER_1": -12.6687,
+                "LS_EXPY": 0.64
+            }
+        },
+        "REAR": {
+            "M": {
+                "DCAMBER_0": 3.23132,
+                "DCAMBER_1": -12.6687,
+                "LS_EXPY": 0.73
+            }
+        }
+    }
+}
