@@ -1,80 +1,80 @@
 {
     "supercars_ford": {
-        "FRONT": {
-            "H": {
-                "DCAMBER_0": 1.65,
-                "DCAMBER_1": -13.0,
-                "LS_EXPY": 0.7917
-            },
-            "S": {
-                "DCAMBER_0": 1.65,
-                "DCAMBER_1": -13.0,
-                "LS_EXPY": 0.7917
-            }
-        },
-        "REAR": {
-            "H": {
-                "DCAMBER_0": 1.65,
-                "DCAMBER_1": -13.0,
-                "LS_EXPY": 0.8044
-            },
-            "S": {
-                "DCAMBER_0": 1.65,
-                "DCAMBER_1": -13.0,
-                "LS_EXPY": 0.8044
-            }
-        }
-    },
+		"FRONT": {
+			"s": {
+				"DCAMBER_0": 1.65,
+				"DCAMBER_1": -13.0,
+				"LS_EXPY": 0.7917
+			},
+			"ss": {
+				"DCAMBER_0": 1.65,
+				"DCAMBER_1": -13.0,
+				"LS_EXPY": 0.7917
+			}
+		},
+		"REAR": {
+			"s": {
+				"DCAMBER_0": 1.65,
+				"DCAMBER_1": -13.0,
+				"LS_EXPY": 0.7917
+			},
+			"ss": {
+				"DCAMBER_0": 1.65,
+				"DCAMBER_1": -13.0,
+				"LS_EXPY": 0.7917
+			}
+		}
+	},
     "supercars_holden": {
         "FRONT": {
-            "H": {
-                "DCAMBER_0": 1.65,
-                "DCAMBER_1": -13.0,
-                "LS_EXPY": 0.7917
-            },
-            "S": {
-                "DCAMBER_0": 1.65,
-                "DCAMBER_1": -13.0,
-                "LS_EXPY": 0.7917
-            }
-        },
-        "REAR": {
-            "H": {
-                "DCAMBER_0": 1.65,
-                "DCAMBER_1": -13.0,
-                "LS_EXPY": 0.8044
-            },
-            "S": {
-                "DCAMBER_0": 1.65,
-                "DCAMBER_1": -13.0,
-                "LS_EXPY": 0.8044
-            }
-        }
+			"s": {
+				"DCAMBER_0": 1.65,
+				"DCAMBER_1": -13.0,
+				"LS_EXPY": 0.7917
+			},
+			"ss": {
+				"DCAMBER_0": 1.65,
+				"DCAMBER_1": -13.0,
+				"LS_EXPY": 0.7917
+			}
+		},
+		"REAR": {
+			"s": {
+				"DCAMBER_0": 1.65,
+				"DCAMBER_1": -13.0,
+				"LS_EXPY": 0.7917
+			},
+			"ss": {
+				"DCAMBER_0": 1.65,
+				"DCAMBER_1": -13.0,
+				"LS_EXPY": 0.7917
+			}
+		}
     },
     "supercars_nissan": {
         "FRONT": {
-            "H": {
-                "DCAMBER_0": 1.65,
-                "DCAMBER_1": -13.0,
-                "LS_EXPY": 0.7917
-            },
-            "S": {
-                "DCAMBER_0": 1.65,
-                "DCAMBER_1": -13.0,
-                "LS_EXPY": 0.7917
-            }
-        },
-        "REAR": {
-            "H": {
-                "DCAMBER_0": 1.65,
-                "DCAMBER_1": -13.0,
-                "LS_EXPY": 0.8044
-            },
-            "S": {
-                "DCAMBER_0": 1.65,
-                "DCAMBER_1": -13.0,
-                "LS_EXPY": 0.8044
-            }
-        }
+			"s": {
+				"DCAMBER_0": 1.65,
+				"DCAMBER_1": -13.0,
+				"LS_EXPY": 0.7917
+			},
+			"ss": {
+				"DCAMBER_0": 1.65,
+				"DCAMBER_1": -13.0,
+				"LS_EXPY": 0.7917
+			}
+		},
+		"REAR": {
+			"s": {
+				"DCAMBER_0": 1.65,
+				"DCAMBER_1": -13.0,
+				"LS_EXPY": 0.7917
+			},
+			"ss": {
+				"DCAMBER_0": 1.65,
+				"DCAMBER_1": -13.0,
+				"LS_EXPY": 0.7917
+			}
+		}
     }
 }
