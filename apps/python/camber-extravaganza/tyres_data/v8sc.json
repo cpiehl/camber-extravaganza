@@ -1,80 +1,106 @@
 {
     "supercars_ford": {
 		"FRONT": {
-			"s": {
+			"S": {
 				"DCAMBER_0": 1.65,
-				"DCAMBER_1": -13.0,
-				"LS_EXPY": 0.7917
+				"DCAMBER_1": -14.0,
+				"LS_EXPY": 0.7955
 			},
-			"ss": {
+			"SS": {
 				"DCAMBER_0": 1.65,
-				"DCAMBER_1": -13.0,
-				"LS_EXPY": 0.7917
+				"DCAMBER_1": -14.0,
+				"LS_EXPY": 0.7955
 			}
 		},
 		"REAR": {
-			"s": {
+			"S": {
 				"DCAMBER_0": 1.65,
-				"DCAMBER_1": -13.0,
-				"LS_EXPY": 0.7917
+				"DCAMBER_1": -14.0,
+				"LS_EXPY": 0.8095
 			},
-			"ss": {
+			"SS": {
 				"DCAMBER_0": 1.65,
-				"DCAMBER_1": -13.0,
-				"LS_EXPY": 0.7917
+				"DCAMBER_1": -14.0,
+				"LS_EXPY": 0.8095
 			}
 		}
 	},
     "supercars_holden": {
-        "FRONT": {
-			"s": {
+		"FRONT": {
+			"S": {
 				"DCAMBER_0": 1.65,
-				"DCAMBER_1": -13.0,
-				"LS_EXPY": 0.7917
+				"DCAMBER_1": -14.0,
+				"LS_EXPY": 0.7955
 			},
-			"ss": {
+			"SS": {
 				"DCAMBER_0": 1.65,
-				"DCAMBER_1": -13.0,
-				"LS_EXPY": 0.7917
+				"DCAMBER_1": -14.0,
+				"LS_EXPY": 0.7955
 			}
 		},
 		"REAR": {
-			"s": {
+			"S": {
 				"DCAMBER_0": 1.65,
-				"DCAMBER_1": -13.0,
-				"LS_EXPY": 0.7917
+				"DCAMBER_1": -14.0,
+				"LS_EXPY": 0.8095
 			},
-			"ss": {
+			"SS": {
 				"DCAMBER_0": 1.65,
-				"DCAMBER_1": -13.0,
-				"LS_EXPY": 0.7917
+				"DCAMBER_1": -14.0,
+				"LS_EXPY": 0.8095
 			}
 		}
     },
     "supercars_nissan": {
-        "FRONT": {
-			"s": {
+		"FRONT": {
+			"S": {
 				"DCAMBER_0": 1.65,
-				"DCAMBER_1": -13.0,
-				"LS_EXPY": 0.7917
+				"DCAMBER_1": -14.0,
+				"LS_EXPY": 0.7955
 			},
-			"ss": {
+			"SS": {
 				"DCAMBER_0": 1.65,
-				"DCAMBER_1": -13.0,
-				"LS_EXPY": 0.7917
+				"DCAMBER_1": -14.0,
+				"LS_EXPY": 0.7955
 			}
 		},
 		"REAR": {
-			"s": {
+			"S": {
 				"DCAMBER_0": 1.65,
-				"DCAMBER_1": -13.0,
-				"LS_EXPY": 0.7917
+				"DCAMBER_1": -14.0,
+				"LS_EXPY": 0.8095
 			},
-			"ss": {
+			"SS": {
 				"DCAMBER_0": 1.65,
-				"DCAMBER_1": -13.0,
-				"LS_EXPY": 0.7917
+				"DCAMBER_1": -14.0,
+				"LS_EXPY": 0.8095
 			}
 		}
-    }
+    },
+	"supercars_holden_zb": {
+		"FRONT": {
+			"S": {
+				"DCAMBER_0": 1.65,
+				"DCAMBER_1": -14.0,
+				"LS_EXPY": 0.7955
+			},
+			"SS": {
+				"DCAMBER_0": 1.65,
+				"DCAMBER_1": -14.0,
+				"LS_EXPY": 0.7955
+			}
+		},
+		"REAR": {
+			"S": {
+				"DCAMBER_0": 1.65,
+				"DCAMBER_1": -14.0,
+				"LS_EXPY": 0.8095
+			},
+			"SS": {
+				"DCAMBER_0": 1.65,
+				"DCAMBER_1": -14.0,
+				"LS_EXPY": 0.8095
+			}
+		}
+	}
 }
