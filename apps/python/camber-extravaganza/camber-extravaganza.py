@@ -70,7 +70,9 @@ Options = {
 	"LS_EXPYF": 1,        # tire load sensitivity exponent
 	"LS_EXPYR": 1,        # tire load sensitivity exponent
 	"tyreCompound": "",  # short name
-	"carNotFound": False
+	"carNotFound": False,
+	"logFileName": "output.csv",
+	"logData": []
 }
 SavableOptions = [ # Only save these to file
 	"drawGraphs",
@@ -487,6 +489,16 @@ def onFormRender(deltaT):
 			updateTextInputs()
 			redrawText = False
 
+		lapcount = ac.getCarState(0, acsys.CS.LapCount)
+		# NormalizedSplinePosition lets you compare the same corners independent of lap time
+		nsp = ac.getCarState(0, acsys.CS.NormalizedSplinePosition)
+		Options["logData"].append("%s, %s, %s, %s, %s, %s, %s, %s" % (lapcount, nsp, flC, frC, rlC, rrC, degFront, degRear))
+		if len(Options["logData"]) >= 1000:
+			with open(Options["logFileName"], "a") as f:
+				for ld in Options["logData"]:
+					f.write(ld)
+			Options["logData"] = []
+
 	except Exception:
 		ac.log("CamberExtravaganza ERROR: onFormRender(): %s" % traceback.format_exc())
 
@@ -628,7 +640,7 @@ def parseTyreData(carName, tyreCompound, tyreData):
 		Options["carNotFound"] = True
 
 		ac.setText(Labels["target"], "Unrecognized Car")
-		ac.log("CamberExtravaganza ERROR: loadTireData: No tyre data found for this car")
+		ac.log("CamberExtravaganza ERROR: parseTyreData: No tyre data found for car: '" + carName + "'")
 
 
 # Load DCAMBERs and RADIUS
@@ -636,6 +648,7 @@ def loadTireData():
 	global Options
 	tyreDataPath = os.path.join(os.path.dirname(__file__), "tyres_data")
 	tyreData = {}
+	namelist = ''
 	for td in os.listdir(tyreDataPath):
 		if td.endswith('.json'):
 			with open(os.path.join(tyreDataPath, td), 'r') as f:
@@ -645,9 +658,16 @@ def loadTireData():
 					ac.log("CamberExtravaganza ERROR: Invalid JSON: " + td)
 				else:
 					tyreData.update(newData)
+					namelist = namelist + td + ', '
+
+	ac.log(namelist)
 
 	carName = ac.getCarName(0)
 	tyreCompound = ac.getCarTyreCompound(0)
+	#~ tyreCompound = info.graphics.tyreCompound
+
+	ac.log(carName + ' ' + tyreCompound + ' compound')
+
 	parseTyreData(carName, tyreCompound, tyreData)
 
 
