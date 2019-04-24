@@ -494,7 +494,8 @@ def onFormRender(deltaT):
 		nsp = ac.getCarState(0, acsys.CS.NormalizedSplinePosition)
 		Options["logData"].append("%s, %s, %s, %s, %s, %s, %s, %s" % (lapcount, nsp, flC, frC, rlC, rrC, degFront, degRear))
 		if len(Options["logData"]) >= 1000:
-			with open(Options["logFileName"], "a") as f:
+			logFilePath = os.path.join(os.path.dirname(__file__), Options["logFileName"])
+			with open(logFilePath, "a") as f:
 				for ld in Options["logData"]:
 					f.write(ld)
 			Options["logData"] = []
