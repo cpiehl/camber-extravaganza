@@ -18,6 +18,8 @@
 # V2.2	- Add "Show Delta" mode
 #		- Fix divide by zero when dcamber1 = 0
 #
+# V2.3	- Logging
+#
 #############################################################
 
 import ac
@@ -30,6 +32,7 @@ import os
 import pickle
 import platform
 import sys
+import time
 import traceback
 
 if platform.architecture()[0] == "64bit":
@@ -71,14 +74,16 @@ Options = {
 	"LS_EXPYR": 1,        # tire load sensitivity exponent
 	"tyreCompound": "",  # short name
 	"carNotFound": False,
-	"logFileName": "output.csv",
+	"enableLogging": False,
+	"logFileName": "",
 	"logData": []
 }
 SavableOptions = [ # Only save these to file
 	"drawGraphs",
 	"normalize",
 	"useSpectrum",
-	"showDelta"
+	"showDelta",
+	"enableLogging"
 ]
 doRender = True
 
@@ -332,7 +337,8 @@ def acMain(ac_version):
 			["drawGraphs", "Draw Graphs", drawGraphsHandler],
 			["normalize", "Normalize", normalizeHandler],
 			["useSpectrum", "Use Spectrum", useSpectrumHandler],
-			["showDelta", "Show Delta", showDeltaHandler]
+			["showDelta", "Show Delta", showDeltaHandler],
+			["enableLogging", "Enable Logging", enableLoggingHandler]
 		]
 		x = 50
 		y = 255
@@ -348,10 +354,13 @@ def acMain(ac_version):
 		# Get optimal camber from files
 		loadTireData()
 
-		CamberIndicators["FL"] = CamberIndicator(appWindow, 15, 75)
-		CamberIndicators["FR"] = CamberIndicator(appWindow,135, 75)
-		CamberIndicators["RL"] = CamberIndicator(appWindow, 15,175)
-		CamberIndicators["RR"] = CamberIndicator(appWindow,135,175)
+		CamberIndicators["FL"] = CamberIndicator(appWindow,  15,  75)
+		CamberIndicators["FR"] = CamberIndicator(appWindow, 135,  75)
+		CamberIndicators["RL"] = CamberIndicator(appWindow,  15, 175)
+		CamberIndicators["RR"] = CamberIndicator(appWindow, 135, 175)
+
+		initLogging()
+
 		ac.addRenderCallback(appWindow, onFormRender)
 
 	except Exception:
@@ -489,19 +498,34 @@ def onFormRender(deltaT):
 			updateTextInputs()
 			redrawText = False
 
-		lapcount = ac.getCarState(0, acsys.CS.LapCount)
-		# NormalizedSplinePosition lets you compare the same corners independent of lap time
-		nsp = ac.getCarState(0, acsys.CS.NormalizedSplinePosition)
-		Options["logData"].append("%s, %s, %s, %s, %s, %s, %s, %s" % (lapcount, nsp, flC, frC, rlC, rrC, degFront, degRear))
-		if len(Options["logData"]) >= 1000:
-			logFilePath = os.path.join(os.path.dirname(__file__), Options["logFileName"])
-			with open(logFilePath, "a") as f:
-				for ld in Options["logData"]:
-					f.write(ld)
-			Options["logData"] = []
+		if Options["enableLogging"]:
+			laptime = ac.getCarState(0, acsys.CS.LapTime)
+			lapcount = ac.getCarState(0, acsys.CS.LapCount)
+			# NormalizedSplinePosition lets you compare the same corners independent of lap time
+			nsp = ac.getCarState(0, acsys.CS.NormalizedSplinePosition)
+			Options["logData"].append(", ".join((str(n) for n in (lapcount, nsp, laptime, flC, frC, rlC, rrC, degFront, degRear))) + "\n")
+			if len(Options["logData"]) >= 1000:
+				appendLogData()
+				Options["logData"] = []
 
 	except Exception:
 		ac.log("CamberExtravaganza ERROR: onFormRender(): %s" % traceback.format_exc())
+
+
+def appendLogData():
+	if len(Options["logData"]) > 0:
+		with open(Options["logFileName"], "a") as f:
+			for ld in Options["logData"]:
+				f.write(ld)
+
+
+def initLogging():
+	Options["logData"] = newLogData()
+	Options["logFileName"] = os.path.join(os.path.dirname(__file__), "camber_log-%s.csv" % (time.strftime("%Y%m%dT%H%M%SZ", time.gmtime())))
+
+
+def newLogData():
+	return [ "Lap, NSP, Lap Time, FL Camber, FR Camber, RL Camber, RR Camber, F Target, R Target\n" ]
 
 
 def optimalCamber(weightXfer, dcamber0, dcamber1, camberSplit):
@@ -565,6 +589,7 @@ def uiHandler(*args, name, type):
 	else:
 		pass
 
+
 # List of handlers, I don't know how to do this nicely
 # lambdas and functools.partial crash
 def checkboxHandler(name, value):
@@ -582,12 +607,21 @@ def normalizeHandler(*args):
 def useSpectrumHandler(*args):
 	uiHandler(args[0], args[1], name="useSpectrum", type="Button")
 
+
 def showDeltaHandler(*args):
 	uiHandler(args[0], args[1], name="showDelta", type="Button")
 	if Options["showDelta"]:
 		ac.setText(Labels["target"], "Delta:")
 	else:
 		ac.setText(Labels["target"], "Target:")
+
+
+def enableLoggingHandler(*args):
+	uiHandler(args[0], args[1], name="enableLogging", type="Button")
+	if Options["enableLogging"]:
+		initLogging()
+	else:
+		appendLogData()
 
 
 # Make sure button toggled state matches internal state
@@ -699,8 +733,14 @@ def loadOptions():
 def onAppActivated(self):
 	global Options
 	doRender = True
+	initLogging()
 
 
 def onAppDismissed(self):
 	global Options
 	doRender = False
+	appendLogData()
+
+
+def acShutdown():
+	appendLogData()
