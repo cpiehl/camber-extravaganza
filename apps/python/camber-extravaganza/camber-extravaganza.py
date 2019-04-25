@@ -74,6 +74,7 @@ Options = {
 	"LS_EXPYR": 1,        # tire load sensitivity exponent
 	"tyreCompound": "",  # short name
 	"carNotFound": False,
+	"logBufferSize": 1000, # write this many lines at once
 	"enableLogging": False,
 	"logFileName": "",
 	"logData": []
@@ -504,7 +505,7 @@ def onFormRender(deltaT):
 			# NormalizedSplinePosition lets you compare the same corners independent of lap time
 			nsp = ac.getCarState(0, acsys.CS.NormalizedSplinePosition)
 			Options["logData"].append(", ".join((str(n) for n in (lapcount, nsp, laptime, flC, frC, rlC, rrC, degFront, degRear))) + "\n")
-			if len(Options["logData"]) >= 1000:
+			if len(Options["logData"]) >= Options["logBufferSize"]:
 				appendLogData()
 				Options["logData"] = []
 
