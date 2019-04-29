@@ -504,7 +504,8 @@ def onFormRender(deltaT):
 			lapcount = ac.getCarState(0, acsys.CS.LapCount)
 			# NormalizedSplinePosition lets you compare the same corners independent of lap time
 			nsp = ac.getCarState(0, acsys.CS.NormalizedSplinePosition)
-			Options["logData"].append(", ".join((str(n) for n in (lapcount, nsp, laptime, flC, frC, rlC, rrC, degFront, degRear))) + "\n")
+			Gx,Gy,Gz=ac.getCarState(0,acsys.CS.AccG)
+			Options["logData"].append(", ".join((str(n) for n in (lapcount, nsp, laptime, flC, frC, rlC, rrC, Options["optimalCamberF"], Options["optimalCamberR"], Gx))) + "\n")
 			if len(Options["logData"]) >= Options["logBufferSize"]:
 				appendLogData()
 				Options["logData"] = []
@@ -526,7 +527,7 @@ def initLogging():
 
 
 def newLogData():
-	return [ "Lap, NSP, Lap Time, FL Camber, FR Camber, RL Camber, RR Camber, F Target, R Target\n" ]
+	return [ "Lap, NSP, Lap Time, FL Camber, FR Camber, RL Camber, RR Camber, F Target, R Target, Lateral Gs\n" ]
 
 
 def optimalCamber(weightXfer, dcamber0, dcamber1, camberSplit):
