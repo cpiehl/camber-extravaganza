@@ -3,6 +3,7 @@
 # App for showing camber in real time
 # Useful for tuning?
 # https://github.com/cpiehl/camber-extravaganza
+# https://docs.google.com/document/d/13trBp6K1TjWbToUQs_nfFsB291-zVJzRZCNaTYt4Dzc/pub
 #
 # TODO:
 #   - multi-language support
@@ -19,6 +20,8 @@
 #		- Fix divide by zero when dcamber1 = 0
 #
 # V2.3	- Logging
+#
+# V2.4	-	Pitlane camber suggestions
 #
 #############################################################
 
@@ -77,7 +80,9 @@ Options = {
 	"logBufferSize": 1000, # write this many lines at once
 	"enableLogging": False,
 	"logFileName": "",
-	"logData": []
+	"logData": [],
+	"inPits": True,
+	"camberData": []
 }
 SavableOptions = [ # Only save these to file
 	"drawGraphs",
@@ -110,6 +115,13 @@ class CamberIndicator:
 			ac.log("CamberExtravaganza ERROR: CamberIndicator.__init__(): %s" % traceback.format_exc())
 
 
+	def setVisible(self, visible):
+		try:
+			ac.setVisible(self.valueLabel, visible)
+			ac.setVisible(self.avgValueLabel, visible)
+			
+		except Exception:
+			ac.log("CamberExtravaganza ERROR: setVisible(): %s" % traceback.format_exc())
 
 	def setValue(self, value, deltaT, optimal):
 		global Options
@@ -377,145 +389,187 @@ def onFormRender(deltaT):
 		if not doRender:
 			return
 
-		ac.glColor4f(0.9, 0.9, 0.9, 0.9)
-		#~ ac.setText(Labels["targetCamberF"], "{0:.1f}°".format(Options["targetCamber"]))
+		inPits = info.graphics.isInPitLine
 
-		# Suspension travel to find body position relative to tires
-		#~ pixelsPerMeterF = Options["tireHeight"] / Options["tireRadiusF"]
-		#~ pixelsPerMeterR = Options["tireHeight"] / Options["tireRadiusR"]
-		pixelsPerMeterF = Options["tireHeight"] / info.static.tyreRadius[0]
-		pixelsPerMeterR = Options["tireHeight"] / info.static.tyreRadius[2]
-		w,x,y,z = ac.getCarState(0, acsys.CS.SuspensionTravel)
-		dyFL = w * pixelsPerMeterF
-		dyFR = x * pixelsPerMeterF
-		dyRL = y * pixelsPerMeterR
-		dyRR = z * pixelsPerMeterR
+		if inPits != Options["inPits"]:
+			Options["inPits"] = inPits
+			# Rising edge pitlane detection
+			if inPits:
+				if len(Options["camberData"]) > 100:
+					# Calculate weighted average optimal camber
+					gList = [cd[0] * cd[0] for cd in Options["camberData"]]
+					fList = [cd[1] for cd in Options["camberData"]]
+					rList = [cd[2] for cd in Options["camberData"]]
+					gSum = sum(gList)
+					Options["optimalCamberF"] = sum(f * g * g for f, g in zip(fList, gList)) / gSum
+					Options["optimalCamberR"] = sum(r * g * g for r, g in zip(rList, gList)) / gSum
+					# Reset camberData
+					Options["camberData"] = []
+					ac.setText(Labels["target"], "Delta:")
+					CamberIndicators["FL"].setVisible(0)
+					CamberIndicators["FR"].setVisible(0)
+					CamberIndicators["RL"].setVisible(0)
+					CamberIndicators["RR"].setVisible(0)
 
-		# Draw front "car body"
-		xFR = CamberIndicators["FR"].xPosition
-		xFL = CamberIndicators["FL"].xPosition + Options["tireHeight"]
-		y = CamberIndicators["FR"].yPosition - Options["tireHeight"] / 2
-		yFL = y + dyFL
-		yFR = y + dyFR
-		h = Options["tireHeight"] / 4
-		ac.glColor4f(0.9, 0.9, 0.9, 0.9)
-		ac.glBegin(acsys.GL.Lines)
-		ac.glVertex2f(xFL, yFL + h)
-		ac.glVertex2f(xFR, yFR + h)
-		ac.glVertex2f(xFR, yFR + h)
-		ac.glVertex2f(xFR, yFR - h)
-		ac.glVertex2f(xFR, yFR - h)
-		ac.glVertex2f(xFL, yFL - h)
-		ac.glVertex2f(xFL, yFL - h)
-		ac.glVertex2f(xFL, yFL + h)
-		ac.glEnd()
+			else: # falling edge
+				if Options["showDelta"]:
+					ac.setText(Labels["target"], "Delta:")
+				else:
+					ac.setText(Labels["target"], "Target:")
+				CamberIndicators["FL"].setVisible(1)
+				CamberIndicators["FR"].setVisible(1)
+				CamberIndicators["RL"].setVisible(1)
+				CamberIndicators["RR"].setVisible(1)
 
-		# Draw rear "car body"
-		xRR = CamberIndicators["RR"].xPosition
-		xRL = CamberIndicators["RL"].xPosition + Options["tireHeight"]
-		y = CamberIndicators["RR"].yPosition - Options["tireHeight"] / 2
-		yRL = y + dyRL
-		yRR = y + dyRR
-		h = Options["tireHeight"] / 4
-		ac.glColor4f(0.9, 0.9, 0.9, 0.9)
-		ac.glBegin(acsys.GL.Lines)
-		ac.glVertex2f(xRL, yRL + h)
-		ac.glVertex2f(xRR, yRR + h)
-		ac.glVertex2f(xRR, yRR + h)
-		ac.glVertex2f(xRR, yRR - h)
-		ac.glVertex2f(xRR, yRR - h)
-		ac.glVertex2f(xRL, yRL - h)
-		ac.glVertex2f(xRL, yRL - h)
-		ac.glVertex2f(xRL, yRL + h)
-		ac.glEnd()
+		if inPits:
+			ac.setText(Labels["targetCamberF"], "{0:+.1f}°".format(Options["optimalCamberF"]))
+			ac.setText(Labels["targetCamberR"], "{0:+.1f}°".format(Options["optimalCamberR"]))
 
-		# Draw flappy gauges
-		h *= 0.75
-		CamberIndicators["FL"].drawTire(xFL, yFL, h, flip=True)
-		CamberIndicators["FR"].drawTire(xFR, yFR, h)
-		CamberIndicators["RL"].drawTire(xRL, yRL, h, flip=True)
-		CamberIndicators["RR"].drawTire(xRR, yRR, h)
+		else:
+			#~ ac.setText(Labels["targetCamberF"], "{0:.1f}°".format(Options["targetCamber"]))
 
-		# Draw history graphs
-		if Options["drawGraphs"]:
-			CamberIndicators["FL"].drawGraph(flip=True)
-			CamberIndicators["FR"].drawGraph()
-			CamberIndicators["RL"].drawGraph(flip=True)
-			CamberIndicators["RR"].drawGraph()
+			# Suspension travel to find body position relative to tires
+			#~ pixelsPerMeterF = Options["tireHeight"] / Options["tireRadiusF"]
+			#~ pixelsPerMeterR = Options["tireHeight"] / Options["tireRadiusR"]
+			pixelsPerMeterF = Options["tireHeight"] / info.static.tyreRadius[0]
+			pixelsPerMeterR = Options["tireHeight"] / info.static.tyreRadius[2]
+			w,x,y,z = ac.getCarState(0, acsys.CS.SuspensionTravel)
+			dyFL = w * pixelsPerMeterF
+			dyFR = x * pixelsPerMeterF
+			dyRL = y * pixelsPerMeterR
+			dyRR = z * pixelsPerMeterR
 
-		flC, frC, rlC, rrC = ac.getCarState(0, acsys.CS.CamberRad)
-		CamberIndicators["FL"].setValue(flC, deltaT, Options["optimalCamberF"])
-		CamberIndicators["FR"].setValue(frC, deltaT, Options["optimalCamberF"])
-		CamberIndicators["RL"].setValue(rlC, deltaT, Options["optimalCamberR"])
-		CamberIndicators["RR"].setValue(rrC, deltaT, Options["optimalCamberR"])
+			# Draw front "car body"
+			xFR = CamberIndicators["FR"].xPosition
+			xFL = CamberIndicators["FL"].xPosition + Options["tireHeight"]
+			y = CamberIndicators["FR"].yPosition - Options["tireHeight"] / 2
+			yFL = y + dyFL
+			yFR = y + dyFR
+			h = Options["tireHeight"] / 4
+			ac.glColor4f(0.9, 0.9, 0.9, 0.9)
+			ac.glBegin(acsys.GL.Lines)
+			ac.glVertex2f(xFL, yFL + h)
+			ac.glVertex2f(xFR, yFR + h)
+			ac.glVertex2f(xFR, yFR + h)
+			ac.glVertex2f(xFR, yFR - h)
+			ac.glVertex2f(xFR, yFR - h)
+			ac.glVertex2f(xFL, yFL - h)
+			ac.glVertex2f(xFL, yFL - h)
+			ac.glVertex2f(xFL, yFL + h)
+			ac.glEnd()
 
-		# Check if tyre compound changed
-		tyreCompound = ac.getCarTyreCompound(0)
-		if tyreCompound != Options["tyreCompound"]:
-			loadTireData()
-			Options["tyreCompound"] = tyreCompound
+			# Draw rear "car body"
+			xRR = CamberIndicators["RR"].xPosition
+			xRL = CamberIndicators["RL"].xPosition + Options["tireHeight"]
+			y = CamberIndicators["RR"].yPosition - Options["tireHeight"] / 2
+			yRL = y + dyRL
+			yRR = y + dyRR
+			h = Options["tireHeight"] / 4
+			ac.glColor4f(0.9, 0.9, 0.9, 0.9)
+			ac.glBegin(acsys.GL.Lines)
+			ac.glVertex2f(xRL, yRL + h)
+			ac.glVertex2f(xRR, yRR + h)
+			ac.glVertex2f(xRR, yRR + h)
+			ac.glVertex2f(xRR, yRR - h)
+			ac.glVertex2f(xRR, yRR - h)
+			ac.glVertex2f(xRL, yRL - h)
+			ac.glVertex2f(xRL, yRL - h)
+			ac.glVertex2f(xRL, yRL + h)
+			ac.glEnd()
 
-		# Weight Front and Rear by lateral weight transfer
-		filter = 0.97
-		flL, frL, rlL, rrL = ac.getCarState(0, acsys.CS.Load)
+			# Draw flappy gauges
+			h *= 0.75
+			CamberIndicators["FL"].drawTire(xFL, yFL, h, flip=True)
+			CamberIndicators["FR"].drawTire(xFR, yFR, h)
+			CamberIndicators["RL"].drawTire(xRL, yRL, h, flip=True)
+			CamberIndicators["RR"].drawTire(xRR, yRR, h)
 
-		outer = max(0.001, flL, frL)
-		inner = min(flL, frL)
-		cf_outer = CamberIndicators["FL"].avgValue if outer == flL else CamberIndicators["FR"].avgValue
-		camberSplit = abs(flC - frC)
-		# DY_LS_FL = DY_REF * pow(TIRE_LOAD_FL / FZ0, LS_EXPY)
-		ls_outer = pow(outer, Options["LS_EXPYF"])
-		ls_inner = pow(inner, Options["LS_EXPYF"])
-		weightXfer = ls_outer / (ls_inner + ls_outer)
-		# (2*(1-w)*D1*rad(c)-(1-2*w)*D0)/(2*D1)
-		oldTargetCamber = Options["optimalCamberF"]
-		#~ Options["optimalCamberF"] = math.degrees((2 * (1 - weightXfer) * Options["dcamber1F"] * math.radians(camberSplit) - (1 - 2 * weightXfer) * Options["dcamber0F"]) / (2 * Options["dcamber1F"]))
-		Options["optimalCamberF"] = optimalCamber(weightXfer, Options["dcamber0F"], Options["dcamber1F"], camberSplit)
-		Options["optimalCamberF"] = filter * oldTargetCamber + (1 - filter) * Options["optimalCamberF"]
+			# Draw history graphs
+			if Options["drawGraphs"]:
+				CamberIndicators["FL"].drawGraph(flip=True)
+				CamberIndicators["FR"].drawGraph()
+				CamberIndicators["RL"].drawGraph(flip=True)
+				CamberIndicators["RR"].drawGraph()
 
-		outer = max(0.001, rlL, rrL)
-		inner = min(rlL, rrL)
-		cr_outer = CamberIndicators["RL"].avgValue if outer == rlL else CamberIndicators["RR"].avgValue
-		camberSplit = abs(rlC - rrC)
-		# DY_LS_FL = DY_REF * pow(TIRE_LOAD_FL / FZ0, LS_EXPY)
-		ls_outer = pow(outer, Options["LS_EXPYR"])
-		ls_inner = pow(inner, Options["LS_EXPYR"])
-		weightXfer = ls_outer / (ls_inner + ls_outer)
-		# (2*(1-w)*D1*rad(c)-(1-2*w)*D0)/(2*D1)
-		oldTargetCamber = Options["optimalCamberR"]
-		#~ Options["optimalCamberR"] = math.degrees((2 * (1 - weightXfer) * Options["dcamber1R"] * math.radians(camberSplit) - (1 - 2 * weightXfer) * Options["dcamber0R"]) / (2 * Options["dcamber1R"]))
-		Options["optimalCamberR"] = optimalCamber(weightXfer, Options["dcamber0R"], Options["dcamber1R"], camberSplit)
-		Options["optimalCamberR"] = filter * oldTargetCamber + (1 - filter) * Options["optimalCamberR"]
+			flC, frC, rlC, rrC = ac.getCarState(0, acsys.CS.CamberRad)
+			CamberIndicators["FL"].setValue(flC, deltaT, Options["optimalCamberF"])
+			CamberIndicators["FR"].setValue(frC, deltaT, Options["optimalCamberF"])
+			CamberIndicators["RL"].setValue(rlC, deltaT, Options["optimalCamberR"])
+			CamberIndicators["RR"].setValue(rrC, deltaT, Options["optimalCamberR"])
 
-		degFront = Options["optimalCamberF"]
-		degRear = Options["optimalCamberR"]
-		if Options["showDelta"]:
-			degFront -= cf_outer
-			degRear -= cr_outer
-		ac.setText(Labels["targetCamberF"], "{0:+.1f}°".format(degFront))
-		ac.setText(Labels["targetCamberR"], "{0:+.1f}°".format(degRear))
+			# Check if tyre compound changed
+			tyreCompound = ac.getCarTyreCompound(0)
+			if tyreCompound != Options["tyreCompound"]:
+				loadTireData()
+				Options["tyreCompound"] = tyreCompound
 
-		if redrawText:
-			updateTextInputs()
-			redrawText = False
+			# Weight Front and Rear by lateral weight transfer
+			filter = 0.97
+			flL, frL, rlL, rrL = ac.getCarState(0, acsys.CS.Load)
 
-		if Options["enableLogging"]:
-			laptime = ac.getCarState(0, acsys.CS.LapTime)
-			lapcount = ac.getCarState(0, acsys.CS.LapCount)
-			# NormalizedSplinePosition lets you compare the same corners independent of lap time
-			nsp = ac.getCarState(0, acsys.CS.NormalizedSplinePosition)
-			Gx,Gy,Gz=ac.getCarState(0,acsys.CS.AccG)
-			Options["logData"].append(", ".join((str(n) for n in (lapcount, nsp, laptime, flC, frC, rlC, rrC, Options["optimalCamberF"], Options["optimalCamberR"], Gx))) + "\n")
-			if len(Options["logData"]) >= Options["logBufferSize"]:
-				appendLogData()
-				Options["logData"] = []
+			outer = max(0.001, flL, frL)
+			inner = min(flL, frL)
+			cf_outer = CamberIndicators["FL"].avgValue if outer == flL else CamberIndicators["FR"].avgValue
+			camberSplit = abs(flC - frC)
+			# DY_LS_FL = DY_REF * pow(TIRE_LOAD_FL / FZ0, LS_EXPY)
+			ls_outer = pow(outer, Options["LS_EXPYF"])
+			ls_inner = pow(inner, Options["LS_EXPYF"])
+			weightXfer = ls_outer / (ls_inner + ls_outer)
+			# (2*(1-w)*D1*rad(c)-(1-2*w)*D0)/(2*D1)
+			oldTargetCamber = Options["optimalCamberF"]
+			#~ Options["optimalCamberF"] = math.degrees((2 * (1 - weightXfer) * Options["dcamber1F"] * math.radians(camberSplit) - (1 - 2 * weightXfer) * Options["dcamber0F"]) / (2 * Options["dcamber1F"]))
+			Options["optimalCamberF"] = optimalCamber(weightXfer, Options["dcamber0F"], Options["dcamber1F"], camberSplit)
+			Options["optimalCamberF"] = filter * oldTargetCamber + (1 - filter) * Options["optimalCamberF"]
+
+			outer = max(0.001, rlL, rrL)
+			inner = min(rlL, rrL)
+			cr_outer = CamberIndicators["RL"].avgValue if outer == rlL else CamberIndicators["RR"].avgValue
+			camberSplit = abs(rlC - rrC)
+			# DY_LS_FL = DY_REF * pow(TIRE_LOAD_FL / FZ0, LS_EXPY)
+			ls_outer = pow(outer, Options["LS_EXPYR"])
+			ls_inner = pow(inner, Options["LS_EXPYR"])
+			weightXfer = ls_outer / (ls_inner + ls_outer)
+			# (2*(1-w)*D1*rad(c)-(1-2*w)*D0)/(2*D1)
+			oldTargetCamber = Options["optimalCamberR"]
+			#~ Options["optimalCamberR"] = math.degrees((2 * (1 - weightXfer) * Options["dcamber1R"] * math.radians(camberSplit) - (1 - 2 * weightXfer) * Options["dcamber0R"]) / (2 * Options["dcamber1R"]))
+			Options["optimalCamberR"] = optimalCamber(weightXfer, Options["dcamber0R"], Options["dcamber1R"], camberSplit)
+			Options["optimalCamberR"] = filter * oldTargetCamber + (1 - filter) * Options["optimalCamberR"]
+
+			degFront = Options["optimalCamberF"]
+			degRear = Options["optimalCamberR"]
+			if Options["showDelta"]:
+				degFront -= cf_outer
+				degRear -= cr_outer
+
+			ac.setText(Labels["targetCamberF"], "{0:+.1f}°".format(degFront))
+			ac.setText(Labels["targetCamberR"], "{0:+.1f}°".format(degRear))
+
+			if redrawText:
+				# updateTextInputs()
+				redrawText = False
+
+			# Save lateral Gs and target cambers
+			Gx,Gy,Gz = ac.getCarState(0, acsys.CS.AccG)
+			Options["camberData"].append(
+			    (abs(Gx), Options["optimalCamberF"] - cf_outer, Options["optimalCamberR"] - cr_outer))
+
+			if Options["enableLogging"]:
+				laptime = ac.getCarState(0, acsys.CS.LapTime)
+				lapcount = ac.getCarState(0, acsys.CS.LapCount)
+				# NormalizedSplinePosition lets you compare the same corners independent of lap time
+				nsp = ac.getCarState(0, acsys.CS.NormalizedSplinePosition)
+				Options["logData"].append(", ".join(
+						(str(n) for n in (lapcount, nsp, laptime, flC, frC, rlC, rrC, Options["optimalCamberF"], Options["optimalCamberR"], Gx))) + "\n")
+				if len(Options["logData"]) >= Options["logBufferSize"]:
+					appendLogData()
+					Options["logData"] = []
 
 	except Exception:
 		ac.log("CamberExtravaganza ERROR: onFormRender(): %s" % traceback.format_exc())
 
 
 def appendLogData():
-	if len(Options["logData"]) > 0:
+	if len(Options["logData"]) > 1:
 		with open(Options["logFileName"], "a") as f:
 			for ld in Options["logData"]:
 				f.write(ld)
@@ -691,7 +745,7 @@ def loadTireData():
 			with open(os.path.join(tyreDataPath, td), 'r') as f:
 				try:
 					newData = json.load(f)
-				except ValueError as e:
+				except ValueError:
 					ac.log("CamberExtravaganza ERROR: Invalid JSON: " + td)
 				else:
 					tyreData.update(newData)
